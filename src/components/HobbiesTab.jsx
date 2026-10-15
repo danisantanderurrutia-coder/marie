@@ -18,11 +18,8 @@ import confetti from 'canvas-confetti';
 import { useLanguage } from '../context/LanguageContext';
 import { playSoftChime, playSoftTap } from '../utils/audio';
 
-const INITIAL_TRACKED_INTERESTS = [
-  { id: 1, name: 'Acuarela de Rosas Silvestres', category: 'Creativo', feeling: '🔥 Me encantó', notes: 'Me desconectó del estrés completamente. Mezclar verde salvia con carmesí fue terapéutico.' },
-  { id: 2, name: 'Cata a ciegas de té de jazmín', category: 'Sensorial', feeling: '🌿 Me dio paz', notes: 'Hacer una pausa de 10 min sin mirar pantallas.' },
-  { id: 3, name: 'Macramé con cuerdas', category: 'Manualidades', feeling: '❌ No es para mí', notes: 'Me frustró la repetición. Lo descarto sin culpa.' }
-];
+// No pre-filled interests: the tracker starts empty so everything in it is really hers.
+const INITIAL_TRACKED_INTERESTS = [];
 
 export default function HobbiesTab({ soundEnabled }) {
   const { currentStrings } = useLanguage();

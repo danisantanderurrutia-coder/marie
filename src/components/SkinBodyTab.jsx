@@ -50,9 +50,7 @@ export default function SkinBodyTab({ soundEnabled }) {
   const [skinNotes, setSkinNotes] = useState(() => {
     try {
       const saved = localStorage.getItem('marie_skin_log');
-      return saved ? JSON.parse(saved) : [
-        { id: 1, date: '5 Sep', state: 'Sensible', note: 'Usé la crema suave y dormí 8h. La inflamación bajó mucho.', body: 'Ligera' }
-      ];
+      return saved ? JSON.parse(saved) : [];
     } catch (e) {
       return [];
     }

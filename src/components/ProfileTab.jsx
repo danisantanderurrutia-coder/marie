@@ -77,11 +77,17 @@ export default function ProfileTab({ soundEnabled }) {
 
   // Personal Data & Editable Motto
   const [personalMotto, setPersonalMotto] = useState(() => {
-    return localStorage.getItem('marie_personal_motto') || 
-      'Suave como los pétalos de una rosa, libre como el viento y soberana con mis espinas.';
+    // Empty until she writes her own; the default below follows the active language
+    return localStorage.getItem('marie_personal_motto') || '';
   });
   const [isEditingMotto, setIsEditingMotto] = useState(false);
-  const [tempMotto, setTempMotto] = useState(personalMotto);
+  const DEFAULT_MOTTOS = {
+    de: 'Weich wie Rosenblätter, frei wie der Wind – und mit Dornen, wenn ich sie brauche.',
+    es: 'Suave como los pétalos de una rosa, libre como el viento y con espinas cuando las necesito.',
+    en: 'Soft as rose petals, free as the wind – and with thorns when I need them.'
+  };
+  const displayMotto = personalMotto || DEFAULT_MOTTOS[language] || DEFAULT_MOTTOS.en;
+  const [tempMotto, setTempMotto] = useState(displayMotto);
 
   // Daily multidimensional test state
   const [scores, setScores] = useState({
@@ -102,26 +108,7 @@ export default function ProfileTab({ soundEnabled }) {
     try {
       const saved = localStorage.getItem('marie_evolution_history');
       if (saved) return JSON.parse(saved);
-      return [
-        {
-          id: 'test-2',
-          date: 'Ayer',
-          timestamp: Date.now() - 86400000,
-          scores: { skinBody: 4, fireAura: 5, peaceMind: 3, curiosity: 4, dreams: 4 },
-          average: 4.0,
-          question: '¿Qué pequeña victoria viviste hoy sin culpa alguna?',
-          answer: 'Me tomé 30 minutos enteros para leer y ponerme crema sin mirar el móvil ni sentir que debía estar trabajando.'
-        },
-        {
-          id: 'test-1',
-          date: '5 Sep',
-          timestamp: Date.now() - 172800000,
-          scores: { skinBody: 3, fireAura: 4, peaceMind: 4, curiosity: 3, dreams: 5 },
-          average: 3.8,
-          question: '¿En qué momento del día te sentiste más genuinamente tú misma?',
-          answer: 'Eligiendo mi ropa con música alta en mi habitación, combinando el jersey suave con botas.'
-        }
-      ];
+      return []; // no invented history: the timeline fills with her own days
     } catch (e) {
       return [];
     }
@@ -246,8 +233,8 @@ export default function ProfileTab({ soundEnabled }) {
               </div>
             </div>
           ) : (
-            <div className="motto-display-row" onClick={() => { setIsEditingMotto(true); setTempMotto(personalMotto); }}>
-              <p className="profile-motto font-serif">“{personalMotto}”</p>
+            <div className="motto-display-row" onClick={() => { setIsEditingMotto(true); setTempMotto(displayMotto); }}>
+              <p className="profile-motto font-serif">“{displayMotto}”</p>
               <button className="motto-edit-trigger" title="Editar lema">
                 <Edit3 size={13} />
               </button>

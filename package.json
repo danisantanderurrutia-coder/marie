@@ -7,9 +7,12 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "oxlint",
+    "i18n:check": "node scripts/check-i18n.mjs",
     "preview": "vite preview"
   },
   "dependencies": {
+    "@fontsource/cormorant-garamond": "^5.3.0",
+    "@fontsource/plus-jakarta-sans": "^5.3.0",
     "canvas-confetti": "^1.9.4",
     "lucide-react": "^1.41.0",
     "react": "^19.2.8",

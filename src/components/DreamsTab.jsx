@@ -6,12 +6,8 @@ import { playSoftChime, playSoftTap } from '../utils/audio';
 import SelfLoveSection from './SelfLoveSection';
 import LifeWondersSection from './LifeWondersSection';
 
-const INITIAL_DREAMS = [
-  { id: 1, title: 'Viaje a la Costa Amalfitana con un vestido de lino', category: 'Aventura', tagColor: '#DDA15E' },
-  { id: 2, title: 'Un rincón de lectura en casa bañado por el sol con mi butaca favorita', category: 'Hogar', tagColor: '#CCD5AE' },
-  { id: 3, title: 'Aprender a bailar tango o danza contemporánea con soltura', category: 'Cuerpo', tagColor: '#B5838D' },
-  { id: 4, title: 'Sentirme completamente en paz y dueña de mi tiempo', category: 'Espíritu', tagColor: '#8A9A86' }
-];
+// No pre-filled dreams: the board starts empty so everything on it is really hers.
+const INITIAL_DREAMS = [];
 
 export default function DreamsTab({ soundEnabled }) {
   const { currentStrings } = useLanguage();

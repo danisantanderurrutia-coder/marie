@@ -145,14 +145,17 @@ export default function PhoneFrame({
             </div>
           )}
 
-          <button 
-            className="qr-trigger-btn"
-            onClick={() => { playSoftTap(); onOpenQrModal(); }}
-            title={currentStrings.testOnPhone}
-          >
-            <QrCode size={14} />
-            <span>{currentStrings.testOnPhone}</span>
-          </button>
+          {/* Dev-only: the QR flow sends your LAN address to a third-party QR service, so it never ships in production */}
+          {import.meta.env.DEV && (
+            <button 
+              className="qr-trigger-btn"
+              onClick={() => { playSoftTap(); onOpenQrModal(); }}
+              title={currentStrings.testOnPhone}
+            >
+              <QrCode size={14} />
+              <span>{currentStrings.testOnPhone}</span>
+            </button>
+          )}
         </div>
       </header>
 
@@ -249,20 +252,22 @@ export default function PhoneFrame({
                 </button>
               </div>
 
-              {/* Mobile Sync Card */}
-              <div className="atelier-sync-card glass-panel" onClick={onOpenQrModal}>
-                <div className="sync-status-badge">
-                  <span className="sync-dot-live"></span>
-                  <span>{currentStrings.inSyncWithIphone}</span>
+              {/* Mobile Sync Card (dev-only: there is no real sync, data stays on this device) */}
+              {import.meta.env.DEV && (
+                <div className="atelier-sync-card glass-panel" onClick={onOpenQrModal}>
+                  <div className="sync-status-badge">
+                    <span className="sync-dot-live"></span>
+                    <span>{currentStrings.inSyncWithIphone}</span>
+                  </div>
+                  <p className="sync-card-p">
+                    {currentStrings.scanQrCardText}
+                  </p>
+                  <div className="sync-action-pill">
+                    <QrCode size={13} />
+                    <span>{currentStrings.viewQrCode}</span>
+                  </div>
                 </div>
-                <p className="sync-card-p">
-                  {currentStrings.scanQrCardText}
-                </p>
-                <div className="sync-action-pill">
-                  <QrCode size={13} />
-                  <span>{currentStrings.viewQrCode}</span>
-                </div>
-              </div>
+              )}
             </div>
           </aside>
 
