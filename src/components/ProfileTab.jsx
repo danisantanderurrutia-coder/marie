@@ -19,9 +19,121 @@ import {
 import { useLanguage } from '../context/LanguageContext';
 import { playSoftChime, playSoftTap } from '../utils/audio';
 
-export default function ProfileTab({ soundEnabled }) {
+export default function ProfileTab({ soundEnabled, openModule }) {
   const { language, currentStrings } = useLanguage();
   const t = currentStrings?.profile || {};
+
+  // Alternating mottos by moment in German, Spanish and English
+  const TIME_MOTTOS = {
+    morning: [
+      {
+        de: 'Heute muss ich nichts beweisen. Ich beginne in meinem eigenen Rhythmus.',
+        es: 'Hoy no tengo nada que demostrar. Empiezo a mi propio ritmo.',
+        en: 'Today I have nothing to prove. I begin at my own rhythm.'
+      },
+      {
+        de: 'Klarer Geist, weiches Herz. Ein bewusster Atemzug nach dem anderen.',
+        es: 'Mente clara, corazón suave. Una respiración consciente a la vez.',
+        en: 'Clear mind, soft heart. One conscious breath at a time.'
+      },
+      {
+        de: 'Ich bin nicht für die Eile der Welt verantwortlich, sondern für meinen eigenen Frieden.',
+        es: 'No soy responsable de la prisa del mundo, sino de mi propia paz.',
+        en: 'I am not responsible for the rush of the world, only for my own peace.'
+      }
+    ],
+    afternoon: [
+      {
+        de: 'Meine Ideen dürfen unvollkommen sein – Hauptsache, sie dürfen atmen.',
+        es: 'Mis ideas tienen derecho a ser imperfectas: lo importante es que puedan respirar.',
+        en: 'My ideas are allowed to be imperfect – what matters is that they can breathe.'
+      },
+      {
+        de: 'Ich bin nicht hier, um Erwartungen zu erfüllen, sondern um echt zu sein.',
+        es: 'No estoy aquí para cumplir expectativas ajenas, sino para ser real.',
+        en: 'I am not here to fulfill expectations, but to be authentic.'
+      },
+      {
+        de: 'Ein einziger kleiner Schritt heute genügt. Das Große wächst im Stillen.',
+        es: 'Un solo paso pequeño hoy es suficiente. Lo grande crece en el silencio.',
+        en: 'A single small step today is enough. Big things grow in stillness.'
+      }
+    ],
+    evening: [
+      {
+        de: 'Ich darf die Rüstung ablegen. Was heute getan wurde, ist genug.',
+        es: 'Puedo soltar la armadura. Lo que hice hoy ya es suficiente.',
+        en: 'I can take off the armor. What was done today is enough.'
+      },
+      {
+        de: 'Weich wie Rosenblätter, frei wie der Wind – und mit Dornen, wenn ich sie brauche.',
+        es: 'Suave como los pétalos de una rosa, libre como el viento y con espinas cuando las necesito.',
+        en: 'Soft as rose petals, free as the wind – and with thorns when I need them.'
+      },
+      {
+        de: 'Mein Wert hängt nicht von meiner Produktivität ab. Jetzt darf ich einfach sein.',
+        es: 'Mi valor no depende de mi productividad. Ahora me permito simplemente ser.',
+        en: 'My worth does not depend on productivity. Now I allow myself to just be.'
+      }
+    ],
+    night: [
+      {
+        de: 'Mein Körper darf zur Ruhe kommen. Die Welt wartet bis morgen.',
+        es: 'Mi cuerpo tiene permiso de descansar. El mundo espera hasta mañana.',
+        en: 'My body is allowed to rest. The world can wait until tomorrow.'
+      },
+      {
+        de: 'Im tiefen Loslassen finde ich meine wahre Kraft wieder.',
+        es: 'En el soltar profundo reencuentro mi verdadera fuerza.',
+        en: 'In deep letting go, I rediscover my true strength.'
+      },
+      {
+        de: 'Ich schließe die Augen in dem Wissen, dass ich geliebt und geborgen bin.',
+        es: 'Cierro los ojos sabiendo que soy amada y estoy a salvo.',
+        en: 'I close my eyes knowing that I am loved and safe.'
+      }
+    ]
+  };
+
+  const MOMENT_LABELS = {
+    morning: { de: '🌅 Morgengruß', es: '🌅 Claridad matutina', en: '🌅 Morning clarity' },
+    afternoon: { de: '☀️ Nachmittags-Fokus', es: '☀️ Enfoque de tarde', en: '☀️ Afternoon flow' },
+    evening: { de: '🌆 Abendruhe', es: '🌆 Calma de atardecer', en: '🌆 Evening softness' },
+    night: { de: '🌙 Nachtfrieden', es: '🌙 Paz nocturna', en: '🌙 Night stillness' }
+  };
+
+  const getAutoMoment = () => {
+    const h = new Date().getHours();
+    if (h >= 5 && h < 12) return 'morning';
+    if (h >= 12 && h < 18) return 'afternoon';
+    if (h >= 18 && h < 22) return 'evening';
+    return 'night';
+  };
+
+  const [currentMoment, setCurrentMoment] = useState(getAutoMoment);
+  const [mottoIndex, setMottoIndex] = useState(0);
+  const [mottoLang, setMottoLang] = useState(language);
+  const [mottoMode, setMottoMode] = useState(() => {
+    return localStorage.getItem('marie_motto_mode') || 'moment';
+  });
+
+  // Personal Data & Editable Motto
+  const [personalMotto, setPersonalMotto] = useState(() => {
+    return localStorage.getItem('marie_personal_motto') || '';
+  });
+  const [isEditingMotto, setIsEditingMotto] = useState(false);
+
+  const momentPool = TIME_MOTTOS[currentMoment] || TIME_MOTTOS.morning;
+  const currentMottoObj = momentPool[mottoIndex % momentPool.length];
+  const rotatingMotto = currentMottoObj[mottoLang] || currentMottoObj[language] || currentMottoObj.de;
+
+  const displayMotto = (mottoMode === 'custom' && personalMotto) ? personalMotto : rotatingMotto;
+  const [tempMotto, setTempMotto] = useState(displayMotto);
+
+  // Sync mottoLang if global language changes and user hasn't explicitly toggled
+  useEffect(() => {
+    setMottoLang(language);
+  }, [language]);
 
   const dimensionsConfig = [
     {
@@ -75,19 +187,6 @@ export default function ProfileTab({ soundEnabled }) {
     '¿Qué te gustaría soltar o dejar ir antes de cerrar este día?'
   ];
 
-  // Personal Data & Editable Motto
-  const [personalMotto, setPersonalMotto] = useState(() => {
-    // Empty until she writes her own; the default below follows the active language
-    return localStorage.getItem('marie_personal_motto') || '';
-  });
-  const [isEditingMotto, setIsEditingMotto] = useState(false);
-  const DEFAULT_MOTTOS = {
-    de: 'Weich wie Rosenblätter, frei wie der Wind – und mit Dornen, wenn ich sie brauche.',
-    es: 'Suave como los pétalos de una rosa, libre como el viento y con espinas cuando las necesito.',
-    en: 'Soft as rose petals, free as the wind – and with thorns when I need them.'
-  };
-  const displayMotto = personalMotto || DEFAULT_MOTTOS[language] || DEFAULT_MOTTOS.en;
-  const [tempMotto, setTempMotto] = useState(displayMotto);
 
   // Daily multidimensional test state
   const [scores, setScores] = useState({
@@ -212,8 +311,69 @@ export default function ProfileTab({ soundEnabled }) {
           </div>
         </div>
 
-        {/* Motto / Current Intention with inline edit */}
+        {/* Motto / Current Intention with moments, shuffle and language toggle */}
         <div className="profile-motto-box">
+          {/* Motto Controls Header */}
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8, flexWrap: 'wrap', gap: 6 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+              <button
+                type="button"
+                className="mx-chip"
+                onClick={handleCycleMoment}
+                title={language === 'de' ? 'Tageszeit wechseln' : language === 'en' ? 'Change time moment' : 'Cambiar momento del día'}
+                style={{ fontSize: '11px', padding: '3px 8px', background: 'rgba(216, 74, 88, 0.15)', color: '#FADBD8', border: '1px solid rgba(216, 74, 88, 0.3)', cursor: 'pointer' }}
+              >
+                {MOMENT_LABELS[currentMoment]?.[language] || MOMENT_LABELS[currentMoment]?.de}
+              </button>
+              {personalMotto && (
+                <button
+                  type="button"
+                  className="mx-chip"
+                  onClick={() => {
+                    const nextMode = mottoMode === 'moment' ? 'custom' : 'moment';
+                    setMottoMode(nextMode);
+                    try { localStorage.setItem('marie_motto_mode', nextMode); } catch (e) {}
+                  }}
+                  style={{ fontSize: '11px', padding: '3px 8px', background: mottoMode === 'custom' ? 'rgba(125, 163, 190, 0.25)' : 'rgba(255,255,255,0.06)', cursor: 'pointer' }}
+                >
+                  {mottoMode === 'custom' 
+                    ? (language === 'de' ? '★ Mein Leuchtturm' : language === 'en' ? '★ My Custom Motto' : '★ Mi lema propio')
+                    : (language === 'de' ? 'Inspiration' : language === 'en' ? 'Inspiration' : 'Inspiración')}
+                </button>
+              )}
+            </div>
+
+            <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+              <button
+                type="button"
+                className="mx-chip"
+                onClick={handleToggleMottoLang}
+                title={language === 'de' ? 'Sprache des Spruchs wechseln' : language === 'en' ? 'Toggle motto language' : 'Alternar idioma del lema'}
+                style={{ fontSize: '10.5px', padding: '3px 7px', background: 'rgba(255,255,255,0.08)', cursor: 'pointer' }}
+              >
+                {mottoLang === 'de' ? '🇩🇪 DE' : mottoLang === 'es' ? '🇪🇸 ES' : '🇬🇧 EN'}
+              </button>
+              <button
+                type="button"
+                className="motto-edit-trigger"
+                onClick={handleNextMotto}
+                title={language === 'de' ? 'Nächster Spruch' : language === 'en' ? 'Next motto' : 'Siguiente frase'}
+                style={{ cursor: 'pointer' }}
+              >
+                <RefreshCw size={13} />
+              </button>
+              <button
+                type="button"
+                className="motto-edit-trigger"
+                onClick={() => { setIsEditingMotto(true); setTempMotto(displayMotto); }}
+                title={language === 'de' ? 'Eigenes Motto bearbeiten' : language === 'en' ? 'Edit custom motto' : 'Editar lema propio'}
+                style={{ cursor: 'pointer' }}
+              >
+                <Edit3 size={13} />
+              </button>
+            </div>
+          </div>
+
           {isEditingMotto ? (
             <div className="motto-edit-group">
               <textarea
@@ -221,7 +381,7 @@ export default function ProfileTab({ soundEnabled }) {
                 value={tempMotto}
                 onChange={(e) => setTempMotto(e.target.value)}
                 rows={2}
-                placeholder="Escribe tu intención o lema personal..."
+                placeholder={language === 'de' ? 'Schreibe deinen persönlichen Leuchtturm...' : language === 'en' ? 'Write your personal intention...' : 'Escribe tu intención o lema personal...'}
               />
               <div className="motto-actions">
                 <button className="motto-btn save" onClick={handleSaveMotto}>
@@ -233,13 +393,57 @@ export default function ProfileTab({ soundEnabled }) {
               </div>
             </div>
           ) : (
-            <div className="motto-display-row" onClick={() => { setIsEditingMotto(true); setTempMotto(displayMotto); }}>
+            <div className="motto-display-row" onClick={handleNextMotto} style={{ cursor: 'pointer' }}>
               <p className="profile-motto font-serif">“{displayMotto}”</p>
-              <button className="motto-edit-trigger" title="Editar lema">
-                <Edit3 size={13} />
-              </button>
             </div>
           )}
+        </div>
+
+        {/* Cosmic Natal & Synastry Card for Marie */}
+        <div 
+          className="mx-card" 
+          style={{ 
+            marginTop: 12, 
+            background: 'linear-gradient(135deg, rgba(155, 89, 182, 0.12) 0%, rgba(20, 16, 28, 0.95) 100%)', 
+            border: '1px solid rgba(155, 89, 182, 0.3)',
+            borderRadius: '16px',
+            padding: '14px'
+          }}
+        >
+          <div className="mx-row" style={{ justifyContent: 'space-between', alignItems: 'center' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+              <Sparkles size={16} style={{ color: '#BB8FCE' }} aria-hidden="true" />
+              <strong style={{ fontSize: '13px', color: '#F5EEF8' }}>
+                {language === 'de' ? 'Kosmisches Observatorium' : language === 'en' ? 'Celestial Observatory' : 'Observatorio Celeste'}
+              </strong>
+            </div>
+            <span className="mx-badge" style={{ background: 'rgba(155, 89, 182, 0.25)', color: '#E8DAEF', fontSize: '11px' }}>
+              🐉 22.11.2000
+            </span>
+          </div>
+
+          <p className="mx-small" style={{ marginTop: 6, color: '#D2B4DE', lineHeight: 1.45 }}>
+            {language === 'de' 
+              ? 'Metalldrache · Skorpion-Schütze-Cusp · Mond in Waage · Venus in Steinbock · Sinastrie mit Caballero Jaguar (Daniel · 23.03.1996).'
+              : language === 'en'
+              ? 'Metal Dragon · Scorpio-Sagittarius Cusp · Moon in Libra · Venus in Capricorn · Synastry with Caballero Jaguar (Daniel · 23 March 1996).'
+              : 'Dragón de Metal · Cúspide Escorpio-Sagitario · Luna en Libra · Venus en Capricornio · Sinastría con Caballero Jaguar (Daniel · 23 Mar 1996).'}
+          </p>
+
+          <button
+            type="button"
+            className="mx-btn warm full"
+            onClick={() => {
+              if (soundEnabled) playSoftTap();
+              if (openModule) openModule('astral');
+            }}
+            style={{ marginTop: 10, padding: '8px 14px', fontSize: '12.5px', background: 'linear-gradient(135deg, #9B59B6 0%, #8E44AD 100%)' }}
+          >
+            <Compass size={14} aria-hidden="true" />
+            <span>
+              {language === 'de' ? 'Sternenkarte & Sinastrie erkunden ➔' : language === 'en' ? 'Explore Chart & Synastry ➔' : 'Ver Carta Astral & Sinastría ➔'}
+            </span>
+          </button>
         </div>
       </div>
 

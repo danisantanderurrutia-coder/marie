@@ -93,10 +93,10 @@ export default function App() {
                 openSupport={() => setIsSupportOpen(true)}
               />
             )}
-            {activeTab === 'skin' && <SkinBodyTab soundEnabled={soundEnabled} />}
+            {activeTab === 'skin' && <SkinBodyTab soundEnabled={soundEnabled} openModule={openModule} />}
             {activeTab === 'hobbies' && <HobbiesTab soundEnabled={soundEnabled} />}
             {activeTab === 'dreams' && <DreamsTab soundEnabled={soundEnabled} />}
-            {activeTab === 'profile' && <ProfileTab soundEnabled={soundEnabled} />}
+            {activeTab === 'profile' && <ProfileTab soundEnabled={soundEnabled} openModule={openModule} />}
           </>
         )}
       </PhoneFrame>
