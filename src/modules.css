@@ -136,3 +136,16 @@
 .phone-screen .mx-sos { position: absolute; }
 
 @media (min-width: 769px) { .mx-screen { padding-bottom: 60px; } }
+
+/* ---------- Hub ---------- */
+.hub-grid { display: grid; gap: 10px; }
+.hub-card {
+  display: flex; align-items: center; gap: 14px; width: 100%; text-align: left; min-height: 72px;
+  background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-md);
+  padding: 12px 14px; font: inherit; color: var(--text-main); cursor: pointer; box-shadow: var(--shadow-sm); transition: var(--transition-smooth);
+}
+.hub-card:hover { transform: translateY(-1px); box-shadow: var(--shadow-md); }
+.hub-icon { width: 44px; height: 44px; border-radius: 14px; display: grid; place-items: center; flex-shrink: 0; }
+.hub-text { display: flex; flex-direction: column; gap: 2px; flex: 1; min-width: 0; }
+.hub-text strong { font-size: 16px; }
+.hub-text span { font-size: 13px; color: var(--mx-muted); line-height: 1.4; }

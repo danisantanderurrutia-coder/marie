@@ -14,7 +14,8 @@ import {
   QrCode,
   Volume2,
   VolumeX,
-  Shield
+  Shield,
+  LayoutGrid
 } from 'lucide-react';
 import { playSoftTap } from '../utils/audio';
 import { useLanguage } from '../context/LanguageContext';
@@ -33,6 +34,7 @@ export default function PhoneFrame({
   soundEnabled,
   onToggleSound,
   onTogglePrivacy,
+  floating,
   children
 }) {
   const { currentStrings } = useLanguage();
@@ -77,7 +79,9 @@ export default function PhoneFrame({
 
   const tabsData = [
     { id: 'rose', label: currentStrings.tabs.rose.label, desc: currentStrings.tabs.rose.desc, icon: Flower2, color: '#D84A58' },
-    { id: 'aura', label: currentStrings.tabs.aura.label, desc: currentStrings.tabs.aura.desc, icon: Flame, color: '#D84A58' },
+    { id: 'space', label: currentStrings.tabs.space.label, desc: currentStrings.tabs.space.desc, icon: LayoutGrid, color: '#8E3B46' },
+    // 'aura' (Fire & Desire) lives in the desktop sidebar and inside "My space"; the mobile bar keeps 6 slots
+    { id: 'aura', label: currentStrings.tabs.aura.label, desc: currentStrings.tabs.aura.desc, icon: Flame, color: '#D84A58', inBar: false },
     { id: 'skin', label: currentStrings.tabs.skin.label, desc: currentStrings.tabs.skin.desc, icon: Sparkles, color: '#7DA3BE' },
     { id: 'hobbies', label: currentStrings.tabs.hobbies.label, desc: currentStrings.tabs.hobbies.desc, icon: Compass, color: '#6E8C6E' },
     { id: 'dreams', label: currentStrings.tabs.dreams.label, desc: currentStrings.tabs.dreams.desc, icon: Heart, color: '#8B8F94' },
@@ -272,7 +276,7 @@ export default function PhoneFrame({
           </aside>
 
           {/* Center Stage: Lienzo Web Amplio y Optimizado */}
-          <main className="desktop-atelier-canvas screen-scroll" ref={screenRef}>
+          <main id="main-content" tabIndex={-1} className="desktop-atelier-canvas screen-scroll" ref={screenRef}>
             <div className="desktop-content-max">
               {children}
             </div>
@@ -306,14 +310,14 @@ export default function PhoneFrame({
 
             {/* Screen Content Wrapper with Ref for instant scroll control */}
             <div className="phone-screen screen-scroll" ref={screenRef}>
-              <main className="screen-main-content">
+              <main id="main-content" tabIndex={-1} className="screen-main-content">
                 {children}
               </main>
 
               {/* Bottom Tab Bar with 6 balanced pillars */}
               <nav className="phone-tab-bar glass-panel">
                 <div className="tab-items-row">
-                  {tabsData.map((tab) => {
+                  {tabsData.filter((tab) => tab.inBar !== false).map((tab) => {
                     const Icon = tab.icon;
                     const isActive = activeTab === tab.id;
                     return (
@@ -337,10 +341,12 @@ export default function PhoneFrame({
                 {/* Home Indicator line (iOS standard) */}
                 <div className="home-indicator-bar"></div>
               </nav>
+              {floating}
             </div>
           </div>
         </div>
       )}
+      {viewMode === 'desktop' && floating}
     </div>
   );
 }
