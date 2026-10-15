@@ -8,7 +8,7 @@ export default {
       lead: 'Tippe auf eine Stelle deines Körpers. Es gibt nichts, was du fühlen müsstest.',
       listLabel: 'Oder wähle aus der Liste',
       zones: {
-        head: { name: 'Kopf', practice: 'Atme ein und stell dir vor, wie dein Kiefer weich wird. Beim Ausatmen lässt die Stirn los. Drei langsame Atemzüge, die Augen dürfen zu sein.', question: 'Was dreht sich gerade in deinem Kopf im Kreis?' },
+        head: { name: 'Kopf', practice: 'Atme ein und stell dir vor, wie dein Kiefer weich wird. Beim Ausatmen lass die Stirn los. Drei langsame Atemzüge, die Augen dürfen zu sein.', question: 'Was dreht sich gerade in deinem Kopf im Kreis?' },
         throat: { name: 'Hals & Kehle', practice: 'Atme durch die Nase ein und summe beim Ausatmen leise, sodass du die Vibration im Hals spürst. Drei Mal.', question: 'Was wolltest du heute sagen und hast es nicht?' },
         shoulders: { name: 'Schultern & Nacken', practice: 'Zieh die Schultern beim Einatmen zu den Ohren und lass sie beim Ausatmen mit einem Seufzer fallen. Fünf Mal.', question: 'Was trägst du gerade, das gar nicht deins ist?' },
         chest: { name: 'Brust & Herz', practice: 'Leg eine Hand auf die Brust. Atme so, dass sich die Hand sanft hebt, und atme lang aus, als würdest du eine Kerze nur zum Flackern bringen.', question: 'Was liegt dir gerade am Herzen?' },
