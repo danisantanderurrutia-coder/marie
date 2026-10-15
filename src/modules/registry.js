@@ -4,7 +4,7 @@
 
 import { lazy } from 'react';
 // Icons are imported where modules are registered below.
-import { PersonStanding, Hand, Lightbulb, Heart, Brain } from 'lucide-react';
+import { PersonStanding, Hand, Lightbulb, Heart, Brain, Sparkles } from 'lucide-react';
 
 export const MODULES = [
   { id: 'checkin', icon: PersonStanding, color: '#C87D55', Component: lazy(() => import('./checkin/BodyCheckin')) },
@@ -12,6 +12,7 @@ export const MODULES = [
   { id: 'ideas', icon: Lightbulb, color: '#6E8C6E', Component: lazy(() => import('./ideas/Ideas')) },
   { id: 'heart', icon: Heart, color: '#B23A48', Component: lazy(() => import('./heart/Heart')) },
   { id: 'therapy', icon: Brain, color: '#7DA3BE', Component: lazy(() => import('./therapy/Therapy')) },
+  { id: 'aura', icon: Sparkles, color: '#D84A58', Component: lazy(() => import('./aura/Aura')) },
   // { id: 'stress', icon: Wind, color: '#8E3B46', Component: lazy(() => import('./stress/Stress')) },
 ];
 

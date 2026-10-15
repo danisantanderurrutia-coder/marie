@@ -1,0 +1,183 @@
+/* src/modules/aura/aura.css */
+.aura-metaphor-banner {
+  background: var(--bg-card-soft);
+  border: 1px dashed var(--border-gold);
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+  margin-top: 8px;
+}
+.aura-preview-stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 10px;
+}
+.aura-orb-canvas {
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  position: relative;
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.2);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s ease;
+}
+.aura-inner-glow {
+  position: absolute;
+  inset: 10px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.45) 0%, transparent 70%);
+}
+
+/* Energy movement styles */
+.shape-waves {
+  animation: auraWave 6s ease-in-out infinite alternate;
+  border-radius: 46% 54% 52% 48% / 48% 50% 50% 52%;
+}
+.shape-pulse {
+  animation: auraPulse 3.5s ease-in-out infinite alternate;
+}
+.shape-radiant {
+  animation: auraRadiant 8s ease-in-out infinite alternate;
+  box-shadow: 0 0 60px rgba(229, 169, 60, 0.45);
+}
+.shape-mist {
+  filter: blur(8px);
+  animation: auraMist 7s ease-in-out infinite alternate;
+}
+.shape-still {
+  border-radius: 50%;
+  transform: scale(0.92);
+}
+
+@keyframes auraWave {
+  0% { transform: scale(0.95) rotate(0deg); border-radius: 45% 55% 50% 50% / 50% 48% 52% 50%; }
+  100% { transform: scale(1.05) rotate(15deg); border-radius: 55% 45% 53% 47% / 46% 54% 46% 54%; }
+}
+@keyframes auraPulse {
+  0% { transform: scale(0.9); }
+  50% { transform: scale(1.08); }
+  100% { transform: scale(0.92); }
+}
+@keyframes auraRadiant {
+  0% { transform: scale(0.95); filter: brightness(0.95); }
+  100% { transform: scale(1.05); filter: brightness(1.2); }
+}
+@keyframes auraMist {
+  0% { opacity: 0.8; transform: translateY(-4px) scale(0.96); }
+  100% { opacity: 1; transform: translateY(4px) scale(1.04); }
+}
+
+.aura-preview-caption {
+  text-align: center;
+  margin-top: 14px;
+}
+.aura-preview-caption strong {
+  display: block;
+  font-size: 17px;
+  color: var(--text-main);
+}
+.aura-preview-caption span {
+  font-size: 13px;
+  color: var(--mx-muted);
+}
+.aura-swatches-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 8px;
+}
+@media (max-width: 480px) {
+  .aura-swatches-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.aura-swatch-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  background: #fff;
+  border: 1.5px solid var(--mx-line);
+  border-radius: var(--radius-sm);
+  text-align: left;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+.aura-swatch-card.active {
+  border-color: var(--accent-terracotta);
+  background: var(--accent-terracotta-soft);
+}
+.swatch-circle {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+.swatch-meta {
+  display: flex;
+  flex-direction: column;
+}
+.swatch-meta strong {
+  font-size: 13px;
+}
+.swatch-mood {
+  font-size: 11px;
+  color: var(--mx-muted);
+}
+.aura-shapes-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 8px;
+}
+@media (max-width: 480px) {
+  .aura-shapes-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.aura-shape-pill {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  background: #fff;
+  border: 1.5px solid var(--mx-line);
+  border-radius: var(--radius-sm);
+  text-align: left;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+.aura-shape-pill.active {
+  border-color: var(--accent-terracotta);
+  background: var(--accent-terracotta-soft);
+}
+.shape-desc {
+  font-size: 11px;
+  color: var(--mx-muted);
+  display: block;
+}
+.aura-history-stream {
+  display: grid;
+  gap: 10px;
+}
+.aura-history-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.history-orb {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+.history-info {
+  flex: 1;
+  min-width: 0;
+}
+.history-note {
+  font-style: italic;
+  margin-top: 2px;
+}
