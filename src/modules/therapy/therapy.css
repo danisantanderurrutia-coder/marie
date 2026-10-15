@@ -1,0 +1,161 @@
+/* src/modules/therapy/therapy.css */
+.therapy-disclaimer-banner {
+  background: rgba(142, 59, 70, 0.08);
+  border: 1px solid rgba(142, 59, 70, 0.25);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+  margin-top: 10px;
+}
+.disclaimer-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #8E3B46;
+}
+.cbt-distortions-box {
+  background: var(--bg-card-soft);
+  border: 1px solid var(--mx-line);
+  border-radius: var(--radius-sm);
+  padding: 12px;
+  margin-top: 12px;
+}
+.distortions-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-main);
+  display: block;
+  margin-bottom: 8px;
+}
+.distortions-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+@media (max-width: 480px) {
+  .distortions-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.distortion-pill {
+  font-size: 12px;
+  line-height: 1.35;
+  background: #fff;
+  border: 1px solid var(--mx-line);
+  border-radius: 8px;
+  padding: 8px 10px;
+}
+.distortion-pill strong {
+  display: block;
+  color: var(--accent-wine);
+  margin-bottom: 2px;
+}
+.defusion-steps-card {
+  background: var(--bg-card-soft);
+  border: 1px solid var(--border-gold);
+  border-radius: var(--radius-sm);
+  padding: 14px;
+  margin-top: 14px;
+  display: grid;
+  gap: 10px;
+}
+.defusion-kicker {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--accent-terracotta);
+  letter-spacing: 0.05em;
+}
+.defusion-item {
+  border-left: 3px solid var(--mx-line);
+  padding-left: 10px;
+}
+.defusion-item.raw {
+  border-left-color: #8E3B46;
+}
+.defusion-item.notice {
+  border-left-color: var(--accent-terracotta);
+}
+.defusion-item.context {
+  border-left-color: var(--mx-ok);
+}
+.defusion-tag {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--mx-muted);
+  display: block;
+  margin-bottom: 2px;
+}
+.defusion-item p {
+  font-size: 14px;
+  line-height: 1.45;
+  font-style: italic;
+}
+.willingness-box {
+  background: rgba(200, 125, 85, 0.08);
+  border: 1px dashed var(--accent-terracotta);
+  border-radius: var(--radius-sm);
+  padding: 12px;
+}
+.schema-modes-selector {
+  display: grid;
+  gap: 8px;
+  margin-top: 8px;
+}
+.schema-mode-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  width: 100%;
+  text-align: left;
+  background: #fff;
+  border: 1.5px solid var(--mx-line);
+  border-radius: var(--radius-sm);
+  padding: 12px;
+  font: inherit;
+  color: var(--text-main);
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+.schema-mode-card.active {
+  border-color: var(--accent-terracotta);
+  background: var(--accent-terracotta-soft);
+}
+.mode-emoji {
+  font-size: 24px;
+  flex-shrink: 0;
+}
+.mode-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.mode-desc {
+  font-size: 13px;
+  color: var(--text-main);
+}
+.mode-needs {
+  font-size: 12px;
+  color: var(--mx-muted);
+  font-style: italic;
+  margin-top: 2px;
+}
+.ifs-step-block {
+  background: var(--bg-card-soft);
+  border: 1px solid var(--mx-line);
+  border-radius: var(--radius-sm);
+  padding: 12px;
+}
+.therapy-history-list {
+  list-style: none;
+  display: grid;
+  gap: 10px;
+}
+.type-badge {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  background: var(--text-main);
+  color: #fff;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
