@@ -204,8 +204,8 @@ export default function AuraDesireTab({ soundEnabled }) {
   const [coupleCardIndex, setCoupleCardIndex] = useState(0);
   const [isCardFlipped, setIsCardFlipped] = useState(false);
 
-  // Sanctuary lock & journal
-  const [isUnlocked, setIsUnlocked] = useState(false);
+  // Sanctuary lock & journal (app is already unlocked via AppLock gate)
+  const [isUnlocked, setIsUnlocked] = useState(true);
   const [isScanning, setIsScanning] = useState(false);
   const [pinInput, setPinInput] = useState('');
   const [showPinPad, setShowPinPad] = useState(false);

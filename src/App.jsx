@@ -12,11 +12,20 @@ import QrModal from './components/QrModal';
 import SpaceTab from './components/SpaceTab';
 import SupportSheet from './components/SupportSheet';
 import { Wind } from 'lucide-react';
+import AppLock from './components/AppLock';
 import { useLanguage } from './context/LanguageContext';
 import { getModule } from './modules/registry';
 import './App.css';
 
 export default function App() {
+  const [isAppUnlocked, setIsAppUnlocked] = useState(() => {
+    try {
+      return sessionStorage.getItem('marie_app_authenticated') === 'true';
+    } catch (e) {
+      return false;
+    }
+  });
+
   const [activeTab, setActiveTab] = useState('rose'); // 'rose' | 'aura' | 'skin' | 'hobbies' | 'dreams' | 'profile'
   const [currentEnergy, setCurrentEnergy] = useState('serene');
   const [viewMode, setViewMode] = useState('phone'); // 'phone' | 'desktop'
@@ -29,6 +38,20 @@ export default function App() {
   const [isSupportOpen, setIsSupportOpen] = useState(false);
   const { t } = useLanguage();
 
+  const handleUnlockApp = () => {
+    setIsAppUnlocked(true);
+    try {
+      sessionStorage.setItem('marie_app_authenticated', 'true');
+    } catch (e) {}
+  };
+
+  const handleLockApp = () => {
+    setIsAppUnlocked(false);
+    try {
+      sessionStorage.removeItem('marie_app_authenticated');
+    } catch (e) {}
+  };
+
   const openModule = (id, intent = null) => {
     setActiveModule(id);
     setModuleIntent(intent);
@@ -37,6 +60,10 @@ export default function App() {
   const closeModule = () => { setActiveModule(null); setModuleIntent(null); };
   const selectTab = (tab) => { if (tab !== 'space') closeModule(); else if (activeTab === 'space') closeModule(); setActiveTab(tab); };
   const showSos = !(activeTab === 'space' && activeModule === 'stress') && !!getModule('stress');
+
+  if (!isAppUnlocked) {
+    return <AppLock soundEnabled={soundEnabled} onUnlock={handleUnlockApp} />;
+  }
 
   return (
     <div className="app-root">
@@ -59,6 +86,7 @@ export default function App() {
         soundEnabled={soundEnabled}
         onToggleSound={() => setSoundEnabled(!soundEnabled)}
         onTogglePrivacy={() => setIsPrivacyShieldActive(true)}
+        onLockApp={handleLockApp}
       >
         {isPrivacyShieldActive ? (
           <PrivacyShield onDismiss={() => setIsPrivacyShieldActive(false)} />

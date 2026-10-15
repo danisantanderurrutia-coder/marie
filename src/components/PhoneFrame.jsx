@@ -15,7 +15,8 @@ import {
   Volume2,
   VolumeX,
   Shield,
-  LayoutGrid
+  LayoutGrid,
+  Lock
 } from 'lucide-react';
 import { playSoftTap } from '../utils/audio';
 import { useLanguage } from '../context/LanguageContext';
@@ -34,6 +35,7 @@ export default function PhoneFrame({
   soundEnabled,
   onToggleSound,
   onTogglePrivacy,
+  onLockApp,
   floating,
   children
 }) {
@@ -109,6 +111,31 @@ export default function PhoneFrame({
         <div className="workbench-controls">
           {/* Language Selector in Topbar */}
           <LanguageSwitch variant="compact" />
+
+          {onLockApp && (
+            <button
+              type="button"
+              className="workbench-icon-btn"
+              onClick={() => { playSoftTap(); onLockApp(); }}
+              title="Lock sanctuary (PIN 2211)"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '4px',
+                cursor: 'pointer',
+                background: 'rgba(216, 74, 88, 0.1)',
+                border: '1px solid rgba(216, 74, 88, 0.28)',
+                color: '#D84A58',
+                padding: '4px 10px',
+                borderRadius: '14px',
+                fontSize: '11px',
+                fontWeight: 600
+              }}
+            >
+              <Lock size={12} />
+              <span>PIN</span>
+            </button>
+          )}
 
           <div className="segmented-control">
             <button 
