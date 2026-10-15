@@ -1,0 +1,2 @@
+.heart-history { list-style: none; display: grid; gap: 8px; }
+.heart-history summary { cursor: pointer; min-height: 40px; display: flex; align-items: center; gap: 6px; }
