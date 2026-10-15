@@ -272,17 +272,29 @@ export default function AuraDesireTab({ soundEnabled }) {
     }, 1100);
   };
 
+  const [pinError, setPinError] = useState(false);
+  const SANCTUARY_PIN = '2211';
+
   const handlePinSubmit = (digit) => {
     playSoftTap();
+    setPinError(false);
     const newPin = pinInput + digit;
     setPinInput(newPin);
     if (newPin.length === 4) {
-      setTimeout(() => {
-        setIsUnlocked(true);
-        if (soundEnabled) playUnlockChime();
-        setPinInput('');
-        setShowPinPad(false);
-      }, 300);
+      if (newPin === SANCTUARY_PIN) {
+        setTimeout(() => {
+          setIsUnlocked(true);
+          if (soundEnabled) playUnlockChime();
+          setPinInput('');
+          setShowPinPad(false);
+        }, 250);
+      } else {
+        setPinError(true);
+        setTimeout(() => {
+          setPinInput('');
+          setPinError(false);
+        }, 800);
+      }
     }
   };
 
@@ -654,22 +666,39 @@ export default function AuraDesireTab({ soundEnabled }) {
               </div>
 
               {showPinPad && (
-                <div className="vault-pin-pad animate-fade-in">
+                <div className={`vault-pin-pad animate-fade-in ${pinError ? 'pin-error-shake' : ''}`}>
                   <div className="pin-indicators">
                     {[0, 1, 2, 3].map((i) => (
-                      <span key={i} className={`pin-dot ${pinInput.length > i ? 'filled' : ''}`} />
+                      <span key={i} className={`pin-dot ${pinInput.length > i ? 'filled' : ''} ${pinError ? 'error' : ''}`} />
                     ))}
                   </div>
+                  {pinError && (
+                    <span className="pin-error-hint" style={{ fontSize: '11px', color: '#D84A58', textAlign: 'center', display: 'block', marginTop: '4px' }}>
+                      {language === 'de' ? 'Falsche PIN (Hinweis: 2211)' : language === 'en' ? 'Incorrect PIN (Hint: 2211)' : 'PIN incorrecto (Pista: 2211)'}
+                    </span>
+                  )}
                   <div className="pin-key-grid">
                     {[1, 2, 3, 4, 5, 6, 7, 8, 9, 'C', 0, '✓'].map((keyVal) => (
                       <button
                         key={keyVal}
                         className="pin-key-btn"
                         onClick={() => {
-                          if (keyVal === 'C') setPinInput('');
-                          else if (keyVal === '✓') {
-                            setIsUnlocked(true);
-                            if (soundEnabled) playUnlockChime();
+                          if (keyVal === 'C') {
+                            setPinInput('');
+                            setPinError(false);
+                          } else if (keyVal === '✓') {
+                            if (pinInput === SANCTUARY_PIN) {
+                              setIsUnlocked(true);
+                              if (soundEnabled) playUnlockChime();
+                              setPinInput('');
+                              setShowPinPad(false);
+                            } else {
+                              setPinError(true);
+                              setTimeout(() => {
+                                setPinInput('');
+                                setPinError(false);
+                              }, 800);
+                            }
                           } else handlePinSubmit(keyVal.toString());
                         }}
                       >
