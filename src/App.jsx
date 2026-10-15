@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PhoneFrame from './components/PhoneFrame';
 import Header from './components/Header';
-import IkigaiRose from './components/IkigaiRose';
+import Landing from './components/Landing';
 import AuraDesireTab from './components/AuraDesireTab';
 import SkinBodyTab from './components/SkinBodyTab';
 import HobbiesTab from './components/HobbiesTab';
@@ -77,11 +77,7 @@ export default function App() {
             )}
 
             {activeTab === 'rose' && (
-              <IkigaiRose
-                activeTab={activeTab}
-                onSelectPetal={selectTab}
-                soundEnabled={soundEnabled}
-              />
+              <Landing openModule={openModule} goToTab={selectTab} openSupport={() => setIsSupportOpen(true)} />
             )}
             {(activeTab === 'aura' || activeTab === 'mindset' || activeTab === 'sanctuary') && (
               <AuraDesireTab soundEnabled={soundEnabled} />
