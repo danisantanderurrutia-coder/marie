@@ -1,0 +1,10 @@
+.ideas-list { list-style: none; display: grid; gap: 10px; }
+.ideas-empty { color: var(--mx-muted); }
+.ideas-cheer { font-family: var(--font-serif); font-size: 22px; color: var(--accent-wine); text-align: center; padding: 6px 0; }
+.ideas-detail { margin-top: 12px; border-top: 1px solid var(--mx-line); padding-top: 8px; }
+.ideas-steps { list-style: none; display: grid; gap: 8px; margin: 8px 0; }
+.ideas-steps li { display: flex; gap: 10px; align-items: flex-start; }
+.ideas-check { width: 32px; height: 32px; flex-shrink: 0; border-radius: 50%; border: 2px solid var(--accent-terracotta); background: #fff; cursor: pointer; font-weight: 700; color: #fff; }
+.ideas-check.done { background: var(--mx-ok); border-color: var(--mx-ok); }
+.ideas-done-text { text-decoration: line-through; color: var(--mx-muted); }
+.ideas-suggestion { text-align: left; height: auto; min-height: 40px; padding: 8px 14px; line-height: 1.35; }
