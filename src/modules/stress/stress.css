@@ -1,0 +1,107 @@
+/* src/modules/stress/stress.css */
+.sos-chip-active {
+  background: var(--accent-wine) !important;
+  color: #fff !important;
+  border-color: var(--accent-wine) !important;
+}
+.sos-header {
+  border-bottom: 1px solid var(--border-gold);
+  padding-bottom: 8px;
+}
+.sos-panel {
+  padding: 10px 0;
+}
+.grounding-stack {
+  display: grid;
+  gap: 8px;
+}
+.grounding-step {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #fff;
+  border: 1px solid var(--mx-line);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  font-size: 14px;
+}
+.g-badge {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--accent-terracotta);
+  color: #fff;
+  font-weight: 700;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+.scan-list {
+  list-style: none;
+  display: grid;
+  gap: 8px;
+}
+.scan-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #fff;
+  border: 1px solid var(--mx-line);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  font-size: 14px;
+}
+.alternative-paths-box {
+  background: var(--bg-card-soft);
+  border: 1px solid var(--border-gold);
+  border-radius: var(--radius-sm);
+  padding: 14px;
+}
+.alt-title {
+  display: block;
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--accent-terracotta);
+  margin-bottom: 4px;
+}
+.pattern-stat-block {
+  background: var(--bg-card-soft);
+  border: 1px solid var(--mx-line);
+  border-radius: var(--radius-sm);
+  padding: 12px;
+}
+.time-buckets-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 8px;
+}
+@media (max-width: 480px) {
+  .time-buckets-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.time-bucket-card {
+  background: #fff;
+  border: 1px solid var(--mx-line);
+  border-radius: 8px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.tb-count {
+  font-family: var(--font-serif);
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--accent-wine);
+}
+.tb-label {
+  font-size: 12px;
+  color: var(--mx-muted);
+}
+.stress-history-list {
+  list-style: none;
+  display: grid;
+  gap: 10px;
+  margin-top: 8px;
+}
