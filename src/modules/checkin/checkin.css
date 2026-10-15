@@ -1,0 +1,2 @@
+.checkin-moons { display: flex; gap: 6px; flex-wrap: wrap; font-size: 26px; margin: 8px 0; }
+.checkin-list { list-style: none; display: grid; gap: 10px; margin-top: 8px; }

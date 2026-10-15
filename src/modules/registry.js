@@ -4,9 +4,10 @@
 
 import { lazy } from 'react';
 // Icons are imported where modules are registered below.
-// import { Wind } from 'lucide-react';
+import { PersonStanding } from 'lucide-react';
 
 export const MODULES = [
+  { id: 'checkin', icon: PersonStanding, color: '#C87D55', Component: lazy(() => import('./checkin/BodyCheckin')) },
   // { id: 'stress', icon: Wind, color: '#8E3B46', Component: lazy(() => import('./stress/Stress')) },
 ];
 
