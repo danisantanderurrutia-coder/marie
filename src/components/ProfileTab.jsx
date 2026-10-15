@@ -124,8 +124,8 @@ export default function ProfileTab({ soundEnabled, openModule }) {
   const [isEditingMotto, setIsEditingMotto] = useState(false);
 
   const momentPool = TIME_MOTTOS[currentMoment] || TIME_MOTTOS.morning;
-  const currentMottoObj = momentPool[mottoIndex % momentPool.length];
-  const rotatingMotto = currentMottoObj[mottoLang] || currentMottoObj[language] || currentMottoObj.de;
+  const currentMottoObj = momentPool[mottoIndex % momentPool.length] || momentPool[0];
+  const rotatingMotto = (currentMottoObj && (currentMottoObj[mottoLang] || currentMottoObj[language] || currentMottoObj.de)) || '';
 
   const displayMotto = (mottoMode === 'custom' && personalMotto) ? personalMotto : rotatingMotto;
   const [tempMotto, setTempMotto] = useState(displayMotto);
@@ -134,6 +134,27 @@ export default function ProfileTab({ soundEnabled, openModule }) {
   useEffect(() => {
     setMottoLang(language);
   }, [language]);
+
+  const handleNextMotto = (e) => {
+    e?.stopPropagation?.();
+    if (soundEnabled) playSoftTap();
+    setMottoIndex((prev) => (prev + 1) % momentPool.length);
+  };
+
+  const handleCycleMoment = (e) => {
+    e?.stopPropagation?.();
+    if (soundEnabled) playSoftTap();
+    const moments = ['morning', 'afternoon', 'evening', 'night'];
+    const nextIdx = (moments.indexOf(currentMoment) + 1) % moments.length;
+    setCurrentMoment(moments[nextIdx]);
+    setMottoIndex(0);
+  };
+
+  const handleToggleMottoLang = (e) => {
+    e?.stopPropagation?.();
+    if (soundEnabled) playSoftTap();
+    setMottoLang((prev) => (prev === 'de' ? 'es' : prev === 'es' ? 'en' : 'de'));
+  };
 
   const dimensionsConfig = [
     {
