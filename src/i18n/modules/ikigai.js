@@ -33,6 +33,7 @@ export default {
           tools: {
             checkin: { title: 'Körper-Check-in', desc: 'Sanfte 5-Stufen-Skala und offene Fragen zum Körpergefühl.' },
             bodymap: { title: 'Interaktive Körperkarte', desc: 'Berühre jede Körperzone, spüre Verspannungen nach und atme.' },
+            doombreaker: { title: 'scrolling?', desc: 'Aus dem Feed auftauchen: Suspiro fisiológico oder sensorischer Reset.' },
             ayurveda: { title: 'Vata-Erdung & Dinacharya', desc: 'Warme Tees, Wechselatmung und Abendruhe gegen Stress.' },
             massage: { title: 'Massage & Achtsame Berührung', desc: 'Nacken- und Fuß-Entlastung mit Daniel oder für dich selbst.' }
           }
@@ -44,6 +45,7 @@ export default {
           philosophy: 'Dein Begehren und deine Lust gehören dir allein. Du schuldest niemandem eine Entschuldigung für dein Feuer, dein Tempo oder deine Dornen. Wenn der Alltag dich überrollt, findest du hier dein Schutzfeuer und den Mut, für dich einzustehen.',
           prompt: 'Wo in deinem Leben möchtest du heute eine klare Grenze setzen oder deinem eigenen Feuer mehr Raum geben?',
           tools: {
+            doombreaker: { title: 'scrolling?', desc: 'Sanft aus dem Feed auftauchen: 3 Wege zurück zu dir.' },
             sanctuary: { title: 'Intimer Zufluchtsort (PIN 2211)', desc: 'Feuer-Level, Fuck-Girl-Mindset und geschützte Intimität.' },
             aura: { title: 'Emotionale Aura', desc: 'Farben, Formen und Barometer deines aktuellen Seelenzustands.' },
             stress: { title: 'Akut-Stress & SOS-Befreiung', desc: 'Respiración 4-6, 5-4-3-2-1 Grounding und Notfall-Ruhe.' }
@@ -57,6 +59,7 @@ export default {
           prompt: 'Welche kreative Idee flüstert dir heute zu, die du für nur 5 Minuten spielerisch ausprobieren möchtest?',
           tools: {
             ideas: { title: 'Ideen → Aktion', desc: '5-Minuten-Mikroschritte, Ideenspeicher und sanfte Feier kleiner Fortschritte.' },
+            words: { title: 'Wortschatz der Seele', desc: 'Poetische Wörter und Ausdrücke, die das Herz berühren.' },
             hobbies: { title: 'Atelier für Kunst, Collage & Musik', desc: 'Kreative Herausforderungen ohne Leistungsanspruch.' }
           }
         },
@@ -68,6 +71,7 @@ export default {
           prompt: 'Welcher leise Traum oder Zukunftswunsch gibt deiner Seele gerade Zuversicht und Weite?',
           tools: {
             astral: { title: 'Kosmisches Observatorium', desc: 'Maries Geburtshoroskop (22.11.2000) und Sinastrie mit Daniel.' },
+            words: { title: 'Wortschatz der Seele', desc: 'Glosario estético de palabras poéticas en español y otros idiomas.' },
             vision: { title: 'Traum- & Lebenskompass', desc: 'Persönliche Sehnsüchte, Visionen und Seelenreisen festhalten.' },
             letters: { title: 'Briefe an Vergangenheit & Zukunft', desc: 'Worte an dein früheres und zukünftiges Ich schreiben.' }
           }
@@ -79,6 +83,7 @@ export default {
           philosophy: 'Hier musst du keine Rüstung tragen und keine Rolle spielen. Mit Ansätzen aus TCC, ACT, IFS und Kristin Neffs Selbstmitgefühl begegnest du deinen verletzlichen Anteilen mit Respekt und unendlicher Wärme.',
           prompt: 'Was braucht dein Herz in diesem Augenblick am meisten – und wie kannst du es dir selbst schenken?',
           tools: {
+            diary: { title: 'Mein Tagebuch & Momente', desc: 'Tägliche Gedanken, ein Foto das zählte und dein persönlicher Kalender.' },
             heart: { title: 'Herz & Werte-Dialog', desc: 'Gefühlsdialog, gewaltfreie Bedürfnisse (GFK) und Selbstmitgefühl.' },
             therapy: { title: 'Therapeutische Werkzeuge', desc: 'Kognitive Neubewertung, ACT-Defusion und IFS-Anteile.' },
             stoic: { title: 'Die gütige Dichotomie der Kontrolle', desc: 'Was heute in meiner Hand liegt und was ich liebevoll loslasse.' }
@@ -117,6 +122,7 @@ export default {
           tools: {
             checkin: { title: 'Check-in Corporal Compasivo', desc: 'Escala emocional de 5 niveles y preguntas abiertas sin culpa.' },
             bodymap: { title: 'Mapa Corporal Interactivo', desc: 'Toca cada parte del cuerpo, registra sensaciones y respira.' },
+            doombreaker: { title: 'scrolling?', desc: 'Salir suavemente de las redes: suspiro fisiológico o juego sensorial.' },
             ayurveda: { title: 'Equilibrio Vata & Dinacharya', desc: 'Infusiones tibias, respiración alterna y calma nocturna.' },
             massage: { title: 'Masajes & Tacto en Pareja', desc: 'Alivio de cuello y pies con Daniel o como autocuidado somático.' }
           }
@@ -128,6 +134,7 @@ export default {
           philosophy: 'Tu deseo y tu energía te pertenecen. No le debes disculpas a nadie por encender tu fuego, marcar tus tiempos o defender tu territorio con espinas nobles. Cuando el estrés te abrume, aquí encuentras tu escudo y tu poder personal.',
           prompt: '¿En qué área de tu vida necesitas hoy poner un límite firme o darle más espacio a tu propio fuego?',
           tools: {
+            doombreaker: { title: 'scrolling?', desc: 'Salir del bucle de redes: 3 caminos amables de vuelta a ti.' },
             sanctuary: { title: 'Santuario Íntimo (PIN 2211)', desc: 'Niveles de fuego, Fuck-Girl mindset e intimidad segura.' },
             aura: { title: 'Aura Emocional', desc: 'Colores, formas y energía simbólica del día como barómetro poético.' },
             stress: { title: 'SOS Estrés & Descompresión', desc: 'Respiración 4-6, grounding 5-4-3-2-1 y registro de alternativas.' }
@@ -141,6 +148,7 @@ export default {
           prompt: '¿Qué pequeña idea o curiosidad creativa te susurra hoy y te gustaría probar jugando solo 5 minutos?',
           tools: {
             ideas: { title: 'Ideas → Acción', desc: 'Captura rápida, micro-pasos de 5 minutos, temporizador y celebración.' },
+            words: { title: 'Palabras del Alma', desc: 'Glosario de palabras hermosas en español y otros idiomas.' },
             hobbies: { title: 'Atelier de Arte, Collage & Música', desc: 'Retos creativos y exploración lúdica sin juicio.' }
           }
         },
@@ -152,6 +160,7 @@ export default {
           prompt: '¿Qué susurro del futuro o anhelo silencioso le devuelve la ilusión y la amplitud a tu alma hoy?',
           tools: {
             astral: { title: 'Observatorio Celeste', desc: 'Carta natal de Marie (22.11.2000) y sinastría con Daniel.' },
+            words: { title: 'Palabras del Alma', desc: 'Tesoros lingüísticos y poéticos con significado profundo.' },
             vision: { title: 'Brújula de Sueños & Rumbo', desc: 'Explorar tus visiones de vida y proyectos que nacen del alma.' },
             letters: { title: 'Cartas al Pasado y al Futuro', desc: 'Escribir mensajes sanadores a tu yo de ayer y de mañana.' }
           }
@@ -163,6 +172,7 @@ export default {
           philosophy: 'Aquí no necesitas llevar ninguna máscara. Con herramientas fundamentadas en TCC, ACT, IFS y autocompasión de Kristin Neff, miras tus emociones con respeto, amabilidad y validación profunda.',
           prompt: '¿Qué es lo que tu corazón más necesita en este momento y cómo puedes dártelo a ti misma con ternura?',
           tools: {
+            diary: { title: 'Mi Diario & Momentos', desc: 'Reflexión diaria, una foto que importó y calendario personal.' },
             heart: { title: 'Diálogo con el Corazón & Valores', desc: 'Journaling guiado, necesidades CNV y valores personales.' },
             therapy: { title: 'Herramientas Psicoterapéuticas', desc: 'Reestructuración TCC, defusión ACT y diálogo con partes IFS.' },
             stoic: { title: 'Dicotomía del Control Amable', desc: 'Lo que hoy está en mis manos y lo que suelto con amor.' }
@@ -201,6 +211,7 @@ export default {
           tools: {
             checkin: { title: 'Compassionate Body Check-in', desc: '5-step emotional scale and guilt-free open inquiries.' },
             bodymap: { title: 'Interactive Body Map', desc: 'Touch each area, register sensations, and breathe.' },
+            doombreaker: { title: 'scrolling?', desc: 'Gently disengage from the feed: physiological sigh or sensory reset.' },
             ayurveda: { title: 'Vata Balance & Dinacharya', desc: 'Warm infusions, alternate breathing, and evening calm.' },
             massage: { title: 'Partner Massage & Touch', desc: 'Shoulder and foot release with Daniel or as somatic self-care.' }
           }
@@ -212,6 +223,7 @@ export default {
           philosophy: 'Your desire and energy belong solely to you. You owe no one an apology for igniting your fire, honoring your pace, or guarding your space with noble thorns. When stress overwhelms you, find your shield and strength here.',
           prompt: 'Where in your life do you need to set a firm boundary today or give your own fire more breathing room?',
           tools: {
+            doombreaker: { title: 'scrolling?', desc: 'Gently disengage: 3 warm pathways back to yourself.' },
             sanctuary: { title: 'Intimate Sanctuary (PIN 2211)', desc: 'Fire levels, Fuck-Girl mindset, and safe intimacy.' },
             aura: { title: 'Emotional Aura', desc: 'Colors, shapes, and symbolic energy as a poetic barometer.' },
             stress: { title: 'Acute Stress & SOS Release', desc: '4-6 breathing, 5-4-3-2-1 grounding, and alternative paths.' }
@@ -225,6 +237,7 @@ export default {
           prompt: 'Which small creative idea is whispering to you today that you would like to explore for just 5 minutes?',
           tools: {
             ideas: { title: 'Ideas → Action', desc: 'Fast capture, 5-minute micro-steps, timer, and guilt-free celebration.' },
+            words: { title: 'Soul Words & Lexicon', desc: 'Poetic words and expressions in Spanish and other languages.' },
             hobbies: { title: 'Art, Collage & Music Studio', desc: 'Playful creative challenges without performance pressure.' }
           }
         },
@@ -236,6 +249,7 @@ export default {
           prompt: 'What quiet dream or future wish brings gentle hope and breadth to your soul today?',
           tools: {
             astral: { title: 'Celestial Observatory', desc: "Marie's natal chart (22 Nov 2000) and synastry with Daniel." },
+            words: { title: 'Soul Words & Lexicon', desc: 'Linguistic and poetic treasures with deep resonance.' },
             vision: { title: 'Dreams & Life Direction', desc: 'Capture your heartfelt visions and soulful life projects.' },
             letters: { title: 'Letters to Past & Future', desc: 'Write healing words to your younger and future selves.' }
           }
@@ -247,6 +261,7 @@ export default {
           philosophy: 'You do not need to wear any mask here. Grounded in CBT, ACT, IFS, and Kristin Neff’s self-compassion, you meet your vulnerable emotions with respect, kindness, and deep validation.',
           prompt: 'What does your heart need most right now, and how can you offer it to yourself with tenderness?',
           tools: {
+            diary: { title: 'My Journal & Moments', desc: 'Daily reflections, a meaningful photo, and personal calendar trail.' },
             heart: { title: 'Heart & Values Dialogue', desc: 'Guided journaling, NVC needs, and personal core values.' },
             therapy: { title: 'Psychotherapy Tools', desc: 'CBT reframing, ACT defusion, and IFS parts work.' },
             stoic: { title: 'Gentle Dichotomy of Control', desc: 'What is in my hands today and what I release with love.' }

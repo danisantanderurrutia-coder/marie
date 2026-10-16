@@ -1,14 +1,16 @@
+// src/components/SpaceTab.jsx
+// "Mein Raum" / "Mi Espacio": Unified Ikigai Rose + Direct Tools Directory.
+// Both views displayed simultaneously without segmented barrier, with petal badges.
+
 import React, { useState, Suspense } from 'react';
 import { 
-  Flame, 
   ChevronRight, 
   Download, 
   Trash2, 
   ShieldCheck, 
   LifeBuoy, 
   Sparkles, 
-  LayoutGrid,
-  Flower2
+  LayoutGrid
 } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { MODULES, getModule } from '../modules/registry';
@@ -18,7 +20,6 @@ import { SafetyNote } from './ModuleShell';
 import IkigaiFlower from './IkigaiFlower';
 import PetalFlow from './PetalFlow';
 
-// "Mein Raum" / "Mi Espacio": the Ikigai Rose dashboard + expressive flows + full directory.
 export default function SpaceTab({ 
   soundEnabled, 
   activeModule, 
@@ -31,9 +32,8 @@ export default function SpaceTab({
   const { t } = useLanguage();
   const [message, setMessage] = useState('');
   const [selectedPetalId, setSelectedPetalId] = useState(null); // 'body' | 'fire' | 'create' | 'dreams' | 'me'
-  const [viewMode, setViewMode] = useState('flower'); // 'flower' | 'all'
 
-  // If a full guided module is currently open (e.g. checkin, bodymap, ideas, heart, etc.)
+  // If a full guided module is currently open (e.g. doombreaker, checkin, bodymap, ideas, heart, etc.)
   const current = activeModule ? getModule(activeModule) : null;
   if (current) {
     const Module = current.Component;
@@ -84,93 +84,141 @@ export default function SpaceTab({
     }
   };
 
+  const petalBadges = {
+    fire: { name: t('ikigai.petals.fire.name'), color: '#D84A58', emoji: '🔥' },
+    body: { name: t('ikigai.petals.body.name'), color: '#7DA3BE', emoji: '🌿' },
+    create: { name: t('ikigai.petals.create.name'), color: '#6E8C6E', emoji: '💡' },
+    dreams: { name: t('ikigai.petals.dreams.name'), color: '#9B59B6', emoji: '🌌' },
+    me: { name: t('ikigai.petals.me.name'), color: '#C5A081', emoji: '🤍' }
+  };
+
   return (
-    <section className="mx-screen animate-fade-in" aria-labelledby="hub-title">
+    <section className="mx-screen animate-fade-in" aria-labelledby="hub-title" style={{ paddingBottom: 40 }}>
       <div className="mx-kicker">{t('ikigai.kicker')}</div>
       <h1 id="hub-title" className="mx-title">{t('ikigai.title')}</h1>
       <p className="mx-lead">{t('ikigai.lead')}</p>
 
-      {/* View Mode Toggle: Flower vs All Tools */}
-      <div className="mx-segmented" style={{ margin: '14px 0 10px' }}>
-        <button
-          className={`mx-seg-btn ${viewMode === 'flower' ? 'active' : ''}`}
-          onClick={() => { playSoftTap(); setViewMode('flower'); }}
-        >
-          <Flower2 size={14} aria-hidden="true" />
-          <span>{t('ikigai.viewModePill.flower')}</span>
-        </button>
-        <button
-          className={`mx-seg-btn ${viewMode === 'all' ? 'active' : ''}`}
-          onClick={() => { playSoftTap(); setViewMode('all'); }}
-        >
-          <LayoutGrid size={14} aria-hidden="true" />
-          <span>{t('ikigai.viewModePill.all')}</span>
-        </button>
+      {/* 1. THE IKIGAI ROSE (Visual Interactive Flower on Top) */}
+      <div className="animate-fade-in" style={{ marginTop: 8 }}>
+        <IkigaiFlower
+          onSelectPetal={(id) => setSelectedPetalId(id)}
+          soundEnabled={soundEnabled}
+        />
       </div>
 
-      {/* VIEW 1: THE IKIGAI ROSE */}
-      {viewMode === 'flower' && (
-        <div className="animate-fade-in">
-          <IkigaiFlower
-            onSelectPetal={(id) => setSelectedPetalId(id)}
-            soundEnabled={soundEnabled}
-          />
+      {/* 2. DIRECT TOOLS DIRECTORY (All tools immediately underneath) */}
+      <div style={{ marginTop: 20 }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 12 }}>
+          <LayoutGrid size={15} style={{ color: '#D84A58' }} />
+          <h2 className="mx-h2" style={{ margin: 0, fontSize: 16 }}>
+            {t('hub.directTools') || 'Direkte Werkzeuge & Praktiken'}
+          </h2>
         </div>
-      )}
 
-      {/* VIEW 2: ALL DIRECT TOOLS DIRECTORY */}
-      {viewMode === 'all' && (
-        <div className="hub-grid animate-fade-in" style={{ marginTop: 14 }}>
+        <div className="hub-grid animate-fade-in" style={{ gap: 10 }}>
           {MODULES.map((m) => {
             const Icon = m.icon;
+            const title = t(`hub.cards.${m.id}.title`) || m.id;
+            const desc = t(`hub.cards.${m.id}.desc`) || '';
             return (
               <button
                 key={m.id}
                 className="hub-card"
                 onClick={() => { playSoftTap(); openModule(m.id); }}
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  padding: '12px 14px',
+                  borderRadius: 14,
+                  cursor: 'pointer',
+                  textAlign: 'left',
+                  border: '1px solid rgba(255, 255, 255, 0.06)',
+                  background: 'rgba(255, 255, 255, 0.025)',
+                  transition: 'all 0.2s ease'
+                }}
               >
-                <span className="hub-icon" style={{ background: `${m.color}1f`, color: m.color }}>
-                  <Icon size={22} aria-hidden="true" />
+                <span 
+                  className="hub-icon" 
+                  style={{ 
+                    background: `${m.color}1f`, 
+                    color: m.color,
+                    width: 42,
+                    height: 42,
+                    borderRadius: 12,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    flexShrink: 0
+                  }}
+                >
+                  <Icon size={20} aria-hidden="true" />
                 </span>
-                <span className="hub-text">
-                  <strong>{t(`hub.cards.${m.id}.title`)}</strong>
-                  <span>{t(`hub.cards.${m.id}.desc`)}</span>
+
+                <span className="hub-text" style={{ flex: 1, minWidth: 0, padding: '0 10px' }}>
+                  <strong style={{ fontSize: 14, color: '#FFF', display: 'block' }}>
+                    {title}
+                  </strong>
+                  <span style={{ fontSize: 11.5, color: '#B0A89C', display: 'block', margin: '2px 0 4px', lineHeight: 1.35 }}>
+                    {desc}
+                  </span>
+
+                  {/* Petal Association Badges (Max 2 per tool) */}
+                  <div style={{ display: 'flex', gap: 4, flexWrap: 'wrap' }}>
+                    {(m.petals || []).map((petalKey) => {
+                      const p = petalBadges[petalKey];
+                      if (!p) return null;
+                      return (
+                        <span
+                          key={petalKey}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            playSoftTap();
+                            setSelectedPetalId(petalKey);
+                          }}
+                          title={`Zum Blütenblatt: ${p.name}`}
+                          style={{
+                            fontSize: '9.5px',
+                            padding: '1.5px 6px',
+                            borderRadius: '6px',
+                            background: `${p.color}18`,
+                            color: p.color,
+                            border: `1px solid ${p.color}35`,
+                            fontWeight: 600,
+                            cursor: 'pointer'
+                          }}
+                        >
+                          {p.emoji} {p.name}
+                        </span>
+                      );
+                    })}
+                  </div>
                 </span>
-                <ChevronRight size={18} aria-hidden="true" />
+
+                <ChevronRight size={18} style={{ color: m.color, opacity: 0.7 }} aria-hidden="true" />
               </button>
             );
           })}
-          <button className="hub-card" onClick={() => { playSoftTap(); goToTab('aura'); }}>
-            <span className="hub-icon" style={{ background: '#D84A581f', color: '#D84A58' }}>
-              <Flame size={22} aria-hidden="true" />
-            </span>
-            <span className="hub-text">
-              <strong>{t('hub.fire.title')}</strong>
-              <span>{t('hub.fire.desc')}</span>
-            </span>
-            <ChevronRight size={18} aria-hidden="true" />
-          </button>
         </div>
-      )}
+      </div>
 
       <SafetyNote onOpenSupport={openSupport} />
 
       {/* Privacy & Storage Control Card */}
-      <div className="mx-card soft" style={{ marginTop: 18 }}>
+      <div className="mx-card soft" style={{ marginTop: 22 }}>
         <div className="mx-row">
           <ShieldCheck size={20} aria-hidden="true" />
-          <h2 className="mx-h2" style={{ margin: 0 }}>{t('privacy.dataTitle')}</h2>
+          <h2 className="mx-h2" style={{ margin: 0, fontSize: 15 }}>{t('privacy.dataTitle')}</h2>
         </div>
-        <p className="mx-text" style={{ marginTop: 8 }}>{t('privacy.dataLead')}</p>
-        <ul className="mx-small" style={{ paddingLeft: 18, marginTop: 8 }}>
+        <p className="mx-text" style={{ marginTop: 8, fontSize: 13 }}>{t('privacy.dataLead')}</p>
+        <ul className="mx-small" style={{ paddingLeft: 18, marginTop: 8, fontSize: 12 }}>
           {(t('privacy.points') || []).map((p) => <li key={p}>{p}</li>)}
         </ul>
         <div className="mx-row" style={{ marginTop: 12 }}>
-          <button className="mx-btn ghost" onClick={handleExport}>
-            <Download size={16} aria-hidden="true" /> {t('privacy.export')}
+          <button className="mx-btn ghost small" onClick={handleExport}>
+            <Download size={15} aria-hidden="true" /> {t('privacy.export')}
           </button>
-          <button className="mx-btn ghost" onClick={handleErase}>
-            <Trash2 size={16} aria-hidden="true" /> {t('privacy.erase')}
+          <button className="mx-btn ghost small" onClick={handleErase}>
+            <Trash2 size={15} aria-hidden="true" /> {t('privacy.erase')}
           </button>
         </div>
         {message && <p className="mx-toast" role="status">{message}</p>}

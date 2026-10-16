@@ -1,16 +1,20 @@
+// src/components/IkigaiFlower.jsx
+// Interactive SVG Rose of Ikigai with 5 harmonic petals & center Marie core.
+// Compact, ultra-clean design for direct integration above the tools directory.
+
 import React, { useState } from 'react';
 import { 
   Flame, 
   Sparkles, 
   Lightbulb, 
   Heart, 
-  User, 
   ChevronRight, 
   PersonStanding,
   Compass
 } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { playSoftTap } from '../utils/audio';
+import { LOGO_04 } from '../utils/assets';
 
 export default function IkigaiFlower({ onSelectPetal, soundEnabled }) {
   const { language, t } = useLanguage();
@@ -91,18 +95,18 @@ export default function IkigaiFlower({ onSelectPetal, soundEnabled }) {
         style={{
           position: 'relative',
           width: '100%',
-          maxWidth: '360px',
+          maxWidth: '330px',
           aspectRatio: '1 / 1',
-          margin: '10px auto'
+          margin: '6px auto 10px'
         }}
       >
         {/* Soft Radial Ambient Glow */}
         <div 
           style={{
             position: 'absolute',
-            inset: '12%',
+            inset: '10%',
             borderRadius: '50%',
-            background: 'radial-gradient(circle, rgba(216, 74, 88, 0.14) 0%, rgba(197, 160, 129, 0.08) 50%, transparent 70%)',
+            background: 'radial-gradient(circle, rgba(216, 74, 88, 0.16) 0%, rgba(197, 160, 129, 0.08) 50%, transparent 70%)',
             filter: 'blur(28px)',
             pointerEvents: 'none'
           }} 
@@ -143,7 +147,7 @@ export default function IkigaiFlower({ onSelectPetal, soundEnabled }) {
                   filter={isHovered ? 'url(#petalActiveGlow)' : 'url(#petalSoftGlow)'}
                   style={{
                     transition: 'fill 0.25s ease, stroke-width 0.25s ease, transform 0.25s ease',
-                    transform: isHovered ? 'scale(1.03)' : 'scale(1)',
+                    transform: isHovered ? 'scale(1.035)' : 'scale(1)',
                     transformOrigin: '250px 250px'
                   }}
                 />
@@ -168,8 +172,8 @@ export default function IkigaiFlower({ onSelectPetal, soundEnabled }) {
             top: '50%',
             left: '50%',
             transform: 'translate(-50%, -50%)',
-            width: '84px',
-            height: '84px',
+            width: '80px',
+            height: '80px',
             borderRadius: '50%',
             background: 'linear-gradient(135deg, rgba(28, 20, 28, 0.95) 0%, rgba(14, 10, 16, 0.98) 100%)',
             border: '2px solid rgba(197, 160, 129, 0.5)',
@@ -192,14 +196,14 @@ export default function IkigaiFlower({ onSelectPetal, soundEnabled }) {
           }}
         >
           <img 
-            src="/logo_04.png" 
+            src={LOGO_04} 
             alt="Marie Logo 04" 
-            style={{ width: '42px', height: '42px', objectFit: 'contain' }}
+            style={{ width: '40px', height: '40px', objectFit: 'contain' }}
           />
           <span 
             className="font-serif" 
             style={{ 
-              fontSize: '10px', 
+              fontSize: '9.5px', 
               letterSpacing: '0.12em', 
               color: '#FADBD8', 
               fontWeight: 700, 
@@ -211,63 +215,52 @@ export default function IkigaiFlower({ onSelectPetal, soundEnabled }) {
         </div>
       </div>
 
-      <div style={{ display: 'flex', alignItems: 'center', gap: '6px', margin: '4px 0 16px', opacity: 0.85 }}>
+      {/* Subtle Center Prompt */}
+      <div style={{ display: 'flex', alignItems: 'center', gap: '6px', margin: '2px 0 12px', opacity: 0.85 }}>
         <Sparkles size={13} style={{ color: '#D84A58' }} />
         <span className="mx-small" style={{ fontStyle: 'italic', fontSize: '12px' }}>
           {t('ikigai.centerCore.prompt')}
         </span>
       </div>
 
-      {/* 5 Dimension Cards Stack */}
-      <div className="mx-stack" style={{ width: '100%', gap: '10px' }}>
+      {/* 5 Delicate Interactive Petal Pills (Direct Access to Petal Flows) */}
+      <div 
+        style={{ 
+          display: 'flex', 
+          flexWrap: 'wrap', 
+          justifyContent: 'center', 
+          gap: '8px', 
+          width: '100%', 
+          marginBottom: 16 
+        }}
+      >
         {petalsConfig.map((petal) => {
           const Icon = petal.icon;
           const isHovered = hoveredPetal === petal.id;
           return (
             <button
               key={petal.id}
-              className="mx-card"
               onClick={() => handlePetalClick(petal.id)}
               onMouseEnter={() => setHoveredPetal(petal.id)}
               onMouseLeave={() => setHoveredPetal(null)}
               style={{
-                display: 'flex',
-                justifyContent: 'space-between',
+                display: 'inline-flex',
                 alignItems: 'center',
-                padding: '14px 16px',
+                gap: '6px',
+                padding: '6px 12px',
+                borderRadius: '16px',
+                background: isHovered ? petal.color : petal.softBg,
+                border: `1px solid ${petal.color}${isHovered ? 'ff' : '40'}`,
+                color: isHovered ? '#FFF' : '#EDE8DF',
+                fontSize: '12px',
+                fontWeight: 600,
                 cursor: 'pointer',
-                textAlign: 'left',
-                borderLeft: `4px solid ${petal.color}`,
-                background: isHovered ? 'rgba(255, 255, 255, 0.05)' : 'rgba(255, 255, 255, 0.02)',
-                transition: 'all 0.2s ease'
+                transition: 'all 0.2s ease',
+                transform: isHovered ? 'scale(1.04)' : 'scale(1)'
               }}
             >
-              <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                <span 
-                  style={{
-                    width: '38px',
-                    height: '38px',
-                    borderRadius: '12px',
-                    background: petal.softBg,
-                    color: petal.color,
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    flexShrink: 0
-                  }}
-                >
-                  <Icon size={20} aria-hidden="true" />
-                </span>
-                <div>
-                  <strong style={{ fontSize: '14.5px', color: '#FFF', display: 'block' }}>
-                    {petal.name}
-                  </strong>
-                  <span className="mx-small" style={{ color: '#D0C8B8', fontSize: '12px' }}>
-                    {petal.subtitle}
-                  </span>
-                </div>
-              </div>
-              <ChevronRight size={18} style={{ color: petal.color, opacity: 0.8 }} aria-hidden="true" />
+              <Icon size={13} style={{ color: isHovered ? '#FFF' : petal.color }} />
+              <span>{petal.name}</span>
             </button>
           );
         })}

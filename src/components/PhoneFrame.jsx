@@ -21,6 +21,7 @@ import {
 import { playSoftTap } from '../utils/audio';
 import { useLanguage } from '../context/LanguageContext';
 import LanguageSwitch from './LanguageSwitch';
+import { LOGO_04 } from '../utils/assets';
 
 export default function PhoneFrame({
   activeTab,
@@ -103,7 +104,7 @@ export default function PhoneFrame({
       {/* Top Utility Bar */}
       <header className="workbench-topbar">
         <div className="brand-group">
-          <img src="/logo_04.png" alt="Marie Logo" className="workbench-brand-logo-img" />
+          <img src={LOGO_04} alt="Marie Logo" className="workbench-brand-logo-img" />
           <span className="brand-name font-serif">{currentStrings.brandName}</span>
           <span className="brand-edition font-serif">{currentStrings.brandEdition}</span>
         </div>
@@ -197,7 +198,7 @@ export default function PhoneFrame({
           <aside className="desktop-atelier-sidebar glass-panel">
             <div className="atelier-sidebar-top-section">
               <div className="atelier-brand-lockup">
-                <img src="/logo_04.png" alt="Marie Logo" className="atelier-logo-img" />
+                <img src={LOGO_04} alt="Marie Logo" className="atelier-logo-img" />
                 <div>
                   <h2 className="atelier-name font-serif">{currentStrings.brandName}</h2>
                   <span className="atelier-tagline">{currentStrings.brandTagline}</span>

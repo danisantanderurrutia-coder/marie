@@ -1,3 +1,7 @@
+// src/components/PetalFlow.jsx
+// Immersive expressive sanctuary for each of the 5 Ikigai Petals.
+// Integrates dedicated tools, poetic philosophy, and reflective space.
+
 import React, { useState } from 'react';
 import { 
   ArrowLeft, 
@@ -14,7 +18,10 @@ import {
   Wind, 
   Shield, 
   Droplets,
-  BookOpen
+  BookOpen,
+  Zap,
+  Calendar,
+  PenTool
 } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { playSoftTap, playSoftChime } from '../utils/audio';
@@ -50,9 +57,18 @@ export default function PetalFlow({
   const petalThemes = {
     fire: {
       color: '#D84A58',
-      bgGlow: 'rgba(216, 74, 88, 0.12)',
+      bgGlow: 'rgba(216, 74, 88, 0.16)',
       borderAccent: '#D84A58',
+      motto: '„Dein Feuer verbrennt dich nicht, wenn du lernst, mit ihm zu tanzen.“',
       tools: [
+        {
+          key: 'doombreaker',
+          icon: Zap,
+          title: t('ikigai.petals.fire.tools.doombreaker.title'),
+          desc: t('ikigai.petals.fire.tools.doombreaker.desc'),
+          action: () => openModule('doombreaker'),
+          featured: true
+        },
         {
           key: 'sanctuary',
           icon: Flame,
@@ -78,8 +94,9 @@ export default function PetalFlow({
     },
     body: {
       color: '#7DA3BE',
-      bgGlow: 'rgba(125, 163, 190, 0.12)',
+      bgGlow: 'rgba(125, 163, 190, 0.16)',
       borderAccent: '#7DA3BE',
+      motto: '„Dein Körper ist kein Kunstwerk zur Bewertung, sondern dein treuester Gefährte.“',
       tools: [
         {
           key: 'checkin',
@@ -94,6 +111,13 @@ export default function PetalFlow({
           title: t('ikigai.petals.body.tools.bodymap.title'),
           desc: t('ikigai.petals.body.tools.bodymap.desc'),
           action: () => openModule('bodymap')
+        },
+        {
+          key: 'doombreaker',
+          icon: Zap,
+          title: t('ikigai.petals.body.tools.doombreaker.title'),
+          desc: t('ikigai.petals.body.tools.doombreaker.desc'),
+          action: () => openModule('doombreaker')
         },
         {
           key: 'ayurveda',
@@ -113,15 +137,24 @@ export default function PetalFlow({
     },
     create: {
       color: '#6E8C6E',
-      bgGlow: 'rgba(110, 140, 110, 0.12)',
+      bgGlow: 'rgba(110, 140, 110, 0.16)',
       borderAccent: '#6E8C6E',
+      motto: '„Ein einziger kleiner Schritt von 5 Minuten genügt. Lass deine Ideen atmen.“',
       tools: [
         {
           key: 'ideas',
           icon: Lightbulb,
           title: t('ikigai.petals.create.tools.ideas.title'),
           desc: t('ikigai.petals.create.tools.ideas.desc'),
-          action: () => openModule('ideas')
+          action: () => openModule('ideas'),
+          featured: true
+        },
+        {
+          key: 'words',
+          icon: BookOpen,
+          title: t('ikigai.petals.create.tools.words.title'),
+          desc: t('ikigai.petals.create.tools.words.desc'),
+          action: () => openModule('words')
         },
         {
           key: 'hobbies',
@@ -134,15 +167,24 @@ export default function PetalFlow({
     },
     dreams: {
       color: '#9B59B6',
-      bgGlow: 'rgba(155, 89, 182, 0.12)',
+      bgGlow: 'rgba(155, 89, 182, 0.16)',
       borderAccent: '#9B59B6',
+      motto: '„Wir sind aus demselben geheimnisvollen Stoff gewebt wie die Sterne über uns.“',
       tools: [
         {
           key: 'astral',
           icon: Compass,
           title: t('ikigai.petals.dreams.tools.astral.title'),
           desc: t('ikigai.petals.dreams.tools.astral.desc'),
-          action: () => openModule('astral')
+          action: () => openModule('astral'),
+          featured: true
+        },
+        {
+          key: 'words',
+          icon: BookOpen,
+          title: t('ikigai.petals.dreams.tools.words.title'),
+          desc: t('ikigai.petals.dreams.tools.words.desc'),
+          action: () => openModule('words')
         },
         {
           key: 'vision',
@@ -153,7 +195,7 @@ export default function PetalFlow({
         },
         {
           key: 'letters',
-          icon: BookOpen,
+          icon: PenTool,
           title: t('ikigai.petals.dreams.tools.letters.title'),
           desc: t('ikigai.petals.dreams.tools.letters.desc'),
           action: () => openModule('heart')
@@ -162,9 +204,18 @@ export default function PetalFlow({
     },
     me: {
       color: '#C5A081',
-      bgGlow: 'rgba(197, 160, 129, 0.12)',
+      bgGlow: 'rgba(197, 160, 129, 0.16)',
       borderAccent: '#C5A081',
+      motto: '„Dich selbst mit radikaler Zärtlichkeit anzunehmen ist die schönste Heimkehr.“',
       tools: [
+        {
+          key: 'diary',
+          icon: Calendar,
+          title: t('ikigai.petals.me.tools.diary.title'),
+          desc: t('ikigai.petals.me.tools.diary.desc'),
+          action: () => openModule('diary'),
+          featured: true
+        },
         {
           key: 'heart',
           icon: Heart,
@@ -211,116 +262,120 @@ export default function PetalFlow({
         </span>
       </div>
 
-      {/* Hero Header */}
-      <div>
-        <h2 className="mx-title" style={{ margin: '4px 0 2px' }}>
-          {petalData.name}
-        </h2>
-        <p className="mx-small" style={{ color: theme.color, fontWeight: 600 }}>
-          {petalData.subtitle}
-        </p>
-      </div>
-
-      {/* Philosophy Manifesto Card */}
+      {/* Atmospheric Hero Card */}
       <div 
-        className="mx-card glow" 
-        style={{ 
-          background: `linear-gradient(135deg, ${theme.bgGlow} 0%, rgba(20, 16, 22, 0.95) 100%)`, 
+        className="mx-card"
+        style={{
           borderLeft: `4px solid ${theme.color}`,
-          borderTop: `1px solid ${theme.color}30`,
-          borderRight: `1px solid ${theme.color}20`,
-          borderBottom: `1px solid ${theme.color}20`,
-          padding: '16px'
+          background: `linear-gradient(135deg, ${theme.bgGlow} 0%, rgba(20, 15, 22, 0.85) 100%)`,
+          padding: '20px 18px',
+          borderRadius: 14,
+          position: 'relative',
+          overflow: 'hidden'
         }}
       >
-        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
-          <Sparkles size={16} style={{ color: theme.color }} />
-          <strong style={{ fontSize: '13px', color: '#FFF' }}>
-            {language === 'de' ? 'Philosophie dieses Blattes' : language === 'en' ? 'Petal Philosophy' : 'Filosofía de este pétalo'}
-          </strong>
-        </div>
-        <p className="mx-text font-serif" style={{ fontSize: '13.5px', lineHeight: 1.6, color: '#FAF7F2' }}>
-          "{petalData.philosophy}"
+        <h2 className="mx-title" style={{ margin: '0 0 4px', fontSize: 24 }}>
+          {petalData.name}
+        </h2>
+        <p className="mx-small" style={{ color: theme.color, fontWeight: 600, fontSize: 13, marginBottom: 12 }}>
+          {petalData.subtitle}
         </p>
+
+        <p className="mx-text" style={{ fontSize: 13.5, lineHeight: 1.6, color: '#EAE3D6', margin: 0 }}>
+          {petalData.philosophy}
+        </p>
+
+        {theme.motto && (
+          <p 
+            className="font-serif" 
+            style={{ 
+              marginTop: 12, 
+              paddingTop: 10, 
+              borderTop: '1px solid rgba(255, 255, 255, 0.08)', 
+              color: '#FADBD8', 
+              fontSize: 12.5, 
+              fontStyle: 'italic',
+              margin: '12px 0 0'
+            }}
+          >
+            {theme.motto}
+          </p>
+        )}
       </div>
 
-      {/* Expressive Reflection Space */}
-      <div className="mx-card soft" style={{ padding: '16px' }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '6px' }}>
-          <span style={{ fontSize: '16px' }}>✍️</span>
-          <h3 className="mx-h3" style={{ margin: 0, fontSize: '13.5px' }}>
+      {/* Integrated Tools Section */}
+      <div>
+        <h3 className="mx-h2" style={{ fontSize: 16, margin: '10px 0 10px', color: '#FFF' }}>
+          {t('ikigai.toolsTitle')}
+        </h3>
+
+        <div className="hub-grid" style={{ gap: 10 }}>
+          {theme.tools.map((tool) => {
+            const Icon = tool.icon;
+            return (
+              <button
+                key={tool.key}
+                className="hub-card"
+                onClick={() => { playSoftTap(); tool.action(); }}
+                style={tool.featured ? { border: `1.5px solid ${theme.color}80`, background: `${theme.color}10` } : {}}
+              >
+                <span 
+                  className="hub-icon" 
+                  style={{ background: `${theme.color}20`, color: theme.color }}
+                >
+                  <Icon size={20} aria-hidden="true" />
+                </span>
+                <span className="hub-text">
+                  <strong style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                    {tool.title}
+                    {tool.featured && (
+                      <span style={{ fontSize: 9.5, color: theme.color, background: `${theme.color}25`, padding: '1px 6px', borderRadius: 8 }}>
+                        ★ Fokus
+                      </span>
+                    )}
+                  </strong>
+                  <span>{tool.desc}</span>
+                </span>
+                <ChevronRight size={18} style={{ color: theme.color, opacity: 0.8 }} aria-hidden="true" />
+              </button>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* Expressive Journaling / Inward Dialogue Card */}
+      <div className="mx-card soft" style={{ marginTop: 8, padding: '18px 16px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 8 }}>
+          <Sparkles size={16} style={{ color: theme.color }} />
+          <h3 className="mx-h2" style={{ margin: 0, fontSize: 15 }}>
             {t('ikigai.expressTitle')}
           </h3>
         </div>
-        <p className="mx-small" style={{ color: '#D0C8B8', marginBottom: '10px', lineHeight: 1.45 }}>
+
+        <p className="mx-small" style={{ color: '#D0C8B8', fontSize: 13, lineHeight: 1.5, marginBottom: 12 }}>
           {petalData.prompt}
         </p>
 
         <textarea
-          className="skin-note-input"
+          className="mx-textarea"
+          rows={4}
+          placeholder="Schreibe frei von der Seele..."
           value={reflectionText}
           onChange={(e) => setReflectionText(e.target.value)}
-          rows={3}
-          placeholder={language === 'de' ? 'Schreibe frei und ohne Zensur...' : language === 'en' ? 'Write freely without censorship...' : 'Escribe con libertad y sin juicio...'}
-          style={{ width: '100%', marginBottom: '10px' }}
+          style={{ width: '100%', fontSize: 13.5, lineHeight: 1.6 }}
         />
 
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <span>
-            {savedToast && (
-              <span className="mx-toast" style={{ display: 'inline-flex', alignItems: 'center', gap: '4px', fontSize: '12px' }}>
-                <Check size={13} /> {t('ikigai.expressSavedToast')}
-              </span>
-            )}
-          </span>
-          <button
-            type="button"
-            className="mx-btn warm"
-            onClick={handleSaveReflection}
-            style={{ padding: '7px 16px', fontSize: '12.5px', background: theme.color }}
-          >
-            {t('ikigai.expressSave')}
+        <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: 10 }}>
+          <button className="mx-btn warm small" onClick={handleSaveReflection}>
+            <Check size={14} /> {t('ikigai.expressSave')}
           </button>
         </div>
-      </div>
 
-      {/* Independent Tools & Modules Stack */}
-      <div className="mx-stack" style={{ gap: '10px', marginTop: '4px' }}>
-        <span className="mx-kicker" style={{ fontSize: '11px' }}>
-          {t('ikigai.toolsTitle')}
-        </span>
-
-        {theme.tools.map((tool) => {
-          const ToolIcon = tool.icon;
-          return (
-            <button
-              key={tool.key}
-              type="button"
-              className="hub-card"
-              onClick={() => {
-                if (soundEnabled) playSoftTap();
-                tool.action();
-              }}
-              style={{
-                cursor: 'pointer',
-                textAlign: 'left',
-                borderLeft: `3px solid ${theme.color}`
-              }}
-            >
-              <span 
-                className="hub-icon" 
-                style={{ background: theme.bgGlow, color: theme.color }}
-              >
-                <ToolIcon size={20} aria-hidden="true" />
-              </span>
-              <span className="hub-text">
-                <strong style={{ color: '#FFF' }}>{tool.title}</strong>
-                <span>{tool.desc}</span>
-              </span>
-              <ChevronRight size={18} style={{ color: theme.color }} aria-hidden="true" />
-            </button>
-          );
-        })}
+        {savedToast && (
+          <p className="mx-toast animate-fade-in" role="status" style={{ marginTop: 8 }}>
+            {t('ikigai.expressSavedToast')}
+          </p>
+        )}
       </div>
     </div>
   );

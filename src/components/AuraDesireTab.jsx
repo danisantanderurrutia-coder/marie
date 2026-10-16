@@ -18,6 +18,7 @@ import {
 import { playSoftChime, playUnlockChime, playSoftTap } from '../utils/audio';
 import { INTIMACY_PROMPTS } from '../data/appData';
 import { useLanguage } from '../context/LanguageContext';
+import { LOGO_04 } from '../utils/assets';
 
 const FIRE_LEVELS = [
   {
@@ -591,7 +592,7 @@ export default function AuraDesireTab({ soundEnabled }) {
                   </div>
 
                   <div className="tarot-rose-icon-wrap">
-                    <img src="/logo_04.png" alt="Rose Tarot" className="tarot-rose-emblem" />
+                    <img src={LOGO_04} alt="Rose Tarot" className="tarot-rose-emblem" />
                   </div>
 
                   <h4 className="tarot-card-title font-serif">{currentTarot.title}</h4>

@@ -18,6 +18,7 @@ import {
 } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { playSoftChime, playSoftTap } from '../utils/audio';
+import { LOGO_04 } from '../utils/assets';
 
 export default function ProfileTab({ soundEnabled, openModule }) {
   const { language, currentStrings } = useLanguage();
@@ -299,7 +300,7 @@ export default function ProfileTab({ soundEnabled, openModule }) {
         <div className="profile-avatar-row">
           <div className="profile-avatar-aura">
             <div className="profile-avatar-rose">
-              <img src="/logo_04.png" alt="Marie Logo 04" className="profile-avatar-img" />
+              <img src={LOGO_04} alt="Marie Logo 04" className="profile-avatar-img" />
             </div>
             <span className="profile-online-glow"></span>
           </div>
@@ -463,6 +464,53 @@ export default function ProfileTab({ soundEnabled, openModule }) {
             <Compass size={14} aria-hidden="true" />
             <span>
               {language === 'de' ? 'Sternenkarte & Sinastrie erkunden ➔' : language === 'en' ? 'Explore Chart & Synastry ➔' : 'Ver Carta Astral & Sinastría ➔'}
+            </span>
+          </button>
+        </div>
+
+        {/* Intimate Diary & Moments Card for Marie */}
+        <div 
+          className="mx-card" 
+          style={{ 
+            marginTop: 12, 
+            background: 'linear-gradient(135deg, rgba(197, 160, 129, 0.12) 0%, rgba(28, 22, 26, 0.95) 100%)', 
+            border: '1px solid rgba(197, 160, 129, 0.35)',
+            borderRadius: '16px',
+            padding: '14px'
+          }}
+        >
+          <div className="mx-row" style={{ justifyContent: 'space-between', alignItems: 'center' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+              <Calendar size={16} style={{ color: '#C5A081' }} aria-hidden="true" />
+              <strong style={{ fontSize: '13px', color: '#FDFEFE' }}>
+                {language === 'de' ? 'Mein Tagebuch & Momente' : language === 'en' ? 'My Journal & Moments' : 'Mi Diario & Momentos'}
+              </strong>
+            </div>
+            <span className="mx-badge" style={{ background: 'rgba(197, 160, 129, 0.25)', color: '#FADBD8', fontSize: '11px' }}>
+              📷 {language === 'de' ? 'Foto & Gedanken' : language === 'en' ? 'Photo & Thoughts' : 'Foto & Notas'}
+            </span>
+          </div>
+
+          <p className="mx-small" style={{ marginTop: 6, color: '#D0C8B8', lineHeight: 1.45 }}>
+            {language === 'de' 
+              ? 'Ein sicherer Ort für deine Tage. Halte deine Gedanken fest, lade ein Foto des Tages hoch und verfolge deine persönliche Chronik im Kalender.'
+              : language === 'en'
+              ? 'A private sanctuary for your days. Write freely, attach a meaningful photo of the day, and follow your personal calendar trail.'
+              : 'Un refugio privado para tus días. Escribe lo que sientes, sube una foto significativa del día y sigue tu calendario personal.'}
+          </p>
+
+          <button
+            type="button"
+            className="mx-btn warm small full"
+            onClick={() => {
+              playSoftTap();
+              if (openModule) openModule('diary');
+            }}
+            style={{ marginTop: 10, padding: '8px 14px', fontSize: '12.5px', background: 'linear-gradient(135deg, #C5A081 0%, #B58D6E 100%)' }}
+          >
+            <Heart size={14} aria-hidden="true" />
+            <span>
+              {language === 'de' ? 'Tagebuch öffnen ➔' : language === 'en' ? 'Open Journal ➔' : 'Abrir mi Diario ➔'}
             </span>
           </button>
         </div>

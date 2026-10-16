@@ -5,6 +5,7 @@ import LanguageSwitch from './LanguageSwitch';
 import { readJSON, dayKey } from '../utils/storage';
 import { KEYS } from '../utils/keys';
 import { playSoftTap } from '../utils/audio';
+import { LOGO_04 } from '../utils/assets';
 import './Landing.css';
 
 function partOfDay(hour) {
@@ -46,7 +47,7 @@ export default function Landing({ openModule, goToTab, openSupport }) {
   return (
     <div className="landing mx-screen animate-fade-in">
       <div className="landing-top">
-        <img src="/logo_04.png" alt="" className="landing-logo" width="44" height="44" />
+        <img src={LOGO_04} alt="" className="landing-logo" width="44" height="44" />
         <LanguageSwitch variant="full" showIcon />
       </div>
 

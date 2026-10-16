@@ -3,6 +3,7 @@ import { Volume2, VolumeX, Shield } from 'lucide-react';
 import { playSoftTap } from '../utils/audio';
 import { useLanguage } from '../context/LanguageContext';
 import LanguageSwitch from './LanguageSwitch';
+import { LOGO_04 } from '../utils/assets';
 
 export default function Header({ 
   currentEnergy, 
@@ -39,7 +40,7 @@ export default function Header({
           title={currentStrings.tabs.rose.label}
         >
           <div className="wild-rose-logo-icon">
-            <img src="/logo_04.png" alt="Marie Logo 04" className="header-logo-img" />
+            <img src={LOGO_04} alt="Marie Logo 04" className="header-logo-img" />
           </div>
           <div className="brand-text-stack">
             <div className="brand-line">

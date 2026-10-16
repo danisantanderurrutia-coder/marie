@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Lock, Unlock, KeyRound, Sparkles, Check, Delete } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { playSoftTap, playUnlockChime } from '../utils/audio';
+import { LOGO_04 } from '../utils/assets';
 
 export default function AppLock({ soundEnabled, onUnlock }) {
   const { language } = useLanguage();
@@ -140,7 +141,7 @@ export default function AppLock({ soundEnabled, onUnlock }) {
             }} 
           />
           <img 
-            src="/logo_04.png" 
+            src={LOGO_04} 
             alt="Marie Logo" 
             style={{ 
               width: '100%', 
