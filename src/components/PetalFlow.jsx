@@ -305,7 +305,7 @@ export default function PetalFlow({
 
       {/* Integrated Tools Section */}
       <div>
-        <h3 className="mx-h2" style={{ fontSize: 16, margin: '10px 0 10px', color: '#FFF' }}>
+        <h3 className="mx-h2" style={{ fontSize: 16.5, margin: '14px 0 10px', color: '#241B19', fontWeight: 650 }}>
           {t('ikigai.toolsTitle')}
         </h3>
 
@@ -317,24 +317,37 @@ export default function PetalFlow({
                 key={tool.key}
                 className="hub-card"
                 onClick={() => { playSoftTap(); tool.action(); }}
-                style={tool.featured ? { border: `1.5px solid ${theme.color}80`, background: `${theme.color}10` } : {}}
+                style={{
+                  background: '#FFFFFF',
+                  border: tool.featured ? `1.5px solid ${theme.color}` : '1px solid rgba(197, 160, 129, 0.22)',
+                  boxShadow: '0 3px 12px rgba(44, 30, 25, 0.04)',
+                  borderRadius: 16,
+                  padding: '13px 15px'
+                }}
               >
                 <span 
                   className="hub-icon" 
-                  style={{ background: `${theme.color}20`, color: theme.color }}
+                  style={{ 
+                    background: `${theme.color}15`, 
+                    color: theme.color,
+                    border: `1.5px solid ${theme.color}35`,
+                    width: 44,
+                    height: 44,
+                    borderRadius: 13
+                  }}
                 >
-                  <Icon size={20} aria-hidden="true" />
+                  <Icon size={21} aria-hidden="true" />
                 </span>
-                <span className="hub-text">
-                  <strong style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                <span className="hub-text" style={{ padding: '0 12px' }}>
+                  <strong style={{ display: 'flex', alignItems: 'center', gap: 6, color: '#241B19', fontSize: 14.5 }}>
                     {tool.title}
                     {tool.featured && (
-                      <span style={{ fontSize: 9.5, color: theme.color, background: `${theme.color}25`, padding: '1px 6px', borderRadius: 8 }}>
+                      <span style={{ fontSize: 10, color: '#FFF', background: theme.color, padding: '2px 7px', borderRadius: 8, fontWeight: 700 }}>
                         ★ Fokus
                       </span>
                     )}
                   </strong>
-                  <span>{tool.desc}</span>
+                  <span style={{ color: '#5C4E48', fontSize: 12, lineHeight: 1.4, marginTop: 2 }}>{tool.desc}</span>
                 </span>
                 <ChevronRight size={18} style={{ color: theme.color, opacity: 0.8 }} aria-hidden="true" />
               </button>
@@ -344,15 +357,25 @@ export default function PetalFlow({
       </div>
 
       {/* Expressive Journaling / Inward Dialogue Card */}
-      <div className="mx-card soft" style={{ marginTop: 8, padding: '18px 16px' }}>
+      <div 
+        className="mx-card animate-fade-in" 
+        style={{ 
+          marginTop: 10, 
+          padding: '20px 18px',
+          background: '#FFFFFF',
+          border: '1px solid rgba(197, 160, 129, 0.25)',
+          boxShadow: '0 4px 14px rgba(44, 30, 25, 0.05)',
+          borderRadius: 16
+        }}
+      >
         <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 8 }}>
-          <Sparkles size={16} style={{ color: theme.color }} />
-          <h3 className="mx-h2" style={{ margin: 0, fontSize: 15 }}>
+          <Sparkles size={17} style={{ color: theme.color }} />
+          <h3 className="mx-h2" style={{ margin: 0, fontSize: 16, color: '#241B19' }}>
             {t('ikigai.expressTitle')}
           </h3>
         </div>
 
-        <p className="mx-small" style={{ color: '#D0C8B8', fontSize: 13, lineHeight: 1.5, marginBottom: 12 }}>
+        <p className="mx-small" style={{ color: '#4A3D38', fontSize: 13.5, lineHeight: 1.55, marginBottom: 14 }}>
           {petalData.prompt}
         </p>
 
@@ -362,10 +385,19 @@ export default function PetalFlow({
           placeholder="Schreibe frei von der Seele..."
           value={reflectionText}
           onChange={(e) => setReflectionText(e.target.value)}
-          style={{ width: '100%', fontSize: 13.5, lineHeight: 1.6 }}
+          style={{ 
+            width: '100%', 
+            fontSize: 14, 
+            lineHeight: 1.6, 
+            background: '#FAF8F5',
+            color: '#241B19',
+            border: '1px solid rgba(197, 160, 129, 0.3)',
+            borderRadius: 12,
+            padding: '12px 14px'
+          }}
         />
 
-        <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: 10 }}>
+        <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: 12 }}>
           <button className="mx-btn warm small" onClick={handleSaveReflection}>
             <Check size={14} /> {t('ikigai.expressSave')}
           </button>

@@ -218,45 +218,49 @@ export default function IntimateDiary({ onBack, soundEnabled }) {
 
       {/* Date Bar & Calendar Navigator */}
       <div 
-        className="mx-card soft"
+        className="mx-card animate-fade-in"
         style={{
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
-          padding: '10px 14px',
-          marginBottom: 16
+          padding: '12px 16px',
+          marginBottom: 16,
+          background: '#FFFFFF',
+          border: '1px solid rgba(197, 160, 129, 0.28)',
+          boxShadow: '0 3px 12px rgba(44, 30, 25, 0.04)',
+          borderRadius: 16
         }}
       >
-        <button className="mx-btn ghost small" onClick={() => shiftDay(-1)}>
+        <button className="mx-btn ghost small" onClick={() => shiftDay(-1)} style={{ color: '#241B19', borderColor: '#C5A081' }}>
           <ChevronLeft size={16} />
         </button>
 
         <div style={{ textAlign: 'center' }}>
-          <span className="font-serif" style={{ fontSize: 14, color: '#FFF', fontWeight: 600, display: 'block' }}>
+          <span className="font-serif" style={{ fontSize: 15, color: '#241B19', fontWeight: 650, display: 'block' }}>
             {formatDateLocale(selectedDate)}
           </span>
           {savedDates.includes(selectedDate) ? (
-            <span style={{ fontSize: 11, color: '#6E8C6E', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 4 }}>
-              <Check size={11} /> Eintrag vorhanden
+            <span style={{ fontSize: 11.5, color: '#2D6A4F', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 4, fontWeight: 600 }}>
+              <Check size={12} /> Eintrag vorhanden
             </span>
           ) : (
-            <span style={{ fontSize: 11, color: '#A0988A' }}>
+            <span style={{ fontSize: 11.5, color: '#7A6D65' }}>
               {selectedDate === getTodayStr() ? 'Heute' : 'Kein Eintrag bisher'}
             </span>
           )}
         </div>
 
-        <button className="mx-btn ghost small" onClick={() => shiftDay(1)}>
+        <button className="mx-btn ghost small" onClick={() => shiftDay(1)} style={{ color: '#241B19', borderColor: '#C5A081' }}>
           <ChevronRight size={16} />
         </button>
       </div>
 
       {/* Inner Weather / Mood Selector */}
-      <div style={{ marginBottom: 16 }}>
-        <span className="mx-small" style={{ color: '#D0C8B8', fontWeight: 600, display: 'block', marginBottom: 8 }}>
+      <div style={{ marginBottom: 18 }}>
+        <span className="mx-small" style={{ color: '#241B19', fontWeight: 650, display: 'block', marginBottom: 8 }}>
           {t('diary.moodPrompt')}
         </span>
-        <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
+        <div style={{ display: 'flex', gap: 7, flexWrap: 'wrap' }}>
           {moodsList.map((m) => {
             const Icon = m.icon;
             const isSelected = mood === m.key;
@@ -269,13 +273,13 @@ export default function IntimateDiary({ onBack, soundEnabled }) {
                   display: 'flex',
                   alignItems: 'center',
                   gap: 6,
-                  padding: '7px 12px',
+                  padding: '8px 13px',
                   borderRadius: 16,
-                  background: isSelected ? `${m.color}25` : 'rgba(255, 255, 255, 0.03)',
-                  border: isSelected ? `1.5px solid ${m.color}` : '1px solid rgba(255, 255, 255, 0.08)',
-                  color: isSelected ? '#FFF' : '#C0B8AA',
-                  fontSize: 12,
-                  fontWeight: isSelected ? 600 : 400,
+                  background: isSelected ? `${m.color}20` : '#FAF8F5',
+                  border: isSelected ? `2px solid ${m.color}` : '1px solid rgba(197, 160, 129, 0.3)',
+                  color: isSelected ? '#1E1715' : '#5A4D47',
+                  fontSize: 12.5,
+                  fontWeight: isSelected ? 700 : 500,
                   cursor: 'pointer',
                   transition: 'all 0.2s ease'
                 }}
@@ -289,8 +293,8 @@ export default function IntimateDiary({ onBack, soundEnabled }) {
       </div>
 
       {/* Journaling Textarea */}
-      <div style={{ marginBottom: 16 }}>
-        <label htmlFor="diary-entry" className="mx-small" style={{ color: '#D0C8B8', fontWeight: 600, display: 'block', marginBottom: 6 }}>
+      <div style={{ marginBottom: 18 }}>
+        <label htmlFor="diary-entry" className="mx-small" style={{ color: '#241B19', fontWeight: 650, display: 'block', marginBottom: 6 }}>
           {t('diary.journalLabel')}
         </label>
         <textarea
@@ -300,7 +304,16 @@ export default function IntimateDiary({ onBack, soundEnabled }) {
           placeholder={t('diary.journalPlaceholder')}
           value={text}
           onChange={(e) => setText(e.target.value)}
-          style={{ width: '100%', fontSize: 14, lineHeight: 1.6 }}
+          style={{ 
+            width: '100%', 
+            fontSize: 14.5, 
+            lineHeight: 1.6, 
+            background: '#FAF8F5',
+            color: '#241B19',
+            border: '1.5px solid rgba(197, 160, 129, 0.35)',
+            borderRadius: 14,
+            padding: '14px'
+          }}
         />
       </div>
 

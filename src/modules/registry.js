@@ -14,7 +14,8 @@ import {
   Compass, 
   Flame, 
   Calendar, 
-  BookOpen 
+  BookOpen,
+  Flower2 
 } from 'lucide-react';
 
 export const MODULES = [
@@ -94,6 +95,13 @@ export const MODULES = [
     color: '#9B59B6', 
     petals: ['dreams', 'create'],
     Component: lazy(() => import('./words/SoulWords')) 
+  },
+  { 
+    id: 'zengarden', 
+    icon: Flower2, 
+    color: '#D84A58', 
+    petals: ['create', 'dreams'],
+    Component: lazy(() => import('./game/ZenGarden')) 
   }
 ];
 

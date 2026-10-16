@@ -202,12 +202,13 @@ export default function SoulWords({ onBack, soundEnabled }) {
             onClick={() => { playSoftTap(); setFilter(f.id); }}
             style={{
               cursor: 'pointer',
-              background: filter === f.id ? 'rgba(216, 74, 88, 0.25)' : 'rgba(255, 255, 255, 0.04)',
-              color: filter === f.id ? '#FFF' : '#C0B8AA',
-              border: filter === f.id ? '1px solid #D84A58' : '1px solid rgba(255, 255, 255, 0.08)',
-              padding: '5px 12px',
-              borderRadius: 14,
-              fontSize: 12
+              background: filter === f.id ? '#9B59B6' : '#F3EDF7',
+              color: filter === f.id ? '#FFF' : '#5A2E6E',
+              border: filter === f.id ? '1px solid #8E44AD' : '1px solid rgba(155, 89, 182, 0.25)',
+              padding: '6px 14px',
+              borderRadius: 16,
+              fontSize: 12.5,
+              fontWeight: 600
             }}
           >
             {f.label}
@@ -220,11 +221,14 @@ export default function SoulWords({ onBack, soundEnabled }) {
         {filteredWords.map((item) => (
           <div 
             key={item.id}
-            className="mx-card soft animate-fade-in"
+            className="mx-card animate-fade-in"
             style={{
-              padding: '18px 18px',
-              borderLeft: '3px solid #9B59B6',
-              background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(155, 89, 182, 0.05) 100%)',
+              padding: '18px 20px',
+              borderLeft: '4px solid #9B59B6',
+              border: '1px solid rgba(155, 89, 182, 0.2)',
+              background: '#FFFFFF',
+              boxShadow: '0 4px 14px rgba(44, 30, 25, 0.05)',
+              borderRadius: 16,
               position: 'relative'
             }}
           >
@@ -234,9 +238,9 @@ export default function SoulWords({ onBack, soundEnabled }) {
                 <h2 
                   className="font-serif" 
                   style={{ 
-                    fontSize: 22, 
+                    fontSize: 23, 
                     margin: 0, 
-                    color: '#FFF', 
+                    color: '#2A1338', 
                     letterSpacing: '0.02em',
                     fontWeight: 700 
                   }}
@@ -245,12 +249,12 @@ export default function SoulWords({ onBack, soundEnabled }) {
                 </h2>
                 <span 
                   style={{ 
-                    fontSize: 10.5, 
-                    color: '#C5A081', 
-                    background: 'rgba(197, 160, 129, 0.15)', 
+                    fontSize: 11, 
+                    color: '#7A2C99', 
+                    background: 'rgba(155, 89, 182, 0.12)', 
                     padding: '2px 8px', 
                     borderRadius: 10,
-                    fontWeight: 600
+                    fontWeight: 650
                   }}
                 >
                   {item.lang}
@@ -266,7 +270,7 @@ export default function SoulWords({ onBack, soundEnabled }) {
                     background: 'transparent',
                     border: 'none',
                     cursor: 'pointer',
-                    color: item.favorite ? '#D84A58' : 'rgba(255, 255, 255, 0.25)',
+                    color: item.favorite ? '#D84A58' : 'rgba(0, 0, 0, 0.25)',
                     padding: 4
                   }}
                 >
@@ -280,7 +284,7 @@ export default function SoulWords({ onBack, soundEnabled }) {
                       background: 'transparent',
                       border: 'none',
                       cursor: 'pointer',
-                      color: 'rgba(255, 255, 255, 0.25)',
+                      color: 'rgba(0, 0, 0, 0.25)',
                       padding: 4
                     }}
                   >
@@ -295,9 +299,9 @@ export default function SoulWords({ onBack, soundEnabled }) {
               className="font-serif"
               style={{ 
                 margin: '8px 0 0', 
-                color: '#EAE2D5', 
-                fontSize: 14, 
-                lineHeight: 1.55,
+                color: '#342638', 
+                fontSize: 14.5, 
+                lineHeight: 1.6,
                 fontStyle: 'normal'
               }}
             >
@@ -310,12 +314,12 @@ export default function SoulWords({ onBack, soundEnabled }) {
                 style={{ 
                   marginTop: 10, 
                   paddingTop: 8, 
-                  borderTop: '1px solid rgba(255, 255, 255, 0.07)', 
+                  borderTop: '1px solid rgba(155, 89, 182, 0.12)', 
                   display: 'flex', 
                   alignItems: 'center', 
                   gap: 6,
-                  color: '#C0B8AA',
-                  fontSize: 12,
+                  color: '#6E4D7A',
+                  fontSize: 12.5,
                   fontStyle: 'italic'
                 }}
               >

@@ -33,7 +33,7 @@ export default {
           tools: {
             checkin: { title: 'Körper-Check-in', desc: 'Sanfte 5-Stufen-Skala und offene Fragen zum Körpergefühl.' },
             bodymap: { title: 'Interaktive Körperkarte', desc: 'Berühre jede Körperzone, spüre Verspannungen nach und atme.' },
-            doombreaker: { title: 'scrolling?', desc: 'Aus dem Feed auftauchen: Suspiro fisiológico oder sensorischer Reset.' },
+            doombreaker: { title: 'Scrolling?', desc: 'Aus dem Feed auftauchen: Physiologischer Seufzer oder sensorischer Reset.' },
             ayurveda: { title: 'Vata-Erdung & Dinacharya', desc: 'Warme Tees, Wechselatmung und Abendruhe gegen Stress.' },
             massage: { title: 'Massage & Achtsame Berührung', desc: 'Nacken- und Fuß-Entlastung mit Daniel oder für dich selbst.' }
           }
@@ -45,7 +45,7 @@ export default {
           philosophy: 'Dein Begehren und deine Lust gehören dir allein. Du schuldest niemandem eine Entschuldigung für dein Feuer, dein Tempo oder deine Dornen. Wenn der Alltag dich überrollt, findest du hier dein Schutzfeuer und den Mut, für dich einzustehen.',
           prompt: 'Wo in deinem Leben möchtest du heute eine klare Grenze setzen oder deinem eigenen Feuer mehr Raum geben?',
           tools: {
-            doombreaker: { title: 'scrolling?', desc: 'Sanft aus dem Feed auftauchen: 3 Wege zurück zu dir.' },
+            doombreaker: { title: 'Scrolling?', desc: 'Sanft aus dem Feed auftauchen: 3 Wege zurück zu dir.' },
             sanctuary: { title: 'Intimer Zufluchtsort (PIN 2211)', desc: 'Feuer-Level, Fuck-Girl-Mindset und geschützte Intimität.' },
             aura: { title: 'Emotionale Aura', desc: 'Farben, Formen und Barometer deines aktuellen Seelenzustands.' },
             stress: { title: 'Akut-Stress & SOS-Befreiung', desc: 'Respiración 4-6, 5-4-3-2-1 Grounding und Notfall-Ruhe.' }
@@ -60,6 +60,7 @@ export default {
           tools: {
             ideas: { title: 'Ideen → Aktion', desc: '5-Minuten-Mikroschritte, Ideenspeicher und sanfte Feier kleiner Fortschritte.' },
             words: { title: 'Wortschatz der Seele', desc: 'Poetische Wörter und Ausdrücke, die das Herz berühren.' },
+            zengarden: { title: 'Zen-Garten & Orakel', desc: 'Blüten im Wind, 3D-Orakelkarten und Seelen-Memory zum Verweilen.' },
             hobbies: { title: 'Atelier für Kunst, Collage & Musik', desc: 'Kreative Herausforderungen ohne Leistungsanspruch.' }
           }
         },
@@ -71,6 +72,7 @@ export default {
           prompt: 'Welcher leise Traum oder Zukunftswunsch gibt deiner Seele gerade Zuversicht und Weite?',
           tools: {
             astral: { title: 'Kosmisches Observatorium', desc: 'Maries Geburtshoroskop (22.11.2000) und Sinastrie mit Daniel.' },
+            zengarden: { title: 'Zen-Garten & Orakel', desc: 'Kosmisches Orakel, schwebende Blüten und Verbundenheit.' },
             words: { title: 'Wortschatz der Seele', desc: 'Glosario estético de palabras poéticas en español y otros idiomas.' },
             vision: { title: 'Traum- & Lebenskompass', desc: 'Persönliche Sehnsüchte, Visionen und Seelenreisen festhalten.' },
             letters: { title: 'Briefe an Vergangenheit & Zukunft', desc: 'Worte an dein früheres und zukünftiges Ich schreiben.' }
@@ -122,7 +124,7 @@ export default {
           tools: {
             checkin: { title: 'Check-in Corporal Compasivo', desc: 'Escala emocional de 5 niveles y preguntas abiertas sin culpa.' },
             bodymap: { title: 'Mapa Corporal Interactivo', desc: 'Toca cada parte del cuerpo, registra sensaciones y respira.' },
-            doombreaker: { title: 'scrolling?', desc: 'Salir suavemente de las redes: suspiro fisiológico o juego sensorial.' },
+            doombreaker: { title: '¿Scrolling?', desc: 'Salir suavemente de las redes: suspiro fisiológico o juego sensorial.' },
             ayurveda: { title: 'Equilibrio Vata & Dinacharya', desc: 'Infusiones tibias, respiración alterna y calma nocturna.' },
             massage: { title: 'Masajes & Tacto en Pareja', desc: 'Alivio de cuello y pies con Daniel o como autocuidado somático.' }
           }
@@ -134,7 +136,7 @@ export default {
           philosophy: 'Tu deseo y tu energía te pertenecen. No le debes disculpas a nadie por encender tu fuego, marcar tus tiempos o defender tu territorio con espinas nobles. Cuando el estrés te abrume, aquí encuentras tu escudo y tu poder personal.',
           prompt: '¿En qué área de tu vida necesitas hoy poner un límite firme o darle más espacio a tu propio fuego?',
           tools: {
-            doombreaker: { title: 'scrolling?', desc: 'Salir del bucle de redes: 3 caminos amables de vuelta a ti.' },
+            doombreaker: { title: '¿Scrolling?', desc: 'Salir del bucle de redes: 3 caminos amables de vuelta a ti.' },
             sanctuary: { title: 'Santuario Íntimo (PIN 2211)', desc: 'Niveles de fuego, Fuck-Girl mindset e intimidad segura.' },
             aura: { title: 'Aura Emocional', desc: 'Colores, formas y energía simbólica del día como barómetro poético.' },
             stress: { title: 'SOS Estrés & Descompresión', desc: 'Respiración 4-6, grounding 5-4-3-2-1 y registro de alternativas.' }
@@ -149,6 +151,7 @@ export default {
           tools: {
             ideas: { title: 'Ideas → Acción', desc: 'Captura rápida, micro-pasos de 5 minutos, temporizador y celebración.' },
             words: { title: 'Palabras del Alma', desc: 'Glosario de palabras hermosas en español y otros idiomas.' },
+            zengarden: { title: 'Jardín Zen & Oráculo', desc: 'Pétalos al viento, cartas de oráculo en 3D y memory del alma.' },
             hobbies: { title: 'Atelier de Arte, Collage & Música', desc: 'Retos creativos y exploración lúdica sin juicio.' }
           }
         },
@@ -160,6 +163,7 @@ export default {
           prompt: '¿Qué susurro del futuro o anhelo silencioso le devuelve la ilusión y la amplitud a tu alma hoy?',
           tools: {
             astral: { title: 'Observatorio Celeste', desc: 'Carta natal de Marie (22.11.2000) y sinastría con Daniel.' },
+            zengarden: { title: 'Jardín Zen & Oráculo', desc: 'Oráculo cósmico, flores flotantes y complicidad mágica.' },
             words: { title: 'Palabras del Alma', desc: 'Tesoros lingüísticos y poéticos con significado profundo.' },
             vision: { title: 'Brújula de Sueños & Rumbo', desc: 'Explorar tus visiones de vida y proyectos que nacen del alma.' },
             letters: { title: 'Cartas al Pasado y al Futuro', desc: 'Escribir mensajes sanadores a tu yo de ayer y de mañana.' }
@@ -211,7 +215,7 @@ export default {
           tools: {
             checkin: { title: 'Compassionate Body Check-in', desc: '5-step emotional scale and guilt-free open inquiries.' },
             bodymap: { title: 'Interactive Body Map', desc: 'Touch each area, register sensations, and breathe.' },
-            doombreaker: { title: 'scrolling?', desc: 'Gently disengage from the feed: physiological sigh or sensory reset.' },
+            doombreaker: { title: 'Scrolling?', desc: 'Gently disengage from the feed: physiological sigh or sensory reset.' },
             ayurveda: { title: 'Vata Balance & Dinacharya', desc: 'Warm infusions, alternate breathing, and evening calm.' },
             massage: { title: 'Partner Massage & Touch', desc: 'Shoulder and foot release with Daniel or as somatic self-care.' }
           }
@@ -223,7 +227,7 @@ export default {
           philosophy: 'Your desire and energy belong solely to you. You owe no one an apology for igniting your fire, honoring your pace, or guarding your space with noble thorns. When stress overwhelms you, find your shield and strength here.',
           prompt: 'Where in your life do you need to set a firm boundary today or give your own fire more breathing room?',
           tools: {
-            doombreaker: { title: 'scrolling?', desc: 'Gently disengage: 3 warm pathways back to yourself.' },
+            doombreaker: { title: 'Scrolling?', desc: 'Gently disengage: 3 warm pathways back to yourself.' },
             sanctuary: { title: 'Intimate Sanctuary (PIN 2211)', desc: 'Fire levels, Fuck-Girl mindset, and safe intimacy.' },
             aura: { title: 'Emotional Aura', desc: 'Colors, shapes, and symbolic energy as a poetic barometer.' },
             stress: { title: 'Acute Stress & SOS Release', desc: '4-6 breathing, 5-4-3-2-1 grounding, and alternative paths.' }
@@ -238,6 +242,7 @@ export default {
           tools: {
             ideas: { title: 'Ideas → Action', desc: 'Fast capture, 5-minute micro-steps, timer, and guilt-free celebration.' },
             words: { title: 'Soul Words & Lexicon', desc: 'Poetic words and expressions in Spanish and other languages.' },
+            zengarden: { title: 'Zen Garden & Oracle', desc: 'Petals in the breeze, 3D oracle cards, and soul memory.' },
             hobbies: { title: 'Art, Collage & Music Studio', desc: 'Playful creative challenges without performance pressure.' }
           }
         },
@@ -249,6 +254,7 @@ export default {
           prompt: 'What quiet dream or future wish brings gentle hope and breadth to your soul today?',
           tools: {
             astral: { title: 'Celestial Observatory', desc: "Marie's natal chart (22 Nov 2000) and synastry with Daniel." },
+            zengarden: { title: 'Zen Garden & Oracle', desc: 'Cosmic oracle, floating petals, and intimate complicity.' },
             words: { title: 'Soul Words & Lexicon', desc: 'Linguistic and poetic treasures with deep resonance.' },
             vision: { title: 'Dreams & Life Direction', desc: 'Capture your heartfelt visions and soulful life projects.' },
             letters: { title: 'Letters to Past & Future', desc: 'Write healing words to your younger and future selves.' }

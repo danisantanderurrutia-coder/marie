@@ -1,21 +1,21 @@
 // src/i18n/modules/doombreaker.js
-// "scrolling?" — gentle circuit breaker for social media trance.
-// DE (intimate 'du'), ES, EN.
+// "Scrolling?" — gentle circuit breaker for social media trance.
+// DE (natural, warm, intimate 'du'), ES, EN.
 
 export default {
   de: {
     hub: {
       cards: {
         doombreaker: {
-          title: 'scrolling?',
-          desc: 'Sanft aus dem Feed auftauchen: Suspiro fisiológico, juego táctil o sentirte viva.'
+          title: 'Scrolling?',
+          desc: 'Sanft aus dem Feed auftauchen: Physiologischer Seufzer, sensorisches Spiel oder lebendige Präsenz.'
         }
       }
     },
     doombreaker: {
-      kicker: 'Unterbrechen ohne Schuldgefühl',
-      title: 'scrolling?',
-      subtitle: 'Der Feed hält dich fest? Keine Vorwürfe. Dein Nervensystem sucht gerade nach etwas. Wähle deinen Weg zurück zu dir:',
+      kicker: 'Innehalten ohne Schuldgefühl',
+      title: 'Scrolling?',
+      subtitle: 'Der Feed hält dich fest? Keine Vorwürfe an dich selbst. Dein Nervensystem hat nur nach Entlastung gesucht. Wähle deinen Weg zurück zu dir:',
       tabs: {
         breathe: '1. Sanftes Auftauchen',
         play: '2. Spiel & Touch',
@@ -23,86 +23,86 @@ export default {
       },
       breathe: {
         step1Title: 'Der physiologische Seufzer',
-        step1Desc: 'Zweimal kurz durch die Nase tief einatmen, dann lang und weich durch den Mund ausatmen. Das senkt deinen Puls sofort.',
-        inhale1: 'Einatmen (Nase)...',
-        inhale2: 'Nochmal nachziehen...',
+        step1Desc: 'Zweimal nacheinander tief durch die Nase einatmen (erst tief, dann noch einen kurzen Atemzug obendrauf), danach langsam und weich durch den Mund ausatmen. Das aktiviert deinen Vagusnerv und senkt den Puls sofort.',
+        inhale1: 'Tief einatmen (Nase)...',
+        inhale2: 'Noch etwas mehr Luft nachziehen...',
         exhale: 'Lang und sanft ausatmen...',
         step2Title: 'Was hat dein Geist gerade gesucht?',
-        step2Prompt: 'Doomscrolling ist keine Willensschwäche. Welches Bedürfnis lag darunter?',
+        step2Prompt: 'Endloses Scrollen ist keine Willensschwäche. Welches Bedürfnis lag darunter?',
         reasons: {
-          tired: { label: 'Erschöpfung', desc: 'Du brauchst echte Erholung, aber der Bildschirm gibt sie nicht.' },
-          dopamine: { label: 'Langeweile & Dopamin', desc: 'Dein Gehirn sehnte sich nach einem einfachen Funken Neugier.' },
-          escape: { label: 'Flucht vor Überforderung', desc: 'Ein Gedanke oder eine Aufgabe fühlte sich zu schwer an.' },
-          lonely: { label: 'Einsamkeit & Verbindung', desc: 'Der Wunsch, Nähe zu spüren und Teil der Welt zu sein.' }
+          tired: { label: 'Echte Erschöpfung', desc: 'Dein Kopf brauchte eine Pause, aber der Bildschirm schenkt keine echte Erholung.' },
+          dopamine: { label: 'Langeweile & Dopamin', desc: 'Dein Gehirn sehnte sich nach einem leichten, mühelosen Funken Neugier.' },
+          escape: { label: 'Flucht vor Überforderung', desc: 'Eine Aufgabe, ein Gedanke oder eine Erwartung fühlte sich zu schwer an.' },
+          lonely: { label: 'Sehnsucht nach Verbindung', desc: 'Der stille Wunsch, Nähe zu spüren und mit der Welt verbunden zu sein.' }
         },
-        validation: 'Es macht vollkommen Sinn. Verurteile dich nicht. Dein Gehirn wollte sich nur schützen.',
+        validation: 'Es macht vollkommen Sinn. Sei ganz zärtlich mit dir. Dein Nervensystem wollte sich nur beschützen.',
         step3Title: 'Das 5-Minuten-Gegenmittel',
         alternatives: [
-          { title: 'Warmer Becher', text: 'Geh in die Küche, trinke langsam ein Glas warmes Wasser oder koche Tee. Spüre die Wärme in den Händen.' },
-          { title: '20-20-20 Blick', text: 'Blicke für 20 Sekunden aus dem Fenster in die Ferne. Lass deine Augenmuskeln weich werden.' },
-          { title: '1 Gedanke kritzeln', text: 'Öffne ein Notizbuch und schreibe ein einziges Wort oder eine chaotische Zeichnung auf.' },
-          { title: 'Körper unter die Decke', text: 'Lege das Handy aufs Regal. Schließe 3 Minuten die Augen und spüre dein Kissen.' }
+          { title: 'Warmer Becher', text: 'Geh in die Küche, trinke langsam ein Glas warmes Wasser oder koche Tee. Spüre die Wärme mit beiden Händen.' },
+          { title: '20-20-20 Blick', text: 'Blicke für 20 Sekunden aus dem Fenster in die weiteste Ferne. Schenke deinen Augenmuskeln Weichheit.' },
+          { title: 'Gedanken-Kritzeln', text: 'Nimm einen Stift und schreibe ein einziges Wort oder ein unordentliches Muster auf Papier.' },
+          { title: 'Decken-Zuflucht', text: 'Lege das Handy beiseite. Schließe 3 Minuten die Augen und spüre dein Kissen oder den Boden unter dir.' }
         ]
       },
       play: {
         bubbleTitle: 'Spannungs-Blasen platzen lassen',
-        bubblePrompt: 'Tippe auf die schwimmenden Gedankenblasen, um den Scroll-Reflex zu unterbrechen:',
-        bubbles: ['FOMO', 'Vergleich', 'Noise', 'Endlos-Feed', 'Druck', 'Autopilot', 'Reizüberflutung'],
-        poppedAll: 'Alle Blasen zerplatzt! Deine Daumen sind wieder frei.',
+        bubblePrompt: 'Tippe auf die schwimmenden Gedankenblasen, um den Scroll-Reflex deiner Daumen zu unterbrechen:',
+        bubbles: ['FOMO', 'Vergleich', 'Reizüberflutung', 'Endlos-Feed', 'Druck', 'Autopilot', 'Lärm'],
+        poppedAll: 'Alle Blasen zerplatzt! Deine Hände und Gedanken sind wieder frei.',
         shakeTitle: '7 Sekunden Hand-Reset',
-        shakeDesc: 'Schüttle deine Hände und Handgelenke kräftig aus, als würdest du Wassertropfen von den Fingern wegschleudern.',
+        shakeDesc: 'Schüttle deine Hände und Handgelenke kräftig aus, als würdest du Wassertropfen von den Fingerspitzen schleudern.',
         shakeButton: '7s Schütteln starten',
-        shakeActive: 'Schütteln... loslassen... ausatmen!',
-        shakeDone: 'Wunderbar gelöst.',
+        shakeActive: 'Schütteln... loslassen... tief ausatmen!',
+        shakeDone: 'Wunderbar gelöst. Deine Finger gehören wieder dir.',
         secretQuestTitle: '30-Sekunden Geheimmission',
-        secretQuestPrompt: 'Zufällige Mission im Raum:',
+        secretQuestPrompt: 'Eine kleine analoge Entdeckungsreise im Raum:',
         quests: [
           'Finde in deinem Zimmer 3 Dinge, die eine samtige oder weiche Oberfläche haben.',
-          'Gehe ans Fenster und finde den am weitesten entfernten Punkt am Horizont.',
-          'Rieche an etwas Angenehmem: Kaffee, Creme, frische Bettwäsche oder Tee.',
-          'Kreise deine Schultern 5 Mal sanft nach hinten und lass den Nacken sinken.'
+          'Gehe ans Fenster und finde den am weitesten entfernten Baum oder Punkt am Himmel.',
+          'Rieche an etwas Angenehmem: frischer Kaffee, deine Lieblingscreme, Bettwäsche oder Tee.',
+          'Kreise deine Schultern 5 Mal sanft nach hinten und lass den Nacken ganz schwer sinken.'
         ],
         questNext: 'Andere Mission würfeln'
       },
       alive: {
         title: 'Nicht Therapie, sondern echtes Leben',
-        subtitle: 'Spüre den Puls deiner Existenz in diesem Moment.',
+        subtitle: 'Spüre den Puls deiner Existenz in diesem Atemzug.',
         prompts: [
           {
             title: 'Die Temperatur deiner Lippen',
-            text: 'Schließe für einen Atemzug die Augen. Spüre den Übergang zwischen deiner Ober- und Unterlippe. Die zarte Wärme, die einfach da ist.'
+            text: 'Schließe für einen Atemzug die Augen. Spüre den zarten Punkt, an dem deine Ober- und Unterlippe aufeinandertreffen. Eine feine Wärme, die immer da ist.'
           },
           {
             title: 'Die 10-Sekunden-Schmetterlingsumarmung',
-            text: 'Kreuze deine Arme über die Brust, lege deine Hände auf die Oberarme und drücke dich selbst sanft und fest. Spüre den Halt.'
+            text: 'Kreuze deine Arme über die Brust, lege deine Hände auf die Oberarme und drücke dich selbst sanft und fest. Atme in deine eigenen Hände.'
           },
           {
             title: 'Kaltes Wasser auf den Handgelenken',
-            text: 'Lass für 10 Sekunden eiskaltes Wasser über deine Innenseite der Handgelenke fließen. Fühle den klaren, elektrisierenden Kitzel der Frische.'
+            text: 'Lass für 10 Sekunden eiskaltes Wasser über die Innenseite deiner Handgelenke fließen. Fühle den klaren, elektrisierenden Kitzel der Frische.'
           },
           {
             title: 'Dein Lieblingslied ohne Bildschirm',
-            text: 'Mache einen Song an, lege das Handy mit dem Display nach unten weg, und tanze oder liege einfach da bis der Bass verklingt.'
+            text: 'Mache einen Song an, lege das Handy mit dem Display nach unten weg, und tanze oder liege einfach da, bis der Bass verklingt.'
           }
         ]
       },
       backToLifeBtn: 'Ich bin wieder da (Zurück im Hier & Jetzt)',
-      recoveredToast: 'Willkommen zurück im echten Moment, Marie. Du hast das wunderbar gemacht.'
+      recoveredToast: 'Willkommen zurück im echten Moment, Marie. Wie schön, dass du da bist.'
     }
   },
   es: {
     hub: {
       cards: {
         doombreaker: {
-          title: 'scrolling?',
+          title: '¿Scrolling?',
           desc: 'Salir suavemente de las redes: suspiro fisiológico, juego táctil o sentirte viva.'
         }
       }
     },
     doombreaker: {
       kicker: 'Pausar sin culpa',
-      title: 'scrolling?',
-      subtitle: '¿El feed te tiene atrapada? Cero reproches. Tu sistema nervioso solo buscaba algo. Elige tu camino para volver a ti:',
+      title: '¿Scrolling?',
+      subtitle: '¿El feed te tiene atrapada? Cero reproches. Tu sistema nervioso solo buscaba alivio. Elige tu camino para volver a ti:',
       tabs: {
         breathe: '1. Resurgir Suave',
         play: '2. Juego & Móvil',
@@ -115,7 +115,7 @@ export default {
         inhale2: 'Un poquito más...',
         exhale: 'Exhala largo y suave...',
         step2Title: '¿Qué estaba buscando tu mente?',
-        step2Prompt: 'El doomscrolling no es falta de voluntad. ¿Qué necesidad había debajo?',
+        step2Prompt: 'El scroll infinito no es falta de voluntad. ¿Qué necesidad había debajo?',
         reasons: {
           tired: { label: 'Cansancio real', desc: 'Necesitabas desconectar, pero la pantalla no nutre ni descansa.' },
           dopamine: { label: 'Aburrimiento & Dopamina', desc: 'Tu cerebro pedía un destello fácil de novedad.' },
@@ -181,14 +181,14 @@ export default {
     hub: {
       cards: {
         doombreaker: {
-          title: 'scrolling?',
+          title: 'Scrolling?',
           desc: 'Gently disengage from social media: physiological sigh, tactile play or feeling alive.'
         }
       }
     },
     doombreaker: {
       kicker: 'Pause without guilt',
-      title: 'scrolling?',
+      title: 'Scrolling?',
       subtitle: 'Caught in the endless feed? No self-blame. Your nervous system is just reaching for relief. Pick your path back to yourself:',
       tabs: {
         breathe: '1. Gentle Resurface',

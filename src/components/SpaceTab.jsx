@@ -128,37 +128,39 @@ export default function SpaceTab({
                 style={{
                   display: 'flex',
                   alignItems: 'center',
-                  padding: '12px 14px',
-                  borderRadius: 14,
+                  padding: '13px 15px',
+                  borderRadius: 16,
                   cursor: 'pointer',
                   textAlign: 'left',
-                  border: '1px solid rgba(255, 255, 255, 0.06)',
-                  background: 'rgba(255, 255, 255, 0.025)',
+                  border: '1px solid rgba(197, 160, 129, 0.24)',
+                  background: '#FFFFFF',
+                  boxShadow: '0 3px 12px rgba(44, 30, 25, 0.04)',
                   transition: 'all 0.2s ease'
                 }}
               >
                 <span 
                   className="hub-icon" 
                   style={{ 
-                    background: `${m.color}1f`, 
+                    background: `${m.color}15`, 
                     color: m.color,
-                    width: 42,
-                    height: 42,
-                    borderRadius: 12,
+                    border: `1.5px solid ${m.color}35`,
+                    width: 44,
+                    height: 44,
+                    borderRadius: 13,
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
                     flexShrink: 0
                   }}
                 >
-                  <Icon size={20} aria-hidden="true" />
+                  <Icon size={21} aria-hidden="true" />
                 </span>
 
-                <span className="hub-text" style={{ flex: 1, minWidth: 0, padding: '0 10px' }}>
-                  <strong style={{ fontSize: 14, color: '#FFF', display: 'block' }}>
+                <span className="hub-text" style={{ flex: 1, minWidth: 0, padding: '0 12px' }}>
+                  <strong style={{ fontSize: 14.5, color: '#241B19', display: 'block', fontWeight: 600 }}>
                     {title}
                   </strong>
-                  <span style={{ fontSize: 11.5, color: '#B0A89C', display: 'block', margin: '2px 0 4px', lineHeight: 1.35 }}>
+                  <span style={{ fontSize: 12, color: '#5C4E48', display: 'block', margin: '2px 0 6px', lineHeight: 1.4 }}>
                     {desc}
                   </span>
 
