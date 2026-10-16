@@ -3,6 +3,7 @@ import { Lock, Unlock, KeyRound, Sparkles, Check, Delete } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { playSoftTap, playUnlockChime } from '../utils/audio';
 import { LOGO_04 } from '../utils/assets';
+import LanguageSwitch from './LanguageSwitch';
 
 export default function AppLock({ soundEnabled, onUnlock }) {
   const { language } = useLanguage();
@@ -115,41 +116,46 @@ export default function AppLock({ soundEnabled, onUnlock }) {
         padding: '20px'
       }}
     >
+      {/* Language Switcher in Entrance Header */}
+      <div style={{ position: 'absolute', top: 18, right: 20, zIndex: 10000 }}>
+        <LanguageSwitch variant="compact" />
+      </div>
+
       <div 
         className="app-lock-card glass-panel"
         style={{
           width: '100%',
-          maxWidth: '380px',
-          background: 'rgba(28, 20, 32, 0.85)',
-          border: '1px solid rgba(216, 74, 88, 0.3)',
-          borderRadius: '24px',
-          padding: '28px 22px',
+          maxWidth: '400px',
+          background: 'rgba(28, 20, 32, 0.88)',
+          border: '1.5px solid rgba(216, 74, 88, 0.35)',
+          borderRadius: '26px',
+          padding: '30px 24px',
           textAlign: 'center',
-          boxShadow: '0 20px 50px rgba(0, 0, 0, 0.6), 0 0 30px rgba(216, 74, 88, 0.15)'
+          boxShadow: '0 25px 60px rgba(0, 0, 0, 0.7), 0 0 35px rgba(216, 74, 88, 0.2)'
         }}
       >
-        {/* Radiant Logo with Aura */}
-        <div style={{ position: 'relative', width: '90px', height: '90px', margin: '0 auto 16px' }}>
+        {/* Radiant Logo with Aura — Grandecito */}
+        <div style={{ position: 'relative', width: '120px', height: '120px', margin: '0 auto 18px' }}>
           <div 
             style={{
               position: 'absolute',
-              inset: '-10px',
+              inset: '-14px',
               borderRadius: '50%',
-              background: 'radial-gradient(circle, rgba(216, 74, 88, 0.4) 0%, rgba(197, 160, 129, 0.2) 60%, transparent 80%)',
-              filter: 'blur(12px)',
-              animation: 'pulse 3s infinite ease-in-out'
+              background: 'radial-gradient(circle, rgba(216, 74, 88, 0.45) 0%, rgba(212, 175, 55, 0.25) 50%, transparent 75%)',
+              filter: 'blur(16px)',
+              animation: 'pulse 3.5s infinite ease-in-out'
             }} 
           />
           <img 
             src={LOGO_04} 
-            alt="Marie Logo" 
+            alt="Marie Emblem" 
             style={{ 
               width: '100%', 
               height: '100%', 
               objectFit: 'contain', 
               position: 'relative', 
               zIndex: 1,
-              filter: 'drop-shadow(0 4px 12px rgba(0,0,0,0.5))' 
+              filter: 'drop-shadow(0 6px 18px rgba(0,0,0,0.6))' 
             }} 
           />
         </div>

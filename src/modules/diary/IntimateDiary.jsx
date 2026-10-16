@@ -19,7 +19,10 @@ import {
   CloudRain,
   Zap,
   Feather,
-  Compass
+  Compass,
+  Disc,
+  Music,
+  ExternalLink
 } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext';
 import { playSoftTap, playSoftChime } from '../../utils/audio';
@@ -37,6 +40,8 @@ export default function IntimateDiary({ onBack, soundEnabled }) {
   const [text, setText] = useState('');
   const [photoData, setPhotoData] = useState(null); // base64 string
   const [photoCaption, setPhotoCaption] = useState('');
+  const [songTrack, setSongTrack] = useState('');
+  const [songFeeling, setSongFeeling] = useState('');
   const [toastMessage, setToastMessage] = useState('');
 
   // Key for localStorage
@@ -52,17 +57,23 @@ export default function IntimateDiary({ onBack, soundEnabled }) {
         setText(parsed.text || '');
         setPhotoData(parsed.photoData || null);
         setPhotoCaption(parsed.photoCaption || '');
+        setSongTrack(parsed.songTrack || '');
+        setSongFeeling(parsed.songFeeling || '');
       } else {
         setMood('calm');
         setText('');
         setPhotoData(null);
         setPhotoCaption('');
+        setSongTrack('');
+        setSongFeeling('');
       }
     } catch (e) {
       setMood('calm');
       setText('');
       setPhotoData(null);
       setPhotoCaption('');
+      setSongTrack('');
+      setSongFeeling('');
     }
   }, [selectedDate, entryKey]);
 
@@ -130,6 +141,8 @@ export default function IntimateDiary({ onBack, soundEnabled }) {
       text,
       photoData,
       photoCaption,
+      songTrack,
+      songFeeling,
       updatedAt: new Date().toISOString()
     };
     try {
@@ -241,11 +254,11 @@ export default function IntimateDiary({ onBack, soundEnabled }) {
           </span>
           {savedDates.includes(selectedDate) ? (
             <span style={{ fontSize: 11.5, color: '#2D6A4F', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 4, fontWeight: 600 }}>
-              <Check size={12} /> Eintrag vorhanden
+              <Check size={12} /> {t('diary.entryExists')}
             </span>
           ) : (
             <span style={{ fontSize: 11.5, color: '#7A6D65' }}>
-              {selectedDate === getTodayStr() ? 'Heute' : 'Kein Eintrag bisher'}
+              {selectedDate === getTodayStr() ? t('diary.todayLabel') : t('diary.noEntryYet')}
             </span>
           )}
         </div>
@@ -403,6 +416,119 @@ export default function IntimateDiary({ onBack, soundEnabled }) {
                 <Trash2 size={14} /> {t('diary.photoRemove')}
               </button>
             </div>
+          </div>
+        )}
+      </div>
+
+      {/* Song of the Day / Canción del Día */}
+      <div 
+        className="mx-card animate-fade-in"
+        style={{
+          marginBottom: 20,
+          padding: '16px',
+          background: '#FFFFFF',
+          border: '1px solid rgba(197, 160, 129, 0.28)',
+          boxShadow: '0 3px 12px rgba(44, 30, 25, 0.04)',
+          borderRadius: 16
+        }}
+      >
+        <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 12 }}>
+          <div 
+            style={{ 
+              width: 32, 
+              height: 32, 
+              borderRadius: '50%', 
+              background: 'linear-gradient(135deg, #241B19 0%, #4A3A34 100%)', 
+              display: 'flex', 
+              alignItems: 'center', 
+              justifyContent: 'center',
+              boxShadow: '0 2px 8px rgba(0,0,0,0.18)',
+              flexShrink: 0
+            }}
+          >
+            <Disc size={17} color="#F2E6D9" />
+          </div>
+          <div style={{ flex: 1 }}>
+            <span className="font-serif" style={{ fontSize: 14.5, color: '#241B19', fontWeight: 650, display: 'block' }}>
+              {t('diary.songSectionTitle')}
+            </span>
+            <span style={{ fontSize: 11.5, color: '#7A6D65' }}>
+              {t('diary.songSectionSubtitle')}
+            </span>
+          </div>
+        </div>
+
+        <div style={{ marginBottom: 10 }}>
+          <label htmlFor="diary-song-track" className="mx-small" style={{ color: '#241B19', fontWeight: 600, display: 'block', marginBottom: 4, fontSize: 12 }}>
+            {t('diary.songTrackLabel')}
+          </label>
+          <input
+            id="diary-song-track"
+            type="text"
+            className="mx-input"
+            placeholder={t('diary.songTrackPlaceholder')}
+            value={songTrack}
+            onChange={(e) => setSongTrack(e.target.value)}
+            style={{
+              width: '100%',
+              fontSize: 13.5,
+              background: '#FAF8F5',
+              color: '#241B19',
+              border: '1px solid rgba(197, 160, 129, 0.35)',
+              borderRadius: 10,
+              padding: '10px 12px'
+            }}
+          />
+        </div>
+
+        <div style={{ marginBottom: songTrack ? 10 : 0 }}>
+          <label htmlFor="diary-song-feeling" className="mx-small" style={{ color: '#241B19', fontWeight: 600, display: 'block', marginBottom: 4, fontSize: 12 }}>
+            {t('diary.songFeelingLabel')}
+          </label>
+          <input
+            id="diary-song-feeling"
+            type="text"
+            className="mx-input"
+            placeholder={t('diary.songFeelingPlaceholder')}
+            value={songFeeling}
+            onChange={(e) => setSongFeeling(e.target.value)}
+            style={{
+              width: '100%',
+              fontSize: 13,
+              background: '#FAF8F5',
+              color: '#241B19',
+              border: '1px solid rgba(197, 160, 129, 0.35)',
+              borderRadius: 10,
+              padding: '9px 12px'
+            }}
+          />
+        </div>
+
+        {songTrack.trim() && (
+          <div style={{ marginTop: 10, display: 'flex', justifyContent: 'flex-end' }}>
+            <a
+              href={`https://open.spotify.com/search/${encodeURIComponent(songTrack.trim())}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mx-btn ghost small"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: 6,
+                color: '#1DB954',
+                borderColor: 'rgba(29, 185, 84, 0.4)',
+                background: 'rgba(29, 185, 84, 0.06)',
+                fontSize: 12,
+                fontWeight: 600,
+                textDecoration: 'none',
+                padding: '6px 12px',
+                borderRadius: 20
+              }}
+            >
+              <Music size={13} />
+              <span>{t('diary.songSpotifySearch')}</span>
+              <ExternalLink size={11} />
+            </a>
           </div>
         )}
       </div>

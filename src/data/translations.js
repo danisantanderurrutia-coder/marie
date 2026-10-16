@@ -115,17 +115,6 @@ export const TRANSLATIONS = {
       }
     },
     
-    // Privacy Shield
-    privacy: {
-      backBtn: 'Return to Marie',
-      docType: 'Botanical & Fine Art Journal',
-      chapter: 'Chapter IV · Renaissance Pigment Treatise',
-      title: 'Light in 17th Century Floral Still Life & Applied Botany',
-      author: 'Personal study notes · Autumn 2026',
-      p1: 'The study of organic composition in classical still-life reveals how the subtle interplay between diffused light and mineral pigments cultivates a reflective atmosphere.',
-      p2: 'By priming raw linen canvas with natural gesso, masters achieved a tactile foundation that softly absorbed burnt sienna and ochres, imparting warmth to shadows.',
-      restoreBtn: 'Restore my private sanctuary'
-    },
     
     // QR Modal
     qrModal: {
@@ -600,17 +589,6 @@ export const TRANSLATIONS = {
       }
     },
     
-    // Privacy Shield
-    privacy: {
-      backBtn: 'Zurück zu Marie',
-      docType: 'Journal für Botanik & Bildende Kunst',
-      chapter: 'Kapitel IV · Traktat über Renaissance-Pigmente',
-      title: 'Das Licht im Stillleben des 17. Jahrhunderts & Angewandte Botanik',
-      author: 'Persönliche Studiennotizen · Herbst 2026',
-      p1: 'Die Untersuchung organischer Bildkompositionen in klassischen Stillleben offenbart das Wechselspiel zwischen diffusem Licht und mineralischen Pigmenten.',
-      p2: 'Durch die Grundierung von Rohleinen mit Naturkalk schufen die Meister eine haptische Basis, die Ocker- und Siena-Erden sanft aufnahm und Schatten Wärme verlieh.',
-      restoreBtn: 'Mein privates Refugium wiederherstellen'
-    },
     
     // QR Modal
     qrModal: {
@@ -1085,17 +1063,6 @@ export const TRANSLATIONS = {
       }
     },
     
-    // Privacy Shield
-    privacy: {
-      backBtn: 'Volver a Marie',
-      docType: 'Lecturas de Arte & Botánica',
-      chapter: 'Capítulo IV · Tratado de Pigmentos',
-      title: 'La Luz en la Pintura Renacentista y la Botánica Aplicada',
-      author: 'Apuntes de estudio personal · Septiembre 2026',
-      p1: 'El estudio de la composición orgánica en las naturalezas muertas del siglo XVII nos muestra cómo la interacción entre la luz difusa y los pigmentos derivados de minerales crea una atmósfera de recogimiento contemplativo.',
-      p2: 'Al preparar la base de lino con gesso natural, los artistas lograban una textura que absorbía los tonos ocres y tierras de siena, permitiendo que las sombras mantuvieran una calidez imperceptible a primera vista pero evidente en la experiencia global.',
-      restoreBtn: 'Restaurar mi espacio privado'
-    },
     
     // QR Modal
     qrModal: {

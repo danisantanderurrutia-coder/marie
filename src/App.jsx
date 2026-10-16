@@ -7,7 +7,6 @@ import SkinBodyTab from './components/SkinBodyTab';
 import HobbiesTab from './components/HobbiesTab';
 import DreamsTab from './components/DreamsTab';
 import ProfileTab from './components/ProfileTab';
-import PrivacyShield from './components/PrivacyShield';
 import QrModal from './components/QrModal';
 import SpaceTab from './components/SpaceTab';
 import SupportSheet from './components/SupportSheet';
@@ -18,13 +17,8 @@ import { getModule } from './modules/registry';
 import './App.css';
 
 export default function App() {
-  const [isAppUnlocked, setIsAppUnlocked] = useState(() => {
-    try {
-      return sessionStorage.getItem('marie_app_authenticated') === 'true';
-    } catch (e) {
-      return false;
-    }
-  });
+  // Always welcome with entrance menu and PIN 2211 on load
+  const [isAppUnlocked, setIsAppUnlocked] = useState(false);
 
   const [activeTab, setActiveTab] = useState('rose'); // 'rose' | 'aura' | 'skin' | 'hobbies' | 'dreams' | 'profile'
   const [currentEnergy, setCurrentEnergy] = useState('serene');
@@ -65,8 +59,8 @@ export default function App() {
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
+
   const [deviceFinish, setDeviceFinish] = useState('desert'); // 'desert' | 'midnight' | 'silver'
-  const [isPrivacyShieldActive, setIsPrivacyShieldActive] = useState(false);
   const [soundEnabled, setSoundEnabled] = useState(true);
   const [isQrModalOpen, setIsQrModalOpen] = useState(false);
   const [activeModule, setActiveModule] = useState(null); // module id inside the 'space' tab
@@ -107,7 +101,7 @@ export default function App() {
       <PhoneFrame
         activeTab={activeTab}
         onSelectTab={selectTab}
-        floating={showSos && !isPrivacyShieldActive && (
+        floating={showSos && (
           <button className="mx-sos" onClick={() => openModule('stress', { sos: true })}>
             <Wind size={18} aria-hidden="true" /> {t('stress.sosButton')}
           </button>
@@ -121,24 +115,20 @@ export default function App() {
         onSelectEnergy={setCurrentEnergy}
         soundEnabled={soundEnabled}
         onToggleSound={() => setSoundEnabled(!soundEnabled)}
-        onTogglePrivacy={() => setIsPrivacyShieldActive(true)}
+        onTogglePrivacy={handleLockApp}
         onLockApp={handleLockApp}
       >
-        {isPrivacyShieldActive ? (
-          <PrivacyShield onDismiss={() => setIsPrivacyShieldActive(false)} />
-        ) : (
-          <>
-            {viewMode === 'phone' && (
-              <Header
-                currentEnergy={currentEnergy}
-                onSelectEnergy={setCurrentEnergy}
-                onTogglePrivacy={() => setIsPrivacyShieldActive(true)}
-                soundEnabled={soundEnabled}
-                onToggleSound={() => setSoundEnabled(!soundEnabled)}
-                onOpenRoseOverview={() => selectTab('rose')}
-                activeTab={activeTab}
-              />
-            )}
+        {viewMode === 'phone' && (
+          <Header
+            currentEnergy={currentEnergy}
+            onSelectEnergy={setCurrentEnergy}
+            onTogglePrivacy={handleLockApp}
+            soundEnabled={soundEnabled}
+            onToggleSound={() => setSoundEnabled(!soundEnabled)}
+            onOpenRoseOverview={() => selectTab('rose')}
+            activeTab={activeTab}
+          />
+        )}
 
             {activeTab === 'rose' && (
               <Landing openModule={openModule} goToTab={selectTab} openSupport={() => setIsSupportOpen(true)} />
@@ -161,8 +151,6 @@ export default function App() {
             {activeTab === 'hobbies' && <HobbiesTab soundEnabled={soundEnabled} />}
             {activeTab === 'dreams' && <DreamsTab soundEnabled={soundEnabled} />}
             {activeTab === 'profile' && <ProfileTab soundEnabled={soundEnabled} openModule={openModule} />}
-          </>
-        )}
       </PhoneFrame>
 
       <SupportSheet open={isSupportOpen} onClose={() => setIsSupportOpen(false)} />
