@@ -6,14 +6,14 @@ export default {
     hub: {
       cards: {
         stress: {
-          title: 'Momentos de Estrés',
+          title: 'Stress-Momente',
           desc: 'Soforthilfe bei Anspannung, 4-Schritte-Reflexion und Muster im Alltag.'
         }
       }
     },
     stress: {
       kicker: 'Stress & Regulation',
-      title: 'Momentos de Estrés',
+      title: 'Stress-Momente',
       lead: 'Wenn der Tag dich überrollt: Erst das Nervensystem beruhigen, dann mit Neugier hinschauen und neue Wege finden.',
       sosButton: 'Ich bin gerade gestresst',
       tabs: {

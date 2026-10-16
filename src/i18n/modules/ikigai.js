@@ -48,7 +48,7 @@ export default {
             doombreaker: { title: 'Scrolling?', desc: 'Sanft aus dem Feed auftauchen: 3 Wege zurück zu dir.' },
             sanctuary: { title: 'Intimer Zufluchtsort (PIN 2211)', desc: 'Feuer-Level, Fuck-Girl-Mindset und geschützte Intimität.' },
             aura: { title: 'Emotionale Aura', desc: 'Farben, Formen und Barometer deines aktuellen Seelenzustands.' },
-            stress: { title: 'Akut-Stress & SOS-Befreiung', desc: 'Respiración 4-6, 5-4-3-2-1 Grounding und Notfall-Ruhe.' }
+            stress: { title: 'Akut-Stress & SOS-Befreiung', desc: '4-6-Atemübung, 5-4-3-2-1-Erdung und Notfall-Ruhe.' }
           }
         },
         create: {
@@ -73,7 +73,7 @@ export default {
           tools: {
             astral: { title: 'Kosmisches Observatorium', desc: 'Maries Geburtshoroskop (22.11.2000) und Sinastrie mit Daniel.' },
             zengarden: { title: 'Zen-Garten & Orakel', desc: 'Kosmisches Orakel, schwebende Blüten und Verbundenheit.' },
-            words: { title: 'Wortschatz der Seele', desc: 'Glosario estético de palabras poéticas en español y otros idiomas.' },
+            words: { title: 'Wortschatz der Seele', desc: 'Ästhetisches Glossar poetischer Wörter auf Spanisch und in weiteren Sprachen.' },
             vision: { title: 'Traum- & Lebenskompass', desc: 'Persönliche Sehnsüchte, Visionen und Seelenreisen festhalten.' },
             letters: { title: 'Briefe an Vergangenheit & Zukunft', desc: 'Worte an dein früheres und zukünftiges Ich schreiben.' }
           }

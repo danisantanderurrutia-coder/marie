@@ -29,7 +29,7 @@ export default function SpaceTab({
   goToTab, 
   openSupport 
 }) {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [message, setMessage] = useState('');
   const [selectedPetalId, setSelectedPetalId] = useState(null); // 'body' | 'fire' | 'create' | 'dreams' | 'me'
 
@@ -177,7 +177,7 @@ export default function SpaceTab({
                             playSoftTap();
                             setSelectedPetalId(petalKey);
                           }}
-                          title={`Zum Blütenblatt: ${p.name}`}
+                          title={language === 'de' ? `Zum Blütenblatt: ${p.name}` : language === 'en' ? `Go to petal: ${p.name}` : `Ir al pétalo: ${p.name}`}
                           style={{
                             fontSize: '8.5px',
                             padding: '1px 5px',

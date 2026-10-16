@@ -21,63 +21,119 @@ const INITIAL_WORDS = [
   {
     id: 'sobremesa',
     word: 'Sobremesa',
-    lang: 'Español',
-    meaning: 'El arte de quedarse charlando alrededor de la mesa después de comer, sin mirar el reloj. El tiempo suspendido entre risas, vino y complicidad.',
-    note: 'El tiempo que no se mide en minutos, sino en miradas compartidas.',
+    lang: { de: 'Spanisch', es: 'Español', en: 'Spanish' },
+    meaning: {
+      de: 'Die Kunst, nach dem Essen gemeinsam am Tisch sitzenzubleiben, ohne auf die Uhr zu schauen. Die Zeit, die zwischen Lachen, Wein und Vertrautheit stillsteht.',
+      es: 'El arte de quedarse charlando alrededor de la mesa después de comer, sin mirar el reloj. El tiempo suspendido entre risas, vino y complicidad.',
+      en: 'The art of lingering around the table long after the meal has ended, conversing without watching the clock. Time suspended in laughter and connection.'
+    },
+    note: {
+      de: 'Zeit, die nicht in Minuten gemessen wird, sondern in geteilten Blicken.',
+      es: 'El tiempo que no se mide en minutos, sino en miradas compartidas.',
+      en: 'Time measured not in minutes, but in shared glances.'
+    },
     favorite: true
   },
   {
     id: 'querencia',
     word: 'Querencia',
-    lang: 'Español',
-    meaning: 'El lugar o la persona donde el alma se siente segura, fuerte y en casa. El rincón al que siempre quieres volver para recobrar el aliento.',
-    note: 'Donde no necesitas fingir nada.',
+    lang: { de: 'Spanisch', es: 'Español', en: 'Spanish' },
+    meaning: {
+      de: 'Der Ort oder der Mensch, bei dem sich die Seele geborgen, stark und zuhause fühlt. Der Zufluchtsort, zu dem man zurückkehrt, um Atem zu schöpfen.',
+      es: 'El lugar o la persona donde el alma se siente segura, fuerte y en casa. El rincón al que siempre quieres volver para recobrar el aliento.',
+      en: 'The sanctuary or person where the soul feels grounded, safe, and truly at home. The haven you return to for deep breath.'
+    },
+    note: {
+      de: 'Wo du dich niemals verstellen musst.',
+      es: 'Donde no necesitas fingir nada.',
+      en: 'Where you never have to pretend.'
+    },
     favorite: true
   },
   {
     id: 'apapachar',
     word: 'Apapachar',
-    lang: 'Español / Náhuatl',
-    meaning: 'Acariciar o abrazar con el alma. Más que un contacto físico, es envolver a alguien con ternura pura.',
-    note: 'Un abrazo que cura el cansancio invisible.',
+    lang: { de: 'Spanisch / Náhuatl', es: 'Español / Náhuatl', en: 'Spanish / Nahuatl' },
+    meaning: {
+      de: 'Mit der Seele liebkosen oder umarmen. Mehr als bloße Berührung: jemanden mit reiner, wärmender Zärtlichkeit umhüllen.',
+      es: 'Acariciar o abrazar con el alma. Más que un contacto físico, es envolver a alguien con ternura pura.',
+      en: 'To caress or embrace with the soul. A tender gesture that transcends physical touch.'
+    },
+    note: {
+      de: 'Eine Umarmung, die unsichtbare Müdigkeit heilt.',
+      es: 'Un abrazo que cura el cansancio invisible.',
+      en: 'An embrace that gently heals unseen fatigue.'
+    },
     favorite: false
   },
   {
     id: 'saudade',
     word: 'Saudade',
-    lang: 'Português',
-    meaning: 'La presencia viva de una ausencia amada. Una nostalgia dulce que no duele con amargura, sino con gratitud por lo vivido.',
-    note: 'Sentir cerca lo que está lejos en el mapa.',
+    lang: { de: 'Portugiesisch', es: 'Português', en: 'Portuguese' },
+    meaning: {
+      de: 'Die lebendige Anwesenheit einer geliebten Abwesenheit. Eine sanfte Wehmut voller Dankbarkeit für das gemeinsam Erlebte.',
+      es: 'La presencia viva de una ausencia amada. Una nostalgia dulce que no duele con amargura, sino con gratitud por lo vivido.',
+      en: 'The bittersweet presence of a beloved absence. A gentle longing filled with gratitude.'
+    },
+    note: {
+      de: 'Nahe spüren, was auf der Landkarte fern ist.',
+      es: 'Sentir cerca lo que está lejos en el mapa.',
+      en: 'Feeling close what is physically far away.'
+    },
     favorite: false
   },
   {
     id: 'geborgenheit',
     word: 'Geborgenheit',
-    lang: 'Deutsch',
-    meaning: 'Das unaussprechliche Gefühl von vollkommenem Schutz, innerer Wärme, Geborgen-Sein und tiefem Vertrauen.',
-    note: 'Zuhause im eigenen Herzen und in den Armen des anderen.',
+    lang: { de: 'Deutsch', es: 'Alemán', en: 'German' },
+    meaning: {
+      de: 'Das unaussprechliche Gefühl von vollkommenem Schutz, innerer Wärme, Geborgen-Sein und tiefem Vertrauen.',
+      es: 'El sentimiento inefable de total protección, calor interior, estar a salvo y en profunda confianza.',
+      en: 'The profound feeling of complete protection, inner warmth, feeling sheltered, and deep trust.'
+    },
+    note: {
+      de: 'Zuhause im eigenen Herzen und in den Armen des anderen.',
+      es: 'En casa en el propio corazón y en los brazos del otro.',
+      en: 'At home within your own heart and in the arms of the other.'
+    },
     favorite: true
   },
   {
     id: 'duende',
     word: 'Duende',
-    lang: 'Español (Andalucía)',
-    meaning: 'Ese misterioso hechizo que eriza la piel cuando el arte, la música o una mirada son absolutamente auténticos y desgarradores.',
-    note: 'La chispa inexplicable que no se puede fabricar con la mente.',
+    lang: { de: 'Spanisch (Andalusien)', es: 'Español (Andalucía)', en: 'Spanish (Andalusia)' },
+    meaning: {
+      de: 'Jener geheimnisvolle Zauber, der Gänsehaut weckt, wenn Kunst, Musik oder ein Blick vollkommen echt und ergreifend sind.',
+      es: 'Ese misterioso hechizo que eriza la piel cuando el arte, la música o una mirada son absolutamente auténticos y desgarradores.',
+      en: 'That mysterious, haunting spark of soul and authentic emotion that raises goosebumps.'
+    },
+    note: {
+      de: 'Der unerklärliche Funke, den der Verstand nicht fabrizieren kann.',
+      es: 'La chispa inexplicable que no se puede fabricar con la mente.',
+      en: 'The inexplicable spark the mind can never artificially engineer.'
+    },
     favorite: false
   },
   {
     id: 'meraki',
     word: 'Meraki',
-    lang: 'Griego (Μεράκι)',
-    meaning: 'Poner el alma, la creatividad y un pedacito de tu propio amor en cualquier cosa que hagas, por pequeña que sea.',
-    note: 'Hacer las cosas con devoción silenciosa.',
+    lang: { de: 'Griechisch (Μεράκι)', es: 'Griego (Μεράκι)', en: 'Greek (Μεράκι)' },
+    meaning: {
+      de: 'Seele, Kreativität und ein Stück des eigenen Herzens in alles legen, was man tut – wie klein es auch sein mag.',
+      es: 'Poner el alma, la creatividad y un pedacito de tu propio amor en cualquier cosa que hagas, por pequeña que sea.',
+      en: 'To put your soul, creativity, and love into whatever you do, no matter how small.'
+    },
+    note: {
+      de: 'Die Dinge mit stiller Hingabe tun.',
+      es: 'Hacer las cosas con devoción silenciosa.',
+      en: 'Doing things with quiet, radiant devotion.'
+    },
     favorite: false
   }
 ];
 
 export default function SoulWords({ onBack, soundEnabled }) {
-  const { t } = useLanguage();
+  const { language, t } = useLanguage();
   const [filter, setFilter] = useState('all'); // 'all' | 'spanish' | 'others' | 'favs'
   const [showModal, setShowModal] = useState(false);
   const [toastMessage, setToastMessage] = useState('');
@@ -148,8 +204,10 @@ export default function SoulWords({ onBack, soundEnabled }) {
 
   // Filter words
   const filteredWords = words.filter(w => {
-    if (filter === 'spanish') return w.lang.toLowerCase().includes('español');
-    if (filter === 'others') return !w.lang.toLowerCase().includes('español');
+    const langStr = (w.lang || '').toLowerCase();
+    const isSpanishWord = langStr.includes('español') || langStr.includes('spanisch') || langStr.includes('spanish');
+    if (filter === 'spanish') return isSpanishWord;
+    if (filter === 'others') return !isSpanishWord;
     if (filter === 'favs') return w.favorite;
     return true;
   });
@@ -257,7 +315,7 @@ export default function SoulWords({ onBack, soundEnabled }) {
                     fontWeight: 650
                   }}
                 >
-                  {item.lang}
+                  {typeof item.lang === 'object' ? (item.lang[language] || item.lang.es || item.lang.de) : item.lang}
                 </span>
               </div>
 
@@ -305,7 +363,7 @@ export default function SoulWords({ onBack, soundEnabled }) {
                 fontStyle: 'normal'
               }}
             >
-              {item.meaning}
+              {typeof item.meaning === 'object' ? (item.meaning[language] || item.meaning.es || item.meaning.de) : item.meaning}
             </p>
 
             {/* Personal Note */}
@@ -324,7 +382,7 @@ export default function SoulWords({ onBack, soundEnabled }) {
                 }}
               >
                 <Sparkles size={12} style={{ color: '#D84A58', flexShrink: 0 }} />
-                <span>{item.note}</span>
+                <span>{typeof item.note === 'object' ? (item.note[language] || item.note.es || item.note.de) : item.note}</span>
               </div>
             )}
           </div>

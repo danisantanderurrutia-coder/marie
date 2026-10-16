@@ -306,7 +306,7 @@ export const TRANSLATIONS = {
       categoriesTitle: 'Filter by Dimension',
       filterAll: 'All Words',
       filterFavorites: '⭐ My Favorites',
-      showGermanToggle: 'DE Original',
+      showGermanToggle: 'German Original',
       showTranslationToggle: 'Show Translation',
       addNewWord: 'Write my own affirmation',
       edit: 'Edit',
@@ -1217,7 +1217,7 @@ export const TRANSLATIONS = {
       subtabs: {
         board: 'Vision Board',
         letter: 'Carta a mi Yo Futuro',
-        selfLove: 'Worte der Selbstliebe',
+        selfLove: 'Palabras de Amor Propio',
         wonders: 'Descubrimientos & Sorpresas'
       },
       board: {
@@ -1246,7 +1246,7 @@ export const TRANSLATIONS = {
 
     // Words of Self-Love (Palabras de Amor Propio / Worte der Selbstliebe)
     selfLove: {
-      tag: 'Selbstwert & Grenzen',
+      tag: 'Autoestima & Límites',
       title: 'Palabras de Amor Propio',
       subtitle: 'Afirmaciones poéticas en alemán, español e inglés para honrar tu soberanía, límites inquebrantables y valor propio.',
       dailyOracleTitle: 'Oráculo del Día para Marie',
@@ -1254,7 +1254,7 @@ export const TRANSLATIONS = {
       categoriesTitle: 'Filtrar por Dimensión',
       filterAll: 'Todas las Palabras',
       filterFavorites: '⭐ Mis Favoritas',
-      showGermanToggle: 'DE Original',
+      showGermanToggle: 'Original en Alemán',
       showTranslationToggle: 'Ver Traducción',
       addNewWord: 'Escribir mi propia afirmación',
       edit: 'Editar',

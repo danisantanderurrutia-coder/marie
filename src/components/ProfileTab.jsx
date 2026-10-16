@@ -200,14 +200,30 @@ export default function ProfileTab({ soundEnabled, openModule }) {
     }
   ];
 
-  const questionsList = t.questions || [
-    '¿Qué necesitó hoy tu cuerpo y de qué manera pudiste escucharlo o cuidarlo?',
-    '¿Qué pequeña victoria o instante de disfrute viviste hoy sin culpa alguna?',
-    '¿Qué límite pusiste hoy para cuidar tu paz mental o tu espacio?',
-    '¿En qué momento del día te sentiste más genuinamente tú misma?',
-    'Si te miraras hoy con los ojos de quien más te ama y admira, ¿qué verías?',
-    '¿Qué te gustaría soltar o dejar ir antes de cerrar este día?'
-  ];
+  const questionsList = t.questions || (
+    language === 'de' ? [
+      'Was brauchte dein Körper heute und wie konntest du ihm lauschen?',
+      'Welchen kleinen Moment der Freude hast du heute ganz ohne Schuldgefühle genossen?',
+      'Welche Grenze hast du heute gesetzt, um deine Ruhe und Zeit zu wahren?',
+      'In welchem Augenblick warst du heute am authentischsten du selbst?',
+      'Wenn du dich mit den Augen deines liebevollsten Begleiters sähest, was würdest du sehen?',
+      'Was möchtest du loslassen, bevor du heute die Augen schließt?'
+    ] : language === 'en' ? [
+      'What did your body need today and how did you listen to it?',
+      'What small moment of joy did you enjoy today without any guilt?',
+      'What boundary did you set today to protect your peace and time?',
+      'In what moment today did you feel most genuinely yourself?',
+      'If you looked at yourself through the eyes of the one who loves you most, what would you see?',
+      'What would you like to let go of before closing your eyes tonight?'
+    ] : [
+      '¿Qué necesitó hoy tu cuerpo y de qué manera pudiste escucharlo o cuidarlo?',
+      '¿Qué pequeña victoria o instante de disfrute viviste hoy sin culpa alguna?',
+      '¿Qué límite pusiste hoy para cuidar tu paz mental o tu espacio?',
+      '¿En qué momento del día te sentiste más genuinamente tú misma?',
+      'Si te miraras hoy con los ojos de quien más te ama y admira, ¿qué verías?',
+      '¿Qué te gustaría soltar o dejar ir antes de cerrar este día?'
+    ]
+  );
 
 
   // Daily multidimensional test state
@@ -541,8 +557,8 @@ export default function ProfileTab({ soundEnabled, openModule }) {
         <div className="profile-section-block animate-fade-in">
           <div className="section-header-row">
             <div>
-              <h3 className="section-title font-serif">{t.heroTitle || 'Barómetro de Autodescubrimiento'}</h3>
-              <p className="section-subtitle">{t.heroSub || '¿Cómo se siente Marie hoy en cada una de sus dimensiones?'}</p>
+              <h3 className="section-title font-serif">{t.heroTitle || (language === 'de' ? 'Lebendige Essenz & 5D-Entwicklung' : language === 'en' ? 'Living Essence & 5D Evolution' : 'Esencia Viva & Evolución 5D')}</h3>
+              <p className="section-subtitle">{t.heroSub || (language === 'de' ? 'Deine Balance über die 5 Dimensionen deines Seins ohne jede Verurteilung.' : language === 'en' ? 'Your balance across all 5 dimensions without any judgment.' : 'Tu balance en las 5 dimensiones de tu ser sin juicio alguno.')}</p>
             </div>
             <div className="today-badge">
               <Calendar size={13} />
@@ -600,11 +616,11 @@ export default function ProfileTab({ soundEnabled, openModule }) {
             <div className="question-header">
               <div className="q-badge">
                 <Heart size={13} color="#D84A58" />
-                <span>{t.questionsTitle || 'Pregunta para Conocerme Mejor'}</span>
+                <span>{t.questionsTitle || (language === 'de' ? 'Spiegel der Selbsterkenntnis' : language === 'en' ? 'Mirror of Self-Discovery' : 'Pregunta para Conocerme Mejor')}</span>
               </div>
-              <button className="q-shuffle-btn" onClick={handleNextQuestion} title="Otra pregunta">
+              <button className="q-shuffle-btn" onClick={handleNextQuestion} title={language === 'de' ? 'Anderer Impuls' : language === 'en' ? 'Another prompt' : 'Otra pregunta'}>
                 <RefreshCw size={13} />
-                <span>{t.nextQuestionBtn || 'Cambiar'}</span>
+                <span>{t.nextQuestionBtn || (language === 'de' ? 'Anderer Impuls' : language === 'en' ? 'Another prompt' : 'Cambiar')}</span>
               </button>
             </div>
 
@@ -616,7 +632,7 @@ export default function ProfileTab({ soundEnabled, openModule }) {
               className="question-response-area"
               value={reflectionAnswer}
               onChange={(e) => setReflectionAnswer(e.target.value)}
-              placeholder={t.reflectionPlaceholder || 'Escribe lo que sientas aquí... Sin juicios ni prisas.'}
+              placeholder={t.reflectionPlaceholder || (language === 'de' ? 'Schreibe auf, was dein Herz heute bewegt...' : language === 'en' ? 'Write whatever rests in your heart today...' : 'Escribe lo que sientas aquí... Sin juicios ni prisas.')}
               rows={3}
             />
           </div>
@@ -629,12 +645,12 @@ export default function ProfileTab({ soundEnabled, openModule }) {
             {isSavedToday ? (
               <>
                 <Check size={18} />
-                <span>{t.savedToast || '¡Guardado en tu evolución personal!'}</span>
+                <span>{t.savedToast || (language === 'de' ? 'In deiner Chronik festgehalten!' : language === 'en' ? 'Saved to your personal evolution!' : '¡Guardado en tu evolución personal!')}</span>
               </>
             ) : (
               <>
                 <Save size={18} />
-                <span>{t.saveBarometerBtn || 'Registrar día en mi Evolución'}</span>
+                <span>{t.saveBarometerBtn || (language === 'de' ? 'In meiner Chronik bewahren' : language === 'en' ? 'Record day in my evolution' : 'Registrar día en mi Evolución')}</span>
               </>
             )}
           </button>

@@ -417,13 +417,17 @@ export default function Stress({ onBack, soundEnabled, intent, openSupport }) {
                 {log.items.slice(0, 8).map((item) => (
                   <li key={item.id} className="mx-card soft">
                     <div className="mx-row" style={{ justifyContent: 'space-between' }}>
-                      <strong>{item.situation || 'Momento de estrés'}</strong>
+                      <strong>{item.situation || (language === 'de' ? 'Stress-Moment' : language === 'en' ? 'Stressful moment' : 'Momento de estrés')}</strong>
                       <span className="mx-small">
                         {new Date(item.at).toLocaleDateString(language, { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' })}
                       </span>
                     </div>
 
-                    {item.thought && <p className="mx-small" style={{ marginTop: 4 }}><strong>Pensamiento:</strong> "{item.thought}"</p>}
+                    {item.thought && (
+                      <p className="mx-small" style={{ marginTop: 4 }}>
+                        <strong>{language === 'de' ? 'Gedanke:' : language === 'en' ? 'Thought:' : 'Pensamiento:'}</strong> "{item.thought}"
+                      </p>
+                    )}
                     
                     {item.emotions?.length > 0 && (
                       <p className="mx-small" style={{ color: 'var(--accent-wine)', marginTop: 2 }}>

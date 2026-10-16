@@ -237,18 +237,18 @@ export default function SelfLoveSection({ soundEnabled }) {
                 title={showGermanOriginal ? t.showTranslationToggle : t.showGermanToggle}
               >
                 <Globe size={13} />
-                <span>{showGermanOriginal ? 'DE Original ✓' : 'DE Original'}</span>
+                <span>{showGermanOriginal ? (language === 'de' ? 'Original ✓' : language === 'en' ? 'German Original ✓' : 'Original en Alemán ✓') : (language === 'de' ? 'Original' : language === 'en' ? 'German Original' : 'Original en Alemán')}</span>
               </button>
             )}
             <button className="add-affirmation-pill-btn" onClick={handleOpenAdd}>
               <Plus size={14} />
-              <span>{t.addNewWord || 'Escribir afirmación'}</span>
+              <span>{t.addNewWord || (language === 'de' ? 'Eigene Affirmation' : language === 'en' ? 'Write affirmation' : 'Escribir afirmación')}</span>
             </button>
           </div>
         </div>
-        <h3 className="self-love-title font-serif">{t.title || 'Worte der Selbstliebe'}</h3>
+        <h3 className="self-love-title font-serif">{t.title || (language === 'de' ? 'Worte der Selbstliebe' : language === 'en' ? 'Words of Self-Love' : 'Palabras de Amor Propio')}</h3>
         <p className="self-love-sub">
-          {t.subtitle || 'Afirmaciones poéticas para honrar tu soberanía, descansar en tu verdad y recordar quién eres.'}
+          {t.subtitle || (language === 'de' ? 'Poetische Affirmationen auf Deutsch, Spanisch und Englisch, um deine Souveränität, Grenzen und deinen unerschütterlichen Wert zu ehren.' : language === 'en' ? 'Poetic reminders in German, Spanish & English to honor your sovereignty, boundaries, and intrinsic worth.' : 'Afirmaciones poéticas para honrar tu soberanía, descansar en tu verdad y recordar quién eres.')}
         </p>
       </div>
 
@@ -259,7 +259,7 @@ export default function SelfLoveSection({ soundEnabled }) {
           <div className="daily-oracle-header">
             <div className="daily-oracle-badge-group">
               <span className="oracle-kicker-pill">
-                <Sparkles size={12} /> {t.dailyOracleTitle || 'Oráculo del Día para Marie'}
+                <Sparkles size={12} /> {t.dailyOracleTitle || (language === 'de' ? 'Heutiges Orakel für Marie' : language === 'en' ? 'Today’s Oracle for Marie' : 'Oráculo del Día para Marie')}
               </span>
               <span className="oracle-cat-pill">{dailyWord.badge}</span>
             </div>
@@ -366,8 +366,8 @@ export default function SelfLoveSection({ soundEnabled }) {
             <Sparkles size={24} className="empty-sparkle-icon" />
             <p className="empty-text font-serif">
               {selectedCategory === 'favorites'
-                ? t.emptyFavorites || 'Aún no tienes afirmaciones marcadas como favoritas. Toca el corazón 🤍 en cualquiera de ellas.'
-                : t.emptyList || 'No hay afirmaciones en esta categoría.'}
+                ? t.emptyFavorites || (language === 'de' ? 'Noch keine Favoriten markiert. Tippe auf das Herz 🤍 bei einer Karte.' : language === 'en' ? 'No favorites marked yet. Tap the heart 🤍 on any card.' : 'Aún no tienes afirmaciones marcadas como favoritas. Toca el corazón 🤍 en cualquiera de ellas.')
+                : t.emptyList || (language === 'de' ? 'Keine Affirmationen in dieser Auswahl.' : language === 'en' ? 'No affirmations in this category.' : 'No hay afirmaciones en esta categoría.')}
             </p>
           </div>
         ) : (
@@ -381,21 +381,21 @@ export default function SelfLoveSection({ soundEnabled }) {
                     <button
                       className={`card-action-btn fav-btn ${item.favorite ? 'is-fav' : ''}`}
                       onClick={() => handleToggleFavorite(item.id)}
-                      title="Favorito"
+                      title={language === 'de' ? 'Favorit' : language === 'en' ? 'Favorite' : 'Favorito'}
                     >
                       <Heart size={14} fill={item.favorite ? 'currentColor' : 'none'} />
                     </button>
                     <button
                       className="card-action-btn edit-btn"
                       onClick={() => handleOpenEdit(item)}
-                      title={t.edit || 'Editar'}
+                      title={t.edit || (language === 'de' ? 'Bearbeiten' : language === 'en' ? 'Edit' : 'Editar')}
                     >
                       <Edit3 size={14} />
                     </button>
                     <button
                       className="card-action-btn delete-btn"
                       onClick={() => setDeleteConfirmId(item.id)}
-                      title={t.delete || 'Eliminar'}
+                      title={t.delete || (language === 'de' ? 'Löschen' : language === 'en' ? 'Delete' : 'Eliminar')}
                     >
                       <Trash2 size={14} />
                     </button>
@@ -404,13 +404,13 @@ export default function SelfLoveSection({ soundEnabled }) {
 
                 {deleteConfirmId === item.id ? (
                   <div className="delete-confirm-box animate-fade-in">
-                    <p className="delete-confirm-text">{t.confirmDelete || '¿Eliminar afirmación?'}</p>
+                    <p className="delete-confirm-text">{t.confirmDelete || (language === 'de' ? 'Möchtest du diese Affirmation wirklich entfernen?' : language === 'en' ? 'Are you sure you want to remove this affirmation?' : '¿Eliminar afirmación?')}</p>
                     <div className="delete-confirm-actions">
                       <button className="delete-yes-btn" onClick={() => handleDeleteWord(item.id)}>
-                        {t.delete || 'Eliminar'}
+                        {t.delete || (language === 'de' ? 'Löschen' : language === 'en' ? 'Delete' : 'Eliminar')}
                       </button>
                       <button className="delete-no-btn" onClick={() => setDeleteConfirmId(null)}>
-                        {t.cancel || 'Cancelar'}
+                        {t.cancel || (language === 'de' ? 'Abbrechen' : language === 'en' ? 'Cancel' : 'Cancelar')}
                       </button>
                     </div>
                   </div>
@@ -462,25 +462,25 @@ export default function SelfLoveSection({ soundEnabled }) {
             <form onSubmit={handleSubmitModal} className="modal-form">
               <div className="form-group-row">
                 <div className="form-field half">
-                  <label className="field-label">{t.categoryLabel || 'Categoría'}</label>
+                  <label className="field-label">{t.categoryLabel || (language === 'de' ? 'Kategorie' : language === 'en' ? 'Category' : 'Categoría')}</label>
                   <select
                     className="modal-select"
                     value={formCategory}
                     onChange={(e) => setFormCategory(e.target.value)}
                   >
-                    <option value="worth">👑 {t.categories?.worth || 'Selbstwert & Grenzen'}</option>
-                    <option value="softness">🌿 {t.categories?.softness || 'Sanftheit & Ruhe'}</option>
-                    <option value="body">🌹 {t.categories?.body || 'Körperliebe & Tempel'}</option>
-                    <option value="freedom">🔥 {t.categories?.freedom || 'Souveränität & Entfaltung'}</option>
+                    <option value="worth">👑 {t.categories?.worth || (language === 'de' ? 'Selbstwert & Grenzen' : language === 'en' ? 'Self-Worth & Boundaries' : 'Valor Propio & Límites')}</option>
+                    <option value="softness">🌿 {t.categories?.softness || (language === 'de' ? 'Sanftheit & Ruhe' : language === 'en' ? 'Softness & Stillness' : 'Ternura & Calma')}</option>
+                    <option value="body">🌹 {t.categories?.body || (language === 'de' ? 'Körperliebe & Tempel' : language === 'en' ? 'Body Love & Temple' : 'Amor Corporal & Templo')}</option>
+                    <option value="freedom">🔥 {t.categories?.freedom || (language === 'de' ? 'Souveränität & Entfaltung' : language === 'en' ? 'Sovereignty & Freedom' : 'Soberanía & Libertad')}</option>
                   </select>
                 </div>
 
                 <div className="form-field half">
-                  <label className="field-label">{t.badgeLabel || 'Distintivo / Emoji'}</label>
+                  <label className="field-label">{t.badgeLabel || (language === 'de' ? 'Symbol / Abzeichen' : language === 'en' ? 'Badge / Emoji' : 'Distintivo / Emoji')}</label>
                   <input
                     type="text"
                     className="modal-input"
-                    placeholder="👑 Grenzen, 🌿 Ruhe, ✨ Kraft..."
+                    placeholder={language === 'de' ? '👑 Grenzen, 🌿 Ruhe, ✨ Kraft...' : language === 'en' ? '👑 Boundaries, 🌿 Calm, ✨ Power...' : '👑 Límites, 🌿 Calma, ✨ Fuerza...'}
                     value={formBadge}
                     onChange={(e) => setFormBadge(e.target.value)}
                   />
@@ -489,9 +489,13 @@ export default function SelfLoveSection({ soundEnabled }) {
 
               {/* German (Original) */}
               <div className="language-fieldset de-fieldset">
-                <span className="fieldset-badge">🇩🇪 Deutsch (Original)</span>
+                <span className="fieldset-badge">
+                  {language === 'de' ? '🇩🇪 Deutsch (Original)' : language === 'en' ? '🇩🇪 German (Original)' : '🇩🇪 Alemán (Original)'}
+                </span>
                 <div className="form-field">
-                  <label className="field-label">{t.germanTextLabel || 'Deutscher Text'}</label>
+                  <label className="field-label">
+                    {t.germanTextLabel || (language === 'de' ? 'Deutscher Text' : language === 'en' ? 'German Text' : 'Texto en Alemán')}
+                  </label>
                   <textarea
                     className="modal-textarea"
                     rows={2}
@@ -501,7 +505,9 @@ export default function SelfLoveSection({ soundEnabled }) {
                   />
                 </div>
                 <div className="form-field">
-                  <label className="field-label">{t.germanMantraLabel || 'Deutsches Mantra'}</label>
+                  <label className="field-label">
+                    {t.germanMantraLabel || (language === 'de' ? 'Deutsches Mantra' : language === 'en' ? 'German Mantra' : 'Mantra en Alemán')}
+                  </label>
                   <input
                     type="text"
                     className="modal-input"
@@ -514,23 +520,29 @@ export default function SelfLoveSection({ soundEnabled }) {
 
               {/* Spanish Translation */}
               <div className="language-fieldset es-fieldset">
-                <span className="fieldset-badge">🇪🇸 Español</span>
+                <span className="fieldset-badge">
+                  {language === 'de' ? '🇪🇸 Spanisch (Übersetzung)' : language === 'en' ? '🇪🇸 Spanish (Translation)' : '🇪🇸 Español (Traducción)'}
+                </span>
                 <div className="form-field">
-                  <label className="field-label">{t.spanishTextLabel || 'Traducción al Español'}</label>
+                  <label className="field-label">
+                    {t.spanishTextLabel || (language === 'de' ? 'Spanische Übersetzung' : language === 'en' ? 'Spanish Translation' : 'Traducción al Español')}
+                  </label>
                   <textarea
                     className="modal-textarea"
                     rows={2}
-                    placeholder="Mi valor no es negociable..."
+                    placeholder={language === 'de' ? 'Mein Wert ist nicht verhandelbar...' : language === 'en' ? 'My worth is non-negotiable...' : 'Mi valor no es negociable...'}
                     value={formEsText}
                     onChange={(e) => setFormEsText(e.target.value)}
                   />
                 </div>
                 <div className="form-field">
-                  <label className="field-label">{t.spanishMantraLabel || 'Mantra en Español'}</label>
+                  <label className="field-label">
+                    {t.spanishMantraLabel || (language === 'de' ? 'Spanisches Mantra' : language === 'en' ? 'Spanish Mantra' : 'Mantra en Español')}
+                  </label>
                   <input
                     type="text"
                     className="modal-input"
-                    placeholder="Soy suficiente, justo aquí, justo ahora."
+                    placeholder={language === 'de' ? 'Ich bin genug, genau hier, genau jetzt.' : language === 'en' ? 'I am enough, right here, right now.' : 'Soy suficiente, justo aquí, justo ahora.'}
                     value={formEsMantra}
                     onChange={(e) => setFormEsMantra(e.target.value)}
                   />

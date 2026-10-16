@@ -36,25 +36,25 @@ export default function SkinBodyTab({ soundEnabled, openModule }) {
 
   // Skin & Cycle state
   const skinStates = t.states || [
-    { id: 'calm', label: 'Calmada', emoji: '🌿', desc: 'Sin rojeces notorias, en paz' },
-    { id: 'radiant', label: 'Radiante', emoji: '✨', desc: 'Luminosa, hidratada y fresca' },
-    { id: 'sensitive', label: 'Sensible', emoji: '🌸', desc: 'Un poco reactiva o tirante' },
-    { id: 'breakout', label: 'Brote activo', emoji: '❤️', desc: 'Inflamación o granitos pidiendo mimo' },
-    { id: 'healing', label: 'Sanando', emoji: '🌱', desc: 'En proceso de regeneración' }
+    { id: 'calm', label: language === 'de' ? 'Ruhig' : language === 'en' ? 'Calm' : 'Calmada', emoji: '🌿', desc: language === 'de' ? 'Keine Rötungen, geschmeidig und entspannt' : language === 'en' ? 'Smooth, balanced, at peace' : 'Sin rojeces notorias, en paz' },
+    { id: 'radiant', label: language === 'de' ? 'Strahlend' : language === 'en' ? 'Radiant' : 'Radiante', emoji: '✨', desc: language === 'de' ? 'Leuchtend, durchfeuchtet und frisch' : language === 'en' ? 'Luminous, hydrated, and fresh' : 'Luminosa, hidratada y fresca' },
+    { id: 'sensitive', label: language === 'de' ? 'Sensibel' : language === 'en' ? 'Sensitive' : 'Sensible', emoji: '🌸', desc: language === 'de' ? 'Leicht reaktiv, spannend oder warm' : language === 'en' ? 'A bit reactive or tight' : 'Un poco reactiva o tirante' },
+    { id: 'breakout', label: language === 'de' ? 'Unruhig' : language === 'en' ? 'Breakout' : 'Brote activo', emoji: '❤️', desc: language === 'de' ? 'Entzündungen, die nach zarter Pflege verlangen' : language === 'en' ? 'Inflammation asking for gentle care' : 'Inflamación o granitos pidiendo mimo' },
+    { id: 'healing', label: language === 'de' ? 'Regenerierend' : language === 'en' ? 'Healing' : 'Sanando', emoji: '🌱', desc: language === 'de' ? 'Im Heilungsprozess, ruhend' : language === 'en' ? 'Regenerating and resting' : 'En proceso de regeneración' }
   ];
 
   const cyclePhases = t.cyclePhases || [
-    { id: 'follicular', label: 'Folicular', sub: 'Piel más fresca y luminosa' },
-    { id: 'ovulatory', label: 'Ovulación', sub: 'Pico de energía y brillo' },
-    { id: 'luteal', label: 'Fase Lútea', sub: 'Mayor sensibilidad al sebo/poros' },
-    { id: 'menstrual', label: 'Menstrual', sub: 'Pide hidratación y calma' }
+    { id: 'follicular', label: language === 'de' ? 'Follikelphase' : language === 'en' ? 'Follicular' : 'Folicular', sub: language === 'de' ? 'Frischere Haut & steigende Feuchtigkeit' : language === 'en' ? 'Fresher, glowing skin' : 'Piel más fresca y luminosa' },
+    { id: 'ovulatory', label: language === 'de' ? 'Eisprung' : language === 'en' ? 'Ovulation' : 'Ovulación', sub: language === 'de' ? 'Höhepunkt an Ausstrahlung und Glow' : language === 'en' ? 'Peak glow and vitality' : 'Pico de energía y brillo' },
+    { id: 'luteal', label: language === 'de' ? 'Lutealphase' : language === 'en' ? 'Luteal' : 'Fase Lútea', sub: language === 'de' ? 'Höhere Talg- und Porensensibilität' : language === 'en' ? 'Higher sensitivity and sebum' : 'Mayor sensibilidad al sebo/poros' },
+    { id: 'menstrual', label: language === 'de' ? 'Menstruation' : language === 'en' ? 'Menstrual' : 'Menstrual', sub: language === 'de' ? 'Verlangt nach tiefer Ruhe und Feuchtigkeit' : language === 'en' ? 'Needs rest and deep hydration' : 'Pide hidratación y calma' }
   ];
 
   const bodyFeels = t.bodyFeels || [
-    { id: 'light', label: 'Ligera & Ágil', emoji: '🕊️' },
-    { id: 'strong', label: 'Con Fuerza', emoji: '⚡' },
-    { id: 'tender', label: 'Cansada / Mimo', emoji: '🕯️' },
-    { id: 'stiff', label: 'Pidiendo estirar', emoji: '🧘‍♀️' }
+    { id: 'light', label: language === 'de' ? 'Leicht & Beweglich' : language === 'en' ? 'Light & Nimble' : 'Ligera & Ágil', emoji: '🕊️' },
+    { id: 'strong', label: language === 'de' ? 'Kraftvoll & Geerdet' : language === 'en' ? 'Grounded & Strong' : 'Con Fuerza', emoji: '⚡' },
+    { id: 'tender', label: language === 'de' ? 'Müde / Sanftheit nötig' : language === 'en' ? 'Tender / Soft care' : 'Cansada / Mimo', emoji: '🕯️' },
+    { id: 'stiff', label: language === 'de' ? 'Möchte sich dehnen' : language === 'en' ? 'Needing stretch' : 'Pidiendo estirar', emoji: '🧘‍♀️' }
   ];
 
   const [skinState, setSkinState] = useState(() => {
@@ -216,17 +216,17 @@ export default function SkinBodyTab({ soundEnabled, openModule }) {
           {/* Compassionate Sanctuary Banner */}
           <div className="skin-hero-banner glass-panel">
             <div className="skin-banner-tag font-serif">
-              <span>🌹 {t.tag || 'Cuidado Compasivo'}</span>
+              <span>🌹 {t.tag || (language === 'de' ? 'Zarte Fürsorge' : language === 'en' ? 'Compassionate Care' : 'Cuidado Compasivo')}</span>
             </div>
-            <h3 className="skin-banner-title font-serif">{t.heroTitle || 'Tu piel es un órgano vivo, no un adorno'}</h3>
+            <h3 className="skin-banner-title font-serif">{t.heroTitle || (language === 'de' ? 'Deiner Haut mitfühlend lauschen' : language === 'en' ? 'Listening compassionately to your skin' : 'Tu piel es un órgano vivo, no un adorno')}</h3>
             <p className="skin-banner-sub">
-              {t.heroSub || 'Tener textura, rojez o acné no te quita un ápice de belleza ni magnetismo. Aquí observamos con ternura, nunca con castigo.'}
+              {t.heroSub || (language === 'de' ? 'Keine Härte oder Schuld. Deine Haut ist ein lebendiger Spiegel deiner Umwelt, Hormone und Emotionen.' : language === 'en' ? 'No harshness or guilt. Your skin is a living mirror of your world, hormones, and emotions.' : 'Tener textura, rojez o acné no te quita un ápice de belleza ni magnetismo. Aquí observamos con ternura, nunca con castigo.')}
             </p>
           </div>
 
           {/* Today's Skin Feeling Selector */}
           <div className="skin-section-card glass-panel">
-            <span className="section-mini-tag">{t.stateTitle || '¿Cómo se siente tu piel hoy?'}</span>
+            <span className="section-mini-tag">{t.stateTitle || (language === 'de' ? 'Wie fühlt sich deine Haut heute an?' : language === 'en' ? 'How does your skin feel today?' : '¿Cómo se siente tu piel hoy?')}</span>
             <div className="skin-states-grid">
               {skinStates.map((state) => {
                 const isSelected = skinState === state.id;
@@ -246,7 +246,7 @@ export default function SkinBodyTab({ soundEnabled, openModule }) {
               <p className="state-feedback-text font-serif">
                 {skinState === 'breakout' ? (
                   <span className="breakout-message">
-                    ❤️ <em>"{currentSkinObj.desc || 'Un brote es solo tu piel pidiéndote una pausa o descanso. Respira. Eres preciosa hoy también.'}"</em>
+                    ❤️ <em>"{currentSkinObj.desc || (language === 'de' ? 'Ein Ausbruch ist nur deine Haut, die um eine Pause bittet. Atme durch. Du bist heute genauso wunderschön.' : language === 'en' ? 'A breakout is just your skin asking for a pause. Breathe. You are just as beautiful today.' : 'Un brote es solo tu piel pidiéndote una pausa o descanso. Respira. Eres preciosa hoy también.')}"</em>
                   </span>
                 ) : (
                   <span>"{currentSkinObj.desc}"</span>
@@ -258,7 +258,7 @@ export default function SkinBodyTab({ soundEnabled, openModule }) {
           {/* Cycle Phase & Physical Energy */}
           <div className="cycle-body-card glass-panel">
             <div className="cycle-row-header">
-              <span className="section-mini-tag">{t.cycleTitle || 'Fase de tu ciclo (Hormonas & Piel)'}</span>
+              <span className="section-mini-tag">{t.cycleTitle || (language === 'de' ? 'Zyklusphase (Hormone & Haut)' : language === 'en' ? 'Cycle Phase (Hormones & Skin)' : 'Fase de tu ciclo (Hormonas & Piel)')}</span>
             </div>
             <div className="cycle-chips-grid">
               {cyclePhases.map((phase) => {
@@ -278,7 +278,7 @@ export default function SkinBodyTab({ soundEnabled, openModule }) {
 
             {/* Physical Wellbeing */}
             <div className="body-energy-subgroup">
-              <span className="section-mini-tag">{t.bodyFeelsTitle || 'Energía física corporal'}</span>
+              <span className="section-mini-tag">{t.bodyFeelsTitle || (language === 'de' ? 'Körperempfinden' : language === 'en' ? 'Physical wellbeing' : 'Energía física corporal')}</span>
               <div className="body-feels-row">
                 {bodyFeels.map((feel) => {
                   const isSelected = bodyEnergy === feel.id;
@@ -299,8 +299,8 @@ export default function SkinBodyTab({ soundEnabled, openModule }) {
             {/* Hydration Tracker without pressure */}
             <div className="water-gentle-tracker">
               <div className="water-header">
-                <span className="water-label font-serif"><Droplets size={14} /> {t.waterTitle || 'Hidratación amable'}</span>
-                <span className="water-count">{waterCups} vasos</span>
+                <span className="water-label font-serif"><Droplets size={14} /> {t.waterTitle || (language === 'de' ? 'Achtsame Hydratation' : language === 'en' ? 'Mindful hydration' : 'Hidratación amable')}</span>
+                <span className="water-count">{waterCups} {language === 'de' ? 'Gläser' : language === 'en' ? 'glasses' : 'vasos'}</span>
               </div>
               <div className="water-cups-row">
                 {[1, 2, 3, 4, 5, 6, 7, 8].map((cup) => (
@@ -318,28 +318,28 @@ export default function SkinBodyTab({ soundEnabled, openModule }) {
 
           {/* Skin & Body Journal Entry */}
           <div className="skin-journal-card glass-panel">
-            <h4 className="skin-journal-title font-serif">{t.noteTitle || 'Nota de hoy para tu cuerpo'}</h4>
-            <p className="skin-journal-sub">{t.notePlaceholder || '¿Qué sensaciones hubo hoy?'}</p>
+            <h4 className="skin-journal-title font-serif">{t.noteTitle || (language === 'de' ? 'Heutige Beobachtung für deinen Körper' : language === 'en' ? 'Today’s note for your body' : 'Nota de hoy para tu cuerpo')}</h4>
+            <p className="skin-journal-sub">{t.notePlaceholder || (language === 'de' ? 'Welche Empfindungen gab es heute?' : language === 'en' ? 'What sensations were present today?' : '¿Qué sensaciones hubo hoy?')}</p>
             <textarea
               className="skin-note-input"
-              placeholder={t.notePlaceholder || 'Ej: Hoy sentí la piel un poco seca en las mejillas...'}
+              placeholder={t.notePlaceholder || (language === 'de' ? 'z.B. Sanfte Pflege aufgetragen, der Haut Ruhe geschenkt...' : language === 'en' ? 'e.g. Applied gentle cream, gave skin time to rest...' : 'Ej: Hoy sentí la piel un poco seca en las mejillas...')}
               value={currentNote}
               onChange={(e) => setCurrentNote(e.target.value)}
               rows={3}
             />
             <div className="skin-journal-action">
               <span className="save-status">
-                {savedRecently && <span className="saved-confirm"><Check size={14} /> {t.savedToast || 'Registrado con amor'}</span>}
+                {savedRecently && <span className="saved-confirm"><Check size={14} /> {t.savedToast || (language === 'de' ? 'Liebevoll festgehalten' : language === 'en' ? 'Recorded with love' : 'Registrado con amor')}</span>}
               </span>
               <button className="save-skin-btn" onClick={handleSaveSkinLog}>
-                {t.saveNoteBtn || 'Guardar en mi bitácora'}
+                {t.saveNoteBtn || (language === 'de' ? 'Im Haut-Tagebuch speichern' : language === 'en' ? 'Save to body log' : 'Guardar en mi bitácora')}
               </button>
             </div>
           </div>
 
           {/* Historical Entries */}
           <div className="skin-history-list">
-            <span className="section-mini-tag">{t.tag || 'Bitácora corporal'}</span>
+            <span className="section-mini-tag">{t.tag || (language === 'de' ? 'Körper-Chronik' : language === 'en' ? 'Body Log' : 'Bitácora corporal')}</span>
             {skinNotes.map((entry) => (
               <div key={entry.id} className="skin-log-item glass-panel">
                 <div className="skin-log-top">
