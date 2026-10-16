@@ -21,7 +21,7 @@ export default function IkigaiFlower({ onSelectPetal, soundEnabled }) {
   const { language, t } = useLanguage();
   const [hoveredPetal, setHoveredPetal] = useState(null);
 
-  // 5 Botanical Rose Petals: each with rich realistic gradients, wind animations, and distinct geometries
+  // 5 Botanical Rose Petals: plump, voluptuous contours that almost kiss each other
   const petalsConfig = [
     {
       id: 'fire',
@@ -34,9 +34,9 @@ export default function IkigaiFlower({ onSelectPetal, soundEnabled }) {
       gradId: 'gradRoseFire',
       angle: 0,
       icon: Flame,
-      // Top Petal (12 o'clock) — Elegant curved rose crown petal
-      path: "M 250 240 C 215 150, 160 85, 210 50 C 245 25, 255 25, 290 50 C 340 85, 285 150, 250 240 Z",
-      innerPath: "M 250 230 C 225 160, 190 100, 225 75 C 242 62, 258 62, 275 75 C 310 100, 275 160, 250 230 Z",
+      // Top Petal (12 o'clock) — Plump curved rose crown petal
+      path: "M 250 212 C 218.2 171.2, 167.2 130.9, 166.7 79.2 C 166.7 79.2, 205.1 38.7, 250 44 C 250 44, 294.9 38.7, 333.3 79.2 C 332.8 130.9, 281.8 171.2, 250 212 Z",
+      innerPath: "M 250 195 C 201.3 129.5, 201.3 129.5, 250 70 C 298.7 129.5, 298.7 129.5, 250 195 Z",
       animClass: 'petal-flutter-1',
       badge: '🔥'
     },
@@ -51,9 +51,9 @@ export default function IkigaiFlower({ onSelectPetal, soundEnabled }) {
       gradId: 'gradRoseBody',
       angle: 72,
       icon: PersonStanding,
-      // Upper Right Petal (~2 o'clock) — Outward unfolding petal
-      path: "M 255 245 C 320 180, 395 125, 430 160 C 455 190, 445 210, 420 240 C 375 285, 305 265, 255 245 Z",
-      innerPath: "M 260 242 C 315 190, 375 145, 400 170 C 420 190, 415 205, 395 225 C 360 260, 305 250, 260 242 Z",
+      // Upper Right Petal (~2 o'clock) — Plump outward unfolding petal
+      path: "M 286.1 238.3 C 315.1 195.4, 337.7 134.5, 386.7 118 C 386.7 118, 437.1 142, 445.9 186.3 C 445.9 186.3, 464.8 227.4, 438.2 276.4 C 388.8 291.9, 334.8 255.9, 286.1 238.3 Z",
+      innerPath: "M 302.3 233 C 349.6 166.4, 349.6 166.4, 421.2 194.4 C 379.7 259.1, 379.7 259.1, 302.3 233 Z",
       animClass: 'petal-flutter-2',
       badge: '🌿'
     },
@@ -68,9 +68,9 @@ export default function IkigaiFlower({ onSelectPetal, soundEnabled }) {
       gradId: 'gradRoseCreate',
       angle: 144,
       icon: Lightbulb,
-      // Lower Right Petal (~5 o'clock) — Grounding blooming petal
-      path: "M 252 255 C 325 285, 385 375, 355 415 C 330 445, 305 440, 265 415 C 215 375, 230 300, 252 255 Z",
-      innerPath: "M 252 255 C 305 285, 350 355, 330 385 C 312 408, 295 405, 265 385 C 230 355, 238 295, 252 255 Z",
+      // Lower Right Petal (~5 o'clock) — Plump grounding blooming petal
+      path: "M 272.3 280.7 C 322.1 295, 386.9 297.7, 417.8 339.2 C 417.8 339.2, 410.5 394.5, 371.1 416.7 C 371.1 416.7, 337.9 447.3, 283 437.1 C 253 395, 270.6 332.5, 272.3 280.7 Z",
+      innerPath: "M 282.3 294.5 C 360.2 318.9, 360.2 318.9, 355.8 395.6 C 281.4 376.1, 281.4 376.1, 282.3 294.5 Z",
       animClass: 'petal-flutter-3',
       badge: '💡'
     },
@@ -85,9 +85,9 @@ export default function IkigaiFlower({ onSelectPetal, soundEnabled }) {
       gradId: 'gradRoseMe',
       angle: 216,
       icon: Heart,
-      // Lower Left Petal (~7 o'clock) — Tender heart-root petal
-      path: "M 248 255 C 226 300, 185 375, 135 415 C 95 440, 70 445, 45 415 C 15 375, 75 285, 248 255 Z",
-      innerPath: "M 248 255 C 222 295, 170 355, 135 385 C 105 405, 88 408, 70 385 C 50 355, 95 285, 248 255 Z",
+      // Lower Left Petal (~7 o'clock) — Plump heart-root petal
+      path: "M 227.7 280.7 C 229.4 332.5, 247 395, 217 437.1 C 217 437.1, 162.1 447.3, 128.9 416.7 C 128.9 416.7, 89.5 394.5, 82.2 339.2 C 113.1 297.7, 177.9 295, 227.7 280.7 Z",
+      innerPath: "M 217.7 294.5 C 218.6 376.1, 218.6 376.1, 144.2 395.6 C 139.8 318.9, 139.8 318.9, 217.7 294.5 Z",
       animClass: 'petal-flutter-4',
       badge: '🤍'
     },
@@ -102,9 +102,9 @@ export default function IkigaiFlower({ onSelectPetal, soundEnabled }) {
       gradId: 'gradRoseDreams',
       angle: 288,
       icon: Compass,
-      // Upper Left Petal (~10 o'clock) — Soaring starlight petal
-      path: "M 245 245 C 195 265, 125 285, 80 240 C 55 210, 45 190, 70 160 C 105 125, 180 180, 245 245 Z",
-      innerPath: "M 240 242 C 195 250, 140 260, 105 225 C 85 205, 80 190, 100 170 C 125 145, 185 190, 240 242 Z",
+      // Upper Left Petal (~10 o'clock) — Plump soaring starlight petal
+      path: "M 213.9 238.3 C 165.2 255.9, 111.2 291.9, 61.8 276.4 C 61.8 276.4, 35.2 227.4, 54.1 186.3 C 54.1 186.3, 62.9 142, 113.3 118 C 162.3 134.5, 184.9 195.4, 213.9 238.3 Z",
+      innerPath: "M 197.7 233 C 120.3 259.1, 120.3 259.1, 78.8 194.4 C 150.4 166.4, 150.4 166.4, 197.7 233 Z",
       animClass: 'petal-flutter-5',
       badge: '🌌'
     }
