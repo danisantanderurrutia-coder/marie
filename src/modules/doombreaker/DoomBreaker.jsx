@@ -138,7 +138,7 @@ export default function DoomBreaker({ onBack, soundEnabled }) {
       <header style={{ marginBottom: 18 }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
           <Flame size={24} style={{ color: '#D84A58' }} />
-          <h1 className="mx-title" style={{ margin: 0, color: '#241B19', fontSize: 26 }}>
+          <h1 className="mx-title" style={{ margin: 0, color: '#241B19', fontSize: 22 }}>
             {t('doombreaker.title')}
           </h1>
         </div>

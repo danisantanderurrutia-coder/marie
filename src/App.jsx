@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PhoneFrame from './components/PhoneFrame';
 import Header from './components/Header';
 import Landing from './components/Landing';
@@ -28,7 +28,43 @@ export default function App() {
 
   const [activeTab, setActiveTab] = useState('rose'); // 'rose' | 'aura' | 'skin' | 'hobbies' | 'dreams' | 'profile'
   const [currentEnergy, setCurrentEnergy] = useState('serene');
-  const [viewMode, setViewMode] = useState('phone'); // 'phone' | 'desktop'
+
+  // Auto-detect viewMode: PC/Desktop (>= 900px) opens Desktop Atelier; phone (< 900px) opens Mobile Phone
+  const [viewMode, setViewModeState] = useState(() => {
+    try {
+      const explicit = sessionStorage.getItem('marie_view_mode_explicit');
+      if (explicit === 'true') {
+        const stored = sessionStorage.getItem('marie_view_mode');
+        if (stored === 'phone' || stored === 'desktop') return stored;
+      }
+      if (typeof window !== 'undefined' && window.innerWidth >= 900) {
+        return 'desktop';
+      }
+    } catch (e) {}
+    return 'phone';
+  });
+
+  const handleToggleViewMode = (mode) => {
+    setViewModeState(mode);
+    try {
+      sessionStorage.setItem('marie_view_mode', mode);
+      sessionStorage.setItem('marie_view_mode_explicit', 'true');
+    } catch (e) {}
+  };
+
+  useEffect(() => {
+    const handleResize = () => {
+      try {
+        const explicit = sessionStorage.getItem('marie_view_mode_explicit');
+        if (explicit !== 'true') {
+          const next = window.innerWidth >= 900 ? 'desktop' : 'phone';
+          setViewModeState(next);
+        }
+      } catch (e) {}
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
   const [deviceFinish, setDeviceFinish] = useState('desert'); // 'desert' | 'midnight' | 'silver'
   const [isPrivacyShieldActive, setIsPrivacyShieldActive] = useState(false);
   const [soundEnabled, setSoundEnabled] = useState(true);
@@ -77,7 +113,7 @@ export default function App() {
           </button>
         )}
         viewMode={viewMode}
-        onToggleViewMode={setViewMode}
+        onToggleViewMode={handleToggleViewMode}
         deviceFinish={deviceFinish}
         onChangeDeviceFinish={setDeviceFinish}
         onOpenQrModal={() => setIsQrModalOpen(true)}

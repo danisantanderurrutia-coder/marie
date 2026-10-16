@@ -128,13 +128,13 @@ export default function SpaceTab({
                 style={{
                   display: 'flex',
                   alignItems: 'center',
-                  padding: '13px 15px',
-                  borderRadius: 16,
+                  padding: '10px 12px',
+                  borderRadius: 14,
                   cursor: 'pointer',
                   textAlign: 'left',
                   border: '1px solid rgba(197, 160, 129, 0.24)',
                   background: '#FFFFFF',
-                  boxShadow: '0 3px 12px rgba(44, 30, 25, 0.04)',
+                  boxShadow: '0 2px 8px rgba(44, 30, 25, 0.035)',
                   transition: 'all 0.2s ease'
                 }}
               >
@@ -143,24 +143,24 @@ export default function SpaceTab({
                   style={{ 
                     background: `${m.color}15`, 
                     color: m.color,
-                    border: `1.5px solid ${m.color}35`,
-                    width: 44,
-                    height: 44,
-                    borderRadius: 13,
+                    border: `1.2px solid ${m.color}35`,
+                    width: 38,
+                    height: 38,
+                    borderRadius: 11,
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
                     flexShrink: 0
                   }}
                 >
-                  <Icon size={21} aria-hidden="true" />
+                  <Icon size={18} aria-hidden="true" />
                 </span>
 
-                <span className="hub-text" style={{ flex: 1, minWidth: 0, padding: '0 12px' }}>
-                  <strong style={{ fontSize: 14.5, color: '#241B19', display: 'block', fontWeight: 600 }}>
+                <span className="hub-text" style={{ flex: 1, minWidth: 0, padding: '0 10px' }}>
+                  <strong style={{ fontSize: 13.5, color: '#241B19', display: 'block', fontWeight: 600 }}>
                     {title}
                   </strong>
-                  <span style={{ fontSize: 12, color: '#5C4E48', display: 'block', margin: '2px 0 6px', lineHeight: 1.4 }}>
+                  <span style={{ fontSize: 11, color: '#5C4E48', display: 'block', margin: '1px 0 5px', lineHeight: 1.35 }}>
                     {desc}
                   </span>
 
@@ -179,9 +179,9 @@ export default function SpaceTab({
                           }}
                           title={`Zum Blütenblatt: ${p.name}`}
                           style={{
-                            fontSize: '9.5px',
-                            padding: '1.5px 6px',
-                            borderRadius: '6px',
+                            fontSize: '8.5px',
+                            padding: '1px 5px',
+                            borderRadius: '5px',
                             background: `${p.color}18`,
                             color: p.color,
                             border: `1px solid ${p.color}35`,
@@ -196,7 +196,7 @@ export default function SpaceTab({
                   </div>
                 </span>
 
-                <ChevronRight size={18} style={{ color: m.color, opacity: 0.7 }} aria-hidden="true" />
+                <ChevronRight size={16} style={{ color: m.color, opacity: 0.6 }} aria-hidden="true" />
               </button>
             );
           })}

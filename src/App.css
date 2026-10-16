@@ -2175,17 +2175,18 @@
 }
 
 .tab-label {
-  font-size: 0.68rem;
+  font-size: 0.63rem;
   font-weight: 600;
+  letter-spacing: 0.02em;
 }
 
 .home-indicator-bar {
-  width: 130px;
-  height: 4px;
+  width: 105px;
+  height: 3.5px;
   background: #2C2523;
   border-radius: 999px;
   margin: 0 auto;
-  opacity: 0.25;
+  opacity: 0.2;
 }
 
 /* ==========================================================================

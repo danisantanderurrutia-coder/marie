@@ -31,7 +31,7 @@ export default function SupportSheet({ open, onClose }) {
             <X size={20} />
           </button>
         </div>
-        <h2 id="support-title" className="mx-title" style={{ fontSize: 28 }}>{s.sheetTitle}</h2>
+        <h2 id="support-title" className="mx-title" style={{ fontSize: 22 }}>{s.sheetTitle}</h2>
         <p className="mx-text">{s.sheetIntro}</p>
 
         {s.resources.map((r) => (

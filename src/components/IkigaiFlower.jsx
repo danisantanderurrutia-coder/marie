@@ -159,9 +159,9 @@ export default function IkigaiFlower({ onSelectPetal, soundEnabled }) {
         style={{
           position: 'relative',
           width: '100%',
-          maxWidth: '340px',
+          maxWidth: '265px',
           aspectRatio: '1 / 1',
-          margin: '6px auto 8px'
+          margin: '4px auto 6px'
         }}
       >
         {/* Soft Radial Ambient Rose Aura */}
@@ -303,12 +303,12 @@ export default function IkigaiFlower({ onSelectPetal, soundEnabled }) {
             top: '50%',
             left: '50%',
             transform: 'translate(-50%, -50%)',
-            width: '86px',
-            height: '86px',
+            width: '74px',
+            height: '74px',
             borderRadius: '50%',
             background: 'linear-gradient(135deg, #1E1617 0%, #100C0D 100%)',
-            border: '2.5px solid #D4AF37',
-            boxShadow: '0 0 28px rgba(216, 74, 88, 0.45), 0 4px 16px rgba(0,0,0,0.3)',
+            border: '2px solid #D4AF37',
+            boxShadow: '0 0 24px rgba(216, 74, 88, 0.45), 0 4px 14px rgba(0,0,0,0.3)',
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
@@ -318,24 +318,24 @@ export default function IkigaiFlower({ onSelectPetal, soundEnabled }) {
             transition: 'transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease'
           }}
           onMouseEnter={(e) => {
-            e.currentTarget.style.transform = 'translate(-50%, -50%) scale(1.09)';
-            e.currentTarget.style.boxShadow = '0 0 36px rgba(216, 74, 88, 0.7), 0 6px 22px rgba(0,0,0,0.4)';
+            e.currentTarget.style.transform = 'translate(-50%, -50%) scale(1.08)';
+            e.currentTarget.style.boxShadow = '0 0 32px rgba(216, 74, 88, 0.7), 0 6px 18px rgba(0,0,0,0.4)';
           }}
           onMouseLeave={(e) => {
             e.currentTarget.style.transform = 'translate(-50%, -50%) scale(1)';
-            e.currentTarget.style.boxShadow = '0 0 28px rgba(216, 74, 88, 0.45), 0 4px 16px rgba(0,0,0,0.3)';
+            e.currentTarget.style.boxShadow = '0 0 24px rgba(216, 74, 88, 0.45), 0 4px 14px rgba(0,0,0,0.3)';
           }}
         >
           <img 
             src={LOGO_04} 
             alt="Marie Emblem" 
-            style={{ width: '44px', height: '44px', objectFit: 'contain', filter: 'drop-shadow(0 2px 6px rgba(0,0,0,0.5))' }}
+            style={{ width: '38px', height: '38px', objectFit: 'contain', filter: 'drop-shadow(0 2px 5px rgba(0,0,0,0.5))' }}
           />
           <span 
             className="font-serif" 
             style={{ 
-              fontSize: '10px', 
-              letterSpacing: '0.14em', 
+              fontSize: '9px', 
+              letterSpacing: '0.12em', 
               color: '#FCE7D0', 
               fontWeight: 700, 
               marginTop: '1px' 
@@ -351,19 +351,19 @@ export default function IkigaiFlower({ onSelectPetal, soundEnabled }) {
         style={{ 
           display: 'flex', 
           alignItems: 'center', 
-          gap: '6px', 
-          margin: '2px 0 14px', 
-          padding: '4px 12px',
-          borderRadius: '14px',
+          gap: '5px', 
+          margin: '2px 0 10px', 
+          padding: '3px 10px',
+          borderRadius: '12px',
           background: 'rgba(216, 74, 88, 0.05)',
           border: '1px solid rgba(216, 74, 88, 0.15)'
         }}
       >
-        <Sparkles size={13} style={{ color: '#D84A58' }} />
+        <Sparkles size={11} style={{ color: '#D84A58' }} />
         <span 
           style={{ 
             fontStyle: 'italic', 
-            fontSize: '12.5px', 
+            fontSize: '11.5px', 
             color: '#4A3D38', 
             fontWeight: 500 
           }}
@@ -378,9 +378,9 @@ export default function IkigaiFlower({ onSelectPetal, soundEnabled }) {
           display: 'flex', 
           flexWrap: 'wrap', 
           justifyContent: 'center', 
-          gap: '8px', 
+          gap: '6px', 
           width: '100%', 
-          marginBottom: 16 
+          marginBottom: 12 
         }}
       >
         {petalsConfig.map((petal) => {
@@ -395,21 +395,21 @@ export default function IkigaiFlower({ onSelectPetal, soundEnabled }) {
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
-                gap: '6px',
-                padding: '7px 13px',
-                borderRadius: '16px',
+                gap: '5px',
+                padding: '5px 10px',
+                borderRadius: '14px',
                 background: isHovered ? petal.color : petal.bgLight,
-                border: `1.5px solid ${petal.color}`,
+                border: `1.2px solid ${petal.color}`,
                 color: isHovered ? '#FFFFFF' : petal.darkText,
-                fontSize: '12px',
+                fontSize: '11px',
                 fontWeight: 600,
                 cursor: 'pointer',
-                boxShadow: isHovered ? `0 4px 14px ${petal.color}45` : '0 2px 6px rgba(0,0,0,0.03)',
+                boxShadow: isHovered ? `0 3px 10px ${petal.color}45` : '0 1px 4px rgba(0,0,0,0.03)',
                 transition: 'all 0.22s cubic-bezier(0.34, 1.56, 0.64, 1)',
-                transform: isHovered ? 'scale(1.05)' : 'scale(1)'
+                transform: isHovered ? 'scale(1.04)' : 'scale(1)'
               }}
             >
-              <Icon size={14} style={{ color: isHovered ? '#FFFFFF' : petal.color }} />
+              <Icon size={12} style={{ color: isHovered ? '#FFFFFF' : petal.color }} />
               <span>{petal.badge} {petal.name}</span>
             </button>
           );

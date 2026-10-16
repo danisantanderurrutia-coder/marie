@@ -228,7 +228,7 @@ export default function ZenGarden({ onBack, soundEnabled }) {
       <header style={{ marginBottom: 16 }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
           <Flower2 size={24} style={{ color: '#D84A58' }} />
-          <h1 className="mx-title" style={{ margin: 0, color: '#241B19', fontSize: 26 }}>
+          <h1 className="mx-title" style={{ margin: 0, color: '#241B19', fontSize: 22 }}>
             {t('zengarden.title')}
           </h1>
         </div>
