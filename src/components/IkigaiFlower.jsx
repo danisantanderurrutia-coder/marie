@@ -21,7 +21,7 @@ export default function IkigaiFlower({ onSelectPetal, soundEnabled }) {
   const { language, t } = useLanguage();
   const [hoveredPetal, setHoveredPetal] = useState(null);
 
-  // 5 Botanical Rose Petals: plump, voluptuous contours that almost kiss each other
+  // 5 Botanical Rose Petals: voluptuous, overlapping lobes that seamlessly touch like real plants and the heraldic logo
   const petalsConfig = [
     {
       id: 'fire',
@@ -34,9 +34,9 @@ export default function IkigaiFlower({ onSelectPetal, soundEnabled }) {
       gradId: 'gradRoseFire',
       angle: 0,
       icon: Flame,
-      // Top Petal (12 o'clock) — Plump curved rose crown petal
-      path: "M 250 212 C 218.2 171.2, 167.2 130.9, 166.7 79.2 C 166.7 79.2, 205.1 38.7, 250 44 C 250 44, 294.9 38.7, 333.3 79.2 C 332.8 130.9, 281.8 171.2, 250 212 Z",
-      innerPath: "M 250 195 C 201.3 129.5, 201.3 129.5, 250 70 C 298.7 129.5, 298.7 129.5, 250 195 Z",
+      // Top Petal (12 o'clock) — Broad overlapping rose petal
+      path: "M 238.9 215.8 C 199.7 169.4, 152.6 135.9, 152.5 81.1 C 152.5 81.1, 197.3 38.5, 250 44 C 250 44, 302.7 38.5, 347.5 81.1 C 347.4 135.9, 300.3 169.4, 261.1 215.8 L 238.9 215.8 Z",
+      innerPath: "M 250 200 C 195.1 126.7, 195.1 126.7, 250 68 C 304.9 126.7, 304.9 126.7, 250 200 Z",
       animClass: 'petal-flutter-1',
       badge: '🔥'
     },
@@ -51,9 +51,9 @@ export default function IkigaiFlower({ onSelectPetal, soundEnabled }) {
       gradId: 'gradRoseBody',
       angle: 72,
       icon: PersonStanding,
-      // Upper Right Petal (~2 o'clock) — Plump outward unfolding petal
-      path: "M 286.1 238.3 C 315.1 195.4, 337.7 134.5, 386.7 118 C 386.7 118, 437.1 142, 445.9 186.3 C 445.9 186.3, 464.8 227.4, 438.2 276.4 C 388.8 291.9, 334.8 255.9, 286.1 238.3 Z",
-      innerPath: "M 302.3 233 C 349.6 166.4, 349.6 166.4, 421.2 194.4 C 379.7 259.1, 379.7 259.1, 302.3 233 Z",
+      // Upper Right Petal (~2 o'clock) — Broad overlapping petal
+      path: "M 279.1 228.8 C 311.1 177.2, 328.4 122.1, 380.5 105.1 C 380.5 105.1, 434.9 134.5, 445.9 186.3 C 445.9 186.3, 467.5 234.8, 440.7 290.5 C 388.6 307.4, 342.2 273, 286 250 L 279.1 228.8 Z",
+      innerPath: "M 297.6 234.5 C 350.3 159.7, 350.3 159.7, 423.1 193.8 C 384.3 264.1, 384.3 264.1, 297.6 234.5 Z",
       animClass: 'petal-flutter-2',
       badge: '🌿'
     },
@@ -68,9 +68,9 @@ export default function IkigaiFlower({ onSelectPetal, soundEnabled }) {
       gradId: 'gradRoseCreate',
       angle: 144,
       icon: Lightbulb,
-      // Lower Right Petal (~5 o'clock) — Plump grounding blooming petal
-      path: "M 272.3 280.7 C 322.1 295, 386.9 297.7, 417.8 339.2 C 417.8 339.2, 410.5 394.5, 371.1 416.7 C 371.1 416.7, 337.9 447.3, 283 437.1 C 253 395, 270.6 332.5, 272.3 280.7 Z",
-      innerPath: "M 282.3 294.5 C 360.2 318.9, 360.2 318.9, 355.8 395.6 C 281.4 376.1, 281.4 376.1, 282.3 294.5 Z",
+      // Lower Right Petal (~5 o'clock) — Broad overlapping petal
+      path: "M 279.1 271.2 C 338.1 285.6, 395.9 285, 428.1 329.3 C 428.1 329.3, 417 390.1, 371.1 416.7 C 371.1 416.7, 331.7 452.1, 270.4 443.9 C 238.2 399.5, 256.6 344.8, 261.1 284.2 L 279.1 271.2 Z",
+      innerPath: "M 279.4 290.5 C 366.9 317.5, 366.9 317.5, 357 397.2 C 278.1 382, 278.1 382, 279.4 290.5 Z",
       animClass: 'petal-flutter-3',
       badge: '💡'
     },
@@ -85,9 +85,9 @@ export default function IkigaiFlower({ onSelectPetal, soundEnabled }) {
       gradId: 'gradRoseMe',
       angle: 216,
       icon: Heart,
-      // Lower Left Petal (~7 o'clock) — Plump heart-root petal
-      path: "M 227.7 280.7 C 229.4 332.5, 247 395, 217 437.1 C 217 437.1, 162.1 447.3, 128.9 416.7 C 128.9 416.7, 89.5 394.5, 82.2 339.2 C 113.1 297.7, 177.9 295, 227.7 280.7 Z",
-      innerPath: "M 217.7 294.5 C 218.6 376.1, 218.6 376.1, 144.2 395.6 C 139.8 318.9, 139.8 318.9, 217.7 294.5 Z",
+      // Lower Left Petal (~7 o'clock) — Broad overlapping petal
+      path: "M 238.9 284.2 C 243.4 344.8, 261.8 399.5, 229.6 443.9 C 229.6 443.9, 168.3 452.1, 128.9 416.7 C 128.9 416.7, 83 390.1, 71.9 329.3 C 104.1 285, 161.9 285.6, 220.9 271.2 L 238.9 284.2 Z",
+      innerPath: "M 220.6 290.5 C 221.9 382, 221.9 382, 143 397.2 C 133.1 317.5, 133.1 317.5, 220.6 290.5 Z",
       animClass: 'petal-flutter-4',
       badge: '🤍'
     },
@@ -102,9 +102,9 @@ export default function IkigaiFlower({ onSelectPetal, soundEnabled }) {
       gradId: 'gradRoseDreams',
       angle: 288,
       icon: Compass,
-      // Upper Left Petal (~10 o'clock) — Plump soaring starlight petal
-      path: "M 213.9 238.3 C 165.2 255.9, 111.2 291.9, 61.8 276.4 C 61.8 276.4, 35.2 227.4, 54.1 186.3 C 54.1 186.3, 62.9 142, 113.3 118 C 162.3 134.5, 184.9 195.4, 213.9 238.3 Z",
-      innerPath: "M 197.7 233 C 120.3 259.1, 120.3 259.1, 78.8 194.4 C 150.4 166.4, 150.4 166.4, 197.7 233 Z",
+      // Upper Left Petal (~10 o'clock) — Broad overlapping petal
+      path: "M 214 250 C 157.8 273, 111.4 307.4, 59.3 290.5 C 59.3 290.5, 32.5 234.8, 54.1 186.3 C 54.1 186.3, 65.1 134.5, 119.5 105.1 C 171.6 122.1, 188.9 177.2, 220.9 228.8 L 214 250 Z",
+      innerPath: "M 202.4 234.5 C 115.7 264.1, 115.7 264.1, 76.9 193.8 C 149.7 159.7, 149.7 159.7, 202.4 234.5 Z",
       animClass: 'petal-flutter-5',
       badge: '🌌'
     }
@@ -183,12 +183,12 @@ export default function IkigaiFlower({ onSelectPetal, soundEnabled }) {
           aria-label="Marie Living Ikigai Rose"
         >
           <defs>
-            {/* Soft Ambient Shadow Filter */}
+            {/* Soft Ambient Shadow Filter for Overlapping Depth */}
             <filter id="petalShadow" x="-30%" y="-30%" width="160%" height="160%">
-              <feDropShadow dx="0" dy="5" stdDeviation="6" floodColor="#2A1B18" floodOpacity="0.14" />
+              <feDropShadow dx="0" dy="3" stdDeviation="5" floodColor="#180C0B" floodOpacity="0.32" />
             </filter>
             <filter id="petalGleam" x="-30%" y="-30%" width="160%" height="160%">
-              <feDropShadow dx="0" dy="0" stdDeviation="12" floodColor="#D84A58" floodOpacity="0.35" />
+              <feDropShadow dx="0" dy="0" stdDeviation="14" floodColor="#D84A58" floodOpacity="0.45" />
             </filter>
 
             {/* Rich Velvety Petal Radial Gradients */}
@@ -229,18 +229,18 @@ export default function IkigaiFlower({ onSelectPetal, soundEnabled }) {
 
             {/* Delicate Sepal Background Foliage */}
             <radialGradient id="gradSepal" cx="50%" cy="50%" r="60%">
-              <stop offset="0%" stopColor="#50664F" stopOpacity="0.6" />
-              <stop offset="100%" stopColor="#2A3B29" stopOpacity="0.85" />
+              <stop offset="0%" stopColor="#5A7559" stopOpacity="0.8" />
+              <stop offset="100%" stopColor="#223321" stopOpacity="0.95" />
             </radialGradient>
           </defs>
 
-          {/* Background Decorative Organic Sepals (Leaves behind the petals) */}
-          <g opacity="0.45">
-            <path d="M 250 250 L 320 80 Q 300 60 280 90 Z" fill="url(#gradSepal)" />
-            <path d="M 250 250 L 440 220 Q 430 190 400 210 Z" fill="url(#gradSepal)" />
-            <path d="M 250 250 L 330 430 Q 300 440 310 400 Z" fill="url(#gradSepal)" />
-            <path d="M 250 250 L 90 390 Q 70 370 100 350 Z" fill="url(#gradSepal)" />
-            <path d="M 250 250 L 70 140 Q 80 120 110 150 Z" fill="url(#gradSepal)" />
+          {/* 5 Botanical Sepal Calyx Leaves (peeking between overlapping petals like in the logo) */}
+          <g opacity="0.65" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.25))">
+            <path d="M 334 85.2 Q 344 120.6 389.9 57.5 Q 344 120.6 380.8 119.2 Z" fill="url(#gradSepal)" />
+            <path d="M 432.7 278.9 Q 402.2 299.4 476.4 323.5 Q 402.2 299.4 414.8 334 Z" fill="url(#gradSepal)" />
+            <path d="M 278.9 432.7 Q 250 410 250 488 Q 250 410 221.1 432.7 Z" fill="url(#gradSepal)" />
+            <path d="M 85.2 334 Q 97.8 299.4 23.6 323.5 Q 97.8 299.4 67.3 278.9 Z" fill="url(#gradSepal)" />
+            <path d="M 119.2 119.2 Q 156 120.6 110.1 57.5 Q 156 120.6 166 85.2 Z" fill="url(#gradSepal)" />
           </g>
 
           {/* 5 Realistic Overlapping Petals */}
